@@ -18,12 +18,12 @@ export default function Banner({ title }) {
                 <li className='uppercase text-xs font-medium p-2 md:p-0'>Pg</li>
               </ul>
 
-             <div className=" rounded-full mt-3 overflow-hidden bg-white grid grid-cols-6">
+             <div className=" rounded-full mt-3 overflow-hidden bg-white grid grid-cols-6 ">
                 <div className="col-span-1 border ">
                   <input type="text" name="" id="" placeholder='Jaipur' className=' py-2 text-center w-full h-full  focus-within:outline-none' />
                 </div>
                 <div className="col-span-4 border ">
-                  <input type="text" name="" id="" placeholder='Search for locality,landmark,project,or,builder' className='px-2 lg:py-4 py-2 w-full h-full  focus-within:outline-none' />
+                  <input type="text" name="" id="" placeholder='Search here' className='px-2 lg:py-4 py-2 w-full h-full  focus-within:outline-none' />
                 </div>
                 <div className="col-span-1 border items-center flex">
                   <button className=' md:p-2 bg-green-500 md:w-full mx-auto rounded-full  text-white'>

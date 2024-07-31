@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Heart, Menu, XCircleIcon } from 'lucide-react';
 
@@ -24,8 +24,8 @@ export default function Navbar() {
     <>
 
       <nav className={`fixed left-0 right-0 z-50  `}>
-        <div className="container  lg:w-[90%] mx-auto">
-          <div className="flex justify-between isolate p-2 rounded-b-xl bg-[#5e23dc]/90 shadow-lg ring-1 ring-black/5">
+        <div className="container  lg:w-[94%] mx-auto">
+          <div className="flex justify-between isolate p-2 rounded-b-xl bg-gradient-to-b from-black/80 to-[#5e23dc]/90 shadow-lg ring-1 ring-black/5">
             <div className='bg-white rounded-md px-4 py-1 items-center flex'>
               <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
             </div>
