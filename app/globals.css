@@ -14,7 +14,7 @@
     background-image: url("/image/buyCover.36ede2d6.webp");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Center the image */
+    background-position: right; /* Center the image */
     height: 520px;
 }
 
@@ -22,7 +22,7 @@
 @media (max-width: 1208px) {
     .bg-banner {
         height: 400px;
-        background-position: center; /* Center the image */
+        background-position: right; /* Center the image */
     }
 }
 
@@ -30,7 +30,7 @@
 @media (max-width: 480px) {
     .bg-banner {
         height: 300px;
-        background-position: center; /* Center the image */
+        background-position: right; /* Center the image */
     }
 }
 
