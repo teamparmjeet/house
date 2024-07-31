@@ -10,11 +10,12 @@ export default function Banner({ title }) {
             <h1 className='text-white bg-black/60 md:bg-transparent backdrop-blur-md md:backdrop-blur-0 md:text-4xl text-2xl  mb-5 text-center md:text-left'> Properties to buy in <span className='underline'>{title}</span></h1>
 
             <div className="rounded-xl bg-black/60 p-4 backdrop-blur-md">
-              <ul className='flex gap-x-7 text-white'>
+              <ul className='flex md:gap-x-7 gap-x-4 text-white'>
                 <li className='uppercase text-xs md:underline underline-offset-4 bg-white md:bg-transparent rounded-md text-black md:text-white font-medium p-2 md:p-0'>Buy</li>
                 <li className='uppercase text-xs font-medium p-2 md:p-0'>Rent</li>
                 <li className='uppercase text-xs font-medium p-2 md:p-0'>Commercial</li>
                 <li className='uppercase text-xs font-medium p-2 md:p-0'>Plots</li>
+                <li className='uppercase text-xs font-medium p-2 md:p-0'>Pg</li>
               </ul>
 
              <div className=" rounded-full mt-3 overflow-hidden bg-white grid grid-cols-6">
