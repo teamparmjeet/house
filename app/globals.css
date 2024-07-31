@@ -26,11 +26,17 @@
     }
 }
 
+@media (max-width: 800px) {
+    .bg-banner {
+        height: 400px;
+        background-position: center; /* Center the image */
+    }
+}
 /* For mobile phones */
 @media (max-width: 480px) {
     .bg-banner {
         height: 300px;
-        background-position: right; /* Center the image */
+        background-position: center; /* Center the image */
     }
 }
 

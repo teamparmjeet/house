@@ -6,8 +6,8 @@ export default function Banner({ title }) {
     <div className='relative h-full container mx-auto lg:w-[90%] bg-banner border-t border-b border-gray-200 top-0 left-0 right-0 z-40 md:rounded-b-[50px]'>
       <div className='relative overflow-hidden h-full'>
         <div className='absolute bottom-0 left-0 right-0'>
-          <div className='mx-auto lg:w-3/5 mb-16 md:mb-24'>
-            <h1 className='text-white bg-black/60 md:bg-transparent backdrop-blur-md md:backdrop-blur-0 md:text-4xl text-2xl  mb-5 text-center md:text-left'> Properties to buy in <span className='underline'>{title}</span></h1>
+          <div className='mx-auto lg:w-3/5 mb-10 md:mb-24'>
+            <h1 className='text-white  md:text-4xl text-2xl  mb-3 text-center md:text-left'> Properties to buy in <span className='underline'>{title}</span></h1>
 
             <div className="rounded-xl bg-black/60 p-4 backdrop-blur-md">
               <ul className='flex md:gap-x-7 gap-x-4 text-white'>
