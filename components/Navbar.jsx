@@ -24,9 +24,9 @@ export default function Navbar() {
     <>
 
       <nav className={`fixed left-0 right-0 z-50  `}>
-        <div className="container py-3 lg:w-5/6 mx-auto">
-          <div className="flex justify-between isolate p-2 rounded-xl bg-indigo-700/80 shadow-lg ring-1 ring-black/5">
-            <div className='bg-white rounded-md px-4 py-1'>
+        <div className="container  lg:w-[90%] mx-auto">
+          <div className="flex justify-between isolate p-2 rounded-b-xl bg-[#5e23dc] shadow-lg ring-1 ring-black/5">
+            <div className='bg-white rounded-md px-4 py-1 items-center flex'>
               <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
             </div>
 
