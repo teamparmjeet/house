@@ -4,7 +4,7 @@ export default function page() {
   return (
     <>
    
-    <Banner title="Properties to buy in Jaipur"/>
+    <Banner title=" Jaipur"/>
    
     <div className=' h-40 bg-red-950'></div>
     <div className=' h-40 bg-green-950'></div>

@@ -3,22 +3,21 @@ import { Search } from 'lucide-react';
 
 export default function Banner({ title }) {
   return (
-    <div className=' h-full  contaienr mx-auto lg:w-[90%]  bg-banner border  top-0 left-0 right-0 z-40 md:rounded-b-[50px]'>
-      <div className=' relative overflow-hidden h-full'>
-        <div className=' absolute bottom-0 left-0 right-0'>
-          <div className='mx-auto lg:w-3/5   mb-12'>
-            <h1 className=' text-white drop-shadow md:text-4xl text-2xl  font-  mb-5 text-center md:text-left '>{title}</h1>
+    <div className='relative h-full container mx-auto lg:w-[90%] bg-banner border-t border-b border-gray-200 top-0 left-0 right-0 z-40 md:rounded-b-[50px]'>
+      <div className='relative overflow-hidden h-full'>
+        <div className='absolute bottom-0 left-0 right-0'>
+          <div className='mx-auto lg:w-3/5 mb-16 md:mb-24'>
+            <h1 className='text-white bg-black/60 md:bg-transparent backdrop-blur-md md:backdrop-blur-0 md:text-4xl text-2xl  mb-5 text-center md:text-left'> Properties to buy in <span className='underline'>{title}</span></h1>
 
-            <div className="rounded-xl bg-black/60 p-4 backdrop-blur-md z-0">
-              <ul className=' flex gap-x-7 text-white'>
-                <li className=' uppercase text-xs md:underline underline-offset-4 bg-white md:bg-transparent rounded-md text-black md:text-white font-medium p-2 md:p-0'>Buy</li>
-                <li className=' uppercase text-xs  font-medium p-2 md:p-0'>Rent</li>
-                <li className=' uppercase text-xs  font-medium p-2 md:p-0'>Commercial</li>
-                <li className=' uppercase text-xs  font-medium p-2 md:p-0'>Plots</li>
+            <div className="rounded-xl bg-black/60 p-4 backdrop-blur-md">
+              <ul className='flex gap-x-7 text-white'>
+                <li className='uppercase text-xs md:underline underline-offset-4 bg-white md:bg-transparent rounded-md text-black md:text-white font-medium p-2 md:p-0'>Buy</li>
+                <li className='uppercase text-xs font-medium p-2 md:p-0'>Rent</li>
+                <li className='uppercase text-xs font-medium p-2 md:p-0'>Commercial</li>
+                <li className='uppercase text-xs font-medium p-2 md:p-0'>Plots</li>
               </ul>
 
-
-              <div className=" rounded-full mt-3 overflow-hidden bg-white grid grid-cols-6">
+             <div className=" rounded-full mt-3 overflow-hidden bg-white grid grid-cols-6">
                 <div className="col-span-1 border ">
                   <input type="text" name="" id="" placeholder='Jaipur' className=' py-2 text-center w-full h-full  focus-within:outline-none' />
                 </div>
@@ -32,14 +31,15 @@ export default function Banner({ title }) {
                   </button>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
-        <div className=' absolute bottom-0  left-0 text-center right-0'>
-          <p className=' bg-black/50 inline text-white font-medium text-sm px-5 py-2 rounded-t-[30px]'>Are you an Owner?
-           <span className=' underline cursor-pointer'> Post property for free</span></p>
+
+        <div className='absolute bottom-0 mb-2 left-0 right-0 text-center'>
+          <p className='bg-black/50 inline text-white font-medium text-sm px-5 py-2 rounded-[30px]'>
+            Are you an Owner?
+            <span className='underline cursor-pointer ml-1 text-green-400'>Post property for free</span>
+          </p>
         </div>
       </div>
     </div>

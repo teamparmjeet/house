@@ -25,7 +25,7 @@ export default function Navbar() {
 
       <nav className={`fixed left-0 right-0 z-50  `}>
         <div className="container  lg:w-[90%] mx-auto">
-          <div className="flex justify-between isolate p-2 rounded-b-xl bg-[#5e23dc] shadow-lg ring-1 ring-black/5">
+          <div className="flex justify-between isolate p-2 rounded-b-xl bg-[#5e23dc]/90 shadow-lg ring-1 ring-black/5">
             <div className='bg-white rounded-md px-4 py-1 items-center flex'>
               <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
             </div>
@@ -37,7 +37,7 @@ export default function Navbar() {
 
             
               <ul
-                className={`fixed top-0 right-0 w-96 p-4 h-full bg-indigo-800 text-white transform ${show ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 lg:relative lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:translate-x-0 lg:gap-x-4 lg:items-center lg:justify-end z-50`}
+                className={`fixed top-0 right-0 w-96 p-4 h-full bg-indigo-800/50  text-white transform ${show ? 'translate-x-0 backdrop-blur-md' : 'translate-x-full'} transition-transform duration-300 lg:relative lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:translate-x-0 lg:gap-x-4 lg:items-center lg:justify-end z-50`}
               >
                 <button className="block lg:hidden " onClick={handleToggle}>
                   <XCircleIcon size={24} color="white" />
