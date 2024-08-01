@@ -52,7 +52,51 @@ export default function Card() {
                     </div>
 
                 </div>
+                <div className=" mx-2">
+                    <div className="">
+                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
+                    </div>
+                    <div className=" flex flex-col justify-between  p-5 border  bg-white">
 
+                        <div className="flex justify-between">
+                            <div>
+                                <h3 className=' text-xl font-semibold'>  Samanvay The Amelias</h3>
+                                <p className=' text-xs text-gray-400'>  by Samanvay Group</p>
+                            </div>
+                            <div className=' font-semibold'>
+                                ₹ 21.0 L - 39.9 L
+                                Price
+                            </div>
+                        </div>
+                        <h5 className=' text-md'>  1, 2 BHK Apartments</h5>
+                        <p className=' text-xs text-gray-400'> Sarangpura, NH - 8 Jaipur, Jaipur</p>
+
+                    </div>
+
+                </div>
+
+                <div className=" mx-2">
+                    <div className="">
+                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
+                    </div>
+                    <div className=" flex flex-col justify-between  p-5 border  bg-white">
+
+                        <div className="flex justify-between">
+                            <div>
+                                <h3 className=' text-xl font-semibold'>  Samanvay The Amelias</h3>
+                                <p className=' text-xs text-gray-400'>  by Samanvay Group</p>
+                            </div>
+                            <div className=' font-semibold'>
+                                ₹ 21.0 L - 39.9 L
+                                Price
+                            </div>
+                        </div>
+                        <h5 className=' text-md'>  1, 2 BHK Apartments</h5>
+                        <p className=' text-xs text-gray-400'> Sarangpura, NH - 8 Jaipur, Jaipur</p>
+
+                    </div>
+
+                </div>
                 
             </Carousel>
 

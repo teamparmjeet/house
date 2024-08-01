@@ -48,11 +48,11 @@ export default function Card() {
                         <button className=' bg-[#5e23dc] text-white rounded-md px-4 py-2 w-full font-medium'>Contact</button>
                     </div>
                     <div className="lg:col-span-5 ">
-                        <Image alt='' className='object-cover lg:h-80 h-52 rounded-lg  w-full' src="/image/the_century_garden-bhankrota-jaipur-century.avif" width={500} height={500} />
+                        <Image alt='' className='object-cover lg:h-80 h-52 rounded-lg  w-full' src="/image/the_century_garden-bhankrota-jaipur-century.avif" width={982} height={880} />
                     </div>
                 </div>
 
-                <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-200 to-red-100 grid lg:grid-cols-7  ">
+               <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-200 to-red-100 grid lg:grid-cols-7  ">
                     <div className="lg:col-span-2 flex flex-col justify-between lg:h-80  p-5 ">
                         <div className=' flex items-center gap-4'>
                             <Image alt='' src="/image/medium.avif" className=' rounded-md' width={80} height={80} />
@@ -70,9 +70,10 @@ export default function Card() {
                         <button className=' bg-[#5e23dc] text-white rounded-md px-4 py-2 w-full font-medium'>Contact</button>
                     </div>
                     <div className="lg:col-span-5 ">
-                        <Image alt='' className='object-cover lg:h-80 h-52 rounded-lg  w-full' src="/image/the_century_garden-bhankrota-jaipur-century.avif" width={500} height={500} />
+                        <Image alt='' className='object-cover lg:h-80 h-52 rounded-lg  w-full' src="/image/the_century_garden-bhankrota-jaipur-century.avif" width={982} height={880} />
                     </div>
                 </div>
+
             </Carousel>
 
         </>

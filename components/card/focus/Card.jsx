@@ -30,17 +30,19 @@ export default function Card() {
 
 
             <Carousel responsive={responsive}  infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
+                
+
                 <div className=" mx-2">
-                    <div className=" relative rounded-md overflow-hidden">
-                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={400} height={141} />
+                    <div className=" relative rounded-md overflow-hidden ">
+                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={400} height={151} />
                         <div className=' absolute bottom-0 rounded-md top-0 bg-gradient-to-b from-transparent to-black    w-full text-white '>
                           <div className=' absolute bottom-0 left-0 right-0 p-3'>
-                          <h1 className=' text-xl font-semibold'>Samanvay The Amelias</h1>
-                            <p className='text-gray-300 font-semibold'>by Samanvay Group</p>
+                          <h1 className=' text-md font-semibold'>Samanvay The Amelias</h1>
+                            <p className='text-gray-300 font-semibold text-xs'>by Samanvay Group</p>
 
-                            <div className="flex justify-between">
+                            <div className="flex justify-between mt-2">
                                 <div>
-                                    <h6> 1, 2 BHK Apartments</h6>
+                                    <h6 className=' text-md'> 1, 2 BHK Apartments</h6>
 
                                     <p className=' text-xs text-gray-300 font-semibold'>Sanganer, NH - 8 Jaipur, Jaipur</p>
                                 </div>
@@ -54,16 +56,39 @@ export default function Card() {
                 </div>
 
                 <div className=" mx-2">
-                    <div className=" relative rounded-md overflow-hidden">
-                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={400} height={141} />
+                    <div className=" relative rounded-md overflow-hidden ">
+                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={400} height={151} />
                         <div className=' absolute bottom-0 rounded-md top-0 bg-gradient-to-b from-transparent to-black    w-full text-white '>
                           <div className=' absolute bottom-0 left-0 right-0 p-3'>
-                          <h1 className=' text-xl font-semibold'>Samanvay The Amelias</h1>
-                            <p className='text-gray-300 font-semibold'>by Samanvay Group</p>
+                          <h1 className=' text-md font-semibold'>Samanvay The Amelias</h1>
+                            <p className='text-gray-300 font-semibold text-xs'>by Samanvay Group</p>
 
-                            <div className="flex justify-between">
+                            <div className="flex justify-between mt-2">
                                 <div>
-                                    <h6> 1, 2 BHK Apartments</h6>
+                                    <h6 className=' text-md'> 1, 2 BHK Apartments</h6>
+
+                                    <p className=' text-xs text-gray-300 font-semibold'>Sanganer, NH - 8 Jaipur, Jaipur</p>
+                                </div>
+                                <div className=' font-semibold text-xl'>₹22.95 L - 41.95 L</div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div className=" mx-2">
+                    <div className=" relative rounded-md overflow-hidden ">
+                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={400} height={151} />
+                        <div className=' absolute bottom-0 rounded-md top-0 bg-gradient-to-b from-transparent to-black    w-full text-white '>
+                          <div className=' absolute bottom-0 left-0 right-0 p-3'>
+                          <h1 className=' text-md font-semibold'>Samanvay The Amelias</h1>
+                            <p className='text-gray-300 font-semibold text-xs'>by Samanvay Group</p>
+
+                            <div className="flex justify-between mt-2">
+                                <div>
+                                    <h6 className=' text-md'> 1, 2 BHK Apartments</h6>
 
                                     <p className=' text-xs text-gray-300 font-semibold'>Sanganer, NH - 8 Jaipur, Jaipur</p>
                                 </div>
