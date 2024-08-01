@@ -11,13 +11,15 @@ export default function page() {
 
       <Banner title=" Jaipur" />
 
-      <div className=' '>
-
-        <div className=' container lg:w-2/3 mx-auto py-5 lg:my-12'>
-          <div className=' lg:mb-4 mb-2 px-2'>
-            <h2 className=' text-3xl'>In <span className=' font-semibold'>Spotlight</span></h2>
-            <p className=' font-medium text-gray-500 text-sm mt-2'>Find your best place to live with us.</p>
-
+      <div className='bg-indigo-50/50'>
+        <div className='container lg:w-2/3 mx-auto py-5 lg:my-12'>
+          <div className='lg:mb-4 mb-2 px-2'>
+            <h2 className='text-xl md:text-4xl font-semibold text-gray-800'>
+              In <span className='text-gray-600'>Spotlight</span>
+            </h2>
+            <p className='font-medium text-gray-500 text-sm md:mt-2'>
+              Find your best place to live with us.
+            </p>
           </div>
           <SpotlightCard />
         </div>
@@ -26,20 +28,22 @@ export default function page() {
 
 
 
+
+
       <div className=' container lg:w-2/3 mx-auto py-5 lg:my-12'>
         <div className=' lg:mb-4 mb-2 px-2'>
-          <h2 className=' text-3xl'>Top <span className=' font-semibold'>Project</span></h2>
-          <p className=' text-gray-500 text-sm mt-2 font-medium'>Best developers in Jaipur to explore</p>
+          <h2 className=' text-xl md:text-4xl text-gray-800' >Top <span className=' font-semibold text-gray-600'>Project</span></h2>
+          <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Best developers in Jaipur to explore</p>
 
         </div>
         <TopProjectCard />
       </div>
 
-      <div className=' '>
+      <div className='bg-indigo-50/50'>
         <div className=' container lg:w-2/3 mx-auto py-5 lg:my-12'>
           <div className=' lg:mb-4 mb-2 px-2'>
-            <h2 className=' text-3xl'>Projects in <span className=' font-semibold'> Focus</span></h2>
-            <p className=' text-gray-500 text-sm mt-2 font-medium'>Noteworthy projects in Jaipur</p>
+            <h2 className=' text-xl md:text-4xl text-gray-800'>Projects in <span className=' font-semibold text-gray-600'> Focus</span></h2>
+            <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Noteworthy projects in Jaipur</p>
 
           </div>
           <FocusCard />
@@ -50,8 +54,8 @@ export default function page() {
       <div className=' '>
         <div className=' container lg:w-2/3 mx-auto py-5 lg:my-12'>
           <div className=' lg:mb-4 mb-2 px-2'>
-            <h2 className=' text-3xl'> Featured <span className=' font-semibold'>Collections</span></h2>
-            <p className=' text-gray-500 text-sm mt-2 font-medium'>Handpicked projects for you</p>
+            <h2 className=' text-xl md:text-4xl text-gray-800'> Featured <span className='text-gray-600 font-semibold'>Collections</span></h2>
+            <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Handpicked projects for you</p>
 
           </div>
           <CollectionCard />
@@ -59,14 +63,15 @@ export default function page() {
       </div>
 
 
-
+      <div className='bg-indigo-50/50'>
       <div className=' container lg:w-2/3 mx-auto py-5 lg:my-12'>
         <div className=' lg:mb-4 mb-2 px-2'>
-          <h2 className=' text-3xl'>Featured  <span className=' font-semibold'>Projects</span></h2>
-          <p className=' text-gray-500 text-sm mt-2 font-medium'>Exclusive showcase of top projects</p>
+          <h2 className=' text-xl md:text-4xl text-gray-800'>Featured  <span className='text-gray-600 font-semibold'>Projects</span></h2>
+          <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Exclusive showcase of top projects</p>
 
         </div>
         <FeatureCard />
+      </div>
       </div>
     </>
   )
