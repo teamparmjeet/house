@@ -29,10 +29,10 @@ export default function Card() {
         <>
 
 
-            <Carousel responsive={responsive} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
+            <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
                 <div className=" mx-2">
                     <div className="">
-                        <Image className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
+                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
                     </div>
                     <div className=" flex flex-col justify-between  p-5 border  bg-white">
 
@@ -52,6 +52,8 @@ export default function Card() {
                     </div>
 
                 </div>
+
+                
             </Carousel>
 
         </>

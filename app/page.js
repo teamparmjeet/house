@@ -9,7 +9,7 @@ export default function page() {
 
       <Banner title=" Jaipur" />
 
-      <div className=' bg-gray-100'>
+      <div className=' bg-indigo-50'>
 
         <div className=' container lg:w-2/3 mx-auto py-5 lg:my-12'>
           <div className=' lg:mb-4 mb-2 px-2'>
@@ -33,7 +33,7 @@ export default function page() {
         <TopProjectCard />
       </div>
 
-
+<div  className=' bg-indigo-50'>
       <div className=' container lg:w-2/3 mx-auto py-5 lg:my-12'>
         <div className=' lg:mb-4 mb-2 px-2'>
           <h2 className=' text-3xl'>Projects in <span className=' font-semibold'> Focus</span></h2>
@@ -42,7 +42,7 @@ export default function page() {
         </div>
         <FocusCard />
       </div>
-
+      </div>
     </>
   )
 }
