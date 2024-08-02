@@ -30,7 +30,7 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className=" mx-2">
+                <div className=" mx-2 lg:my-4 ">
                     <div className="relative group rounded-md overflow-hidden duration-300">
                         <Image className=' object-cover' src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" alt='' width={400} height={300} />
                         <div className="absolute bg-gradient-to-b from-transparent   to-black/50 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
@@ -47,7 +47,7 @@ export default function Card() {
                 </div>
 
                
-                <div className=" mx-2">
+                <div className=" mx-2 lg:my-4 ">
                     <div className="relative group rounded-md overflow-hidden duration-300">
                         <Image className=' object-cover' src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" alt='' width={400} height={300} />
                         <div className="absolute bg-gradient-to-b from-transparent   to-black/50 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
@@ -63,7 +63,7 @@ export default function Card() {
                     </div>
                 </div>
 
-                <div className=" mx-2">
+                <div className=" mx-2 lg:my-4 ">
                     <div className="relative group rounded-md overflow-hidden duration-300">
                         <Image className=' object-cover' src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" alt='' width={400} height={300} />
                         <div className="absolute bg-gradient-to-b from-transparent   to-black/50 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">

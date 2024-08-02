@@ -16,7 +16,7 @@
     background-repeat: no-repeat;
     background-position: right;
     /* Center the image */
-    height: 520px;
+    height: 480px;
 }
 
 /* For tablets and smaller screens */
@@ -75,3 +75,6 @@
     background: #5e23dc81 !important;
     /* top: 0; */
 }
+
+
+

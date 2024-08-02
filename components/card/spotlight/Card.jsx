@@ -30,7 +30,7 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-200 to-red-100 grid lg:grid-cols-7  ">
+                <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-200 to-white grid lg:grid-cols-7  ">
                     <div className="lg:col-span-2 flex flex-col justify-between lg:h-80  p-5 ">
                         <div className=' flex items-center gap-4'>
                             <Image alt='' src="/image/medium.avif" className=' rounded-md' width={80} height={80} />
@@ -52,7 +52,7 @@ export default function Card() {
                     </div>
                 </div>
 
-               <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-200 to-red-100 grid lg:grid-cols-7  ">
+               <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-200 to-white grid lg:grid-cols-7  ">
                     <div className="lg:col-span-2 flex flex-col justify-between lg:h-80  p-5 ">
                         <div className=' flex items-center gap-4'>
                             <Image alt='' src="/image/medium.avif" className=' rounded-md' width={80} height={80} />

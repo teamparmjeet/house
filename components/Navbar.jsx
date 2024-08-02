@@ -16,8 +16,8 @@ export default function Navbar() {
     { id: 1, title: "Home", path: "/" },
     { id: 2, title: "Saved", path: "/", icon: <Heart color="white" size={14} /> },
     { id: 3, title: "Service", path: "/" },
-    { id: 4, title: "List Property", path: "/" },
-    { id: 5, title: "About Us", path: "/" },
+    { id: 4, title: "About Us", path: "/" },
+    { id: 5, title: "List Property", path: "/" },
   ];
 
   return (
