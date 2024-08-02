@@ -30,7 +30,7 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className=" lg:my-4 mx-3 group shadow hover:shadow-lg duration-150">
+                <div className=" my-1 lg:my-4 mx-3 group shadow hover:shadow-lg duration-150">
                     <div className=" overflow-hidden">
                         <Image alt='' className='object-cover group-hover:scale-105 duration-300  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
                     </div>

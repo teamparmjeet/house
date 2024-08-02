@@ -30,7 +30,7 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className=" lg:my-4  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
+                <div className=" lg:my-4 my-1  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
                     <div className="">
                         <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
                     </div>
@@ -52,7 +52,7 @@ export default function Card() {
 
                 </div>
 
-                <div className=" lg:my-4  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
+                <div className=" lg:my-4 my-1  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
                     <div className="">
                         <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
                     </div>
@@ -75,7 +75,7 @@ export default function Card() {
                 </div>
 
 
-                <div className=" lg:my-4  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
+                <div className=" lg:my-4 my-1  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
                     <div className="">
                         <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
                     </div>
