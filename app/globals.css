@@ -54,7 +54,6 @@
 }
 
 
-
 /* carousel button */
 .react-multiple-carousel__arrow--left {
     left: 0px!important;
@@ -73,6 +72,6 @@
 }
 
 .react-multiple-carousel__arrow {
-    background: #5e23dc3b !important;
-    top: 0;
+    background: #5e23dc81 !important;
+    /* top: 0; */
 }

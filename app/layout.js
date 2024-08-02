@@ -1,8 +1,8 @@
-import { Roboto  } from "next/font/google";
+import { Mukta_Mahee  } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-const roboto = Roboto({
+const roboto = Mukta_Mahee({
   weight: '400',
   subsets: ['latin'],
 })
