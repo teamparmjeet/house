@@ -1,7 +1,7 @@
-import { Poppins  } from "next/font/google";
+import { Roboto  } from "next/font/google";
 import "./globals.css";
 
-const roboto = Poppins({
+const roboto = Roboto({
   weight: '400',
   subsets: ['latin'],
 })
