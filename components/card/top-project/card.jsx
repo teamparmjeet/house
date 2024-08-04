@@ -53,6 +53,30 @@ export default function Card() {
 
                 </div>
                 
+
+                <div className=" my-1 lg:my-4 mx-3 group shadow hover:shadow-lg duration-150">
+                    <div className=" overflow-hidden">
+                        <Image alt='' className='object-cover group-hover:scale-105 duration-300  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
+                    </div>
+                    <div className=" flex flex-col justify-between  p-5   bg-white">
+
+                        <div className="flex justify-between">
+                            <div>
+                                <h3 className=' text-xs md:text-sm  font-semibold'>  Samanvay The Amelias</h3>
+                                <p className=' text-xs text-gray-400'>  by Samanvay Group</p>
+                            </div>
+                            <div className=' text-xs md:text-sm  font-semibold'>
+                                ₹ 21.0 L - 39.9 L
+                                Price
+                            </div>
+                        </div>
+                        <h5 className=' text-md'>  1, 2 BHK Apartments</h5>
+                        <p className=' text-xs text-gray-400'> Sarangpura, NH - 8 Jaipur, Jaipur</p>
+
+                    </div>
+
+                </div>
+                
         
             
             </Carousel>
