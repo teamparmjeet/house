@@ -32,7 +32,7 @@ export default function Card() {
             <Carousel responsive={responsive}  infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
                 
 
-                <div className=" mx-2 lg:my-4 ">
+                <div className=" mx-2 lg:mb-4 ">
                     <div className=" relative rounded-md overflow-hidden ">
                         <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={400} height={151} />
                         <div className=' absolute bottom-0 rounded-md top-0 bg-gradient-to-b from-transparent to-black    w-full text-white '>
@@ -57,7 +57,7 @@ export default function Card() {
 
                 
               
-                <div className=" mx-2 lg:my-4 ">
+                <div className=" mx-2 lg:mb-4 ">
                     <div className=" relative rounded-md overflow-hidden ">
                         <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={400} height={151} />
                         <div className=' absolute bottom-0 rounded-md top-0 bg-gradient-to-b from-transparent to-black    w-full text-white '>

@@ -30,7 +30,7 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className=" lg:my-4 my-1  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
+                <div className=" lg:mb-4 my-1  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
                     <div className="">
                         <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
                     </div>
@@ -46,52 +46,6 @@ export default function Card() {
 
                         <div className=' text-sm md:text-md font-semibold mt-2'>
                             ₹ 21.0 L - 39.9 L
-                            Price
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className=" lg:my-4 my-1  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
-                    <div className="">
-                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
-                    </div>
-                    <div className=" flex flex-col justify-between  p-2   bg-white">
-
-                        <h3 className=' text-sm md:text-md font-semibold'>  Samanvay The Amelias</h3>
-                        <p className=' text-xs text-gray-400'>  by Samanvay Group</p>
-
-
-                        <h5 className=' text-xs font-medium mt-2'>  1, 2 BHK Apartments</h5>
-                        <p className=' text-xs text-gray-400'> Sarangpura, NH - 8 Jaipur, Jaipur</p>
-
-
-                        <div className=' text-sm md:text-md font-semibold mt-2'>
-                            ₹ 21.0 L - 39.9 L
-                            Price
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div className=" lg:my-4 my-1  group shadow hover:shadow-lg duration-150 mx-2 rounded-md overflow-hidden">
-                    <div className="">
-                        <Image alt='' className='object-cover  w-full' src="/image/samanvay_the_amelias-sarangpura-jaipur-samanvay_group.avif" width={500} height={250} />
-                    </div>
-                    <div className=" flex flex-col justify-between  p-2   bg-white">
-
-                        <h3 className=' text-sm md:text-md font-semibold'>  Samanvay The Amelias</h3>
-                        <p className=' text-xs text-gray-400'>  by Samanvay Group</p>
-
-
-                        <h5 className=' text-xs font-medium mt-2'>  1, 2 BHK Apartments</h5>
-                        <p className=' text-xs text-gray-400'> Sarangpura, NH - 8 Jaipur, Jaipur</p>
-
-
-                        <div className=' text-sm md:text-md font-semibold mt-2'>
-                            ₹ 21.0 L - 39.9 L
-                            Price
                         </div>
                     </div>
 

@@ -72,23 +72,12 @@
 .react-multiple-carousel__arrow--left {
     left: 0px!important;
 }
-.react-multiple-carousel__arrow--left:hover {
-    background: #5e23dc !important;
-}
+
 
 .react-multiple-carousel__arrow--right{
     right: 0px!important;
     
     
 }
-.react-multiple-carousel__arrow--right:hover {
-    background: #5e23dc !important;
-}
-
-.react-multiple-carousel__arrow {
-    background: #5e23dc81 !important;
-    /* top: 0; */
-}
-
 
 

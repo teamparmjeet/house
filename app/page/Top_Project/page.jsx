@@ -26,16 +26,7 @@ export default function TopProject() {
                                         <Image src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" className=' rounded-md object-center h-full w-full' width={200} height={100} alt='' />
                                         <div className=' absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent rounded-md to-black/60'></div>
                                     </div>
-                                    <div className=' flex justify-center items-center '>
-                                        <div className="wrapper">
-                                            <div className="circle"></div>
-                                            <div className="circle"></div>
-                                            <div className="circle"></div>
-                                            <div className="shadow"></div>
-                                            <div className="shadow"></div>
-                                            <div className="shadow"></div>
-                                        </div>
-                                    </div>
+                                 
 
                                 </div>
 
