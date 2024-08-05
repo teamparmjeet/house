@@ -99,7 +99,7 @@ export default function TopProject() {
                             </div>
 
 
-                            <div className='overflow-auto bg-white h-[100vh] pb-32 p-2'>
+                            <div className='overflow-auto bg-white h-[100vh] pb-56 p-2'>
                                 {currentItems.map((item, index) => (
                                     <AllProjectCard key={index} />
                                 ))}
