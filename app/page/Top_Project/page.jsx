@@ -3,6 +3,7 @@ import Image from 'next/image'
 import AllProjectCard from "@/components/card/allprojectpage/Card"
 import { Search } from 'lucide-react';
 import LatestCard from "@/components/card/latest/Card"
+import BestDealCard from "@/components/card/bestdeal/Card"
 export default function TopProject() {
     return (
         <>
@@ -23,7 +24,7 @@ export default function TopProject() {
                         <input
                             type="search"
                             placeholder='Enter Locality'
-                            className='w-full text-blue-400 font-light border border-gray-300 rounded pl-10 pr-4 py-1 focus:outline-none'
+                            className='w-full  font-light border border-gray-300 rounded pl-10 pr-4 py-1 md:py-2 focus:outline-none'
                             name=""
                             id=""
                         />
@@ -53,22 +54,38 @@ export default function TopProject() {
                                         <p>Sort by:</p>
                                         <select name="" id="" className='px-2 py-1 shadow  rounded focus:border-none focus:outline-none'>
                                             <option value="">Relevance</option>
-                                            <option value="">Relevance1</option>
-                                            <option value="">Relevance2</option>
+                                            <option value="">Price (Inc)</option>
+                                            <option value="">Price (Dec)</option>
+                                            <option value="">Area (Inc)</option>
+                                            <option value="">Area (Dec)</option>
+
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className='overflow-auto bg-white h-[calc(100vh-5rem)] p-2'>
+                            <div className='overflow-auto bg-white h-[77vh] p-2'>
                                 {[...Array(15)].map((_, index) => (
                                     <AllProjectCard key={index} />
                                 ))}
                             </div>
                         </div>
-                        <div className="col-span-2 p-4 hidden lg:block">
-                            <LatestCard />
+                        <div className="col-span-2 justify-between p-4 hidden lg:block">
+                            <div className="relative mb-10">
+                                <div className="absolute z-10 left-0 bottom-0 hover:opacity-0 duration-300 rounded-md overflow-hidden flex items-center justify-center top-0 right-0 bg-indigo-500/20 backdrop-blur text-white py-1 px-3 rounded-bl-md rounded-tr-md">
+                                <span className=' animate-bounce'>Best Deal Alert: New Property!</span>
+                                </div>
+                                <BestDealCard />
+                            </div>
+
+                            <div className="relative">
+                                <div className="absolute z-10 left-0 bottom-0 hover:opacity-0 duration-300 rounded-md overflow-hidden flex items-center justify-center top-0 right-0 bg-indigo-500/20 backdrop-blur text-white py-1 px-3 rounded-bl-md rounded-tr-md">
+                                    Discover Our Latest Property!
+                                </div>
+                                <LatestCard />
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </main>
