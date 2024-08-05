@@ -61,7 +61,7 @@ export default function Card() {
                     </div>
                 </div>
                 <div className="relative flex items-start">
-                    <div className={`flex-grow text-[12px] text-gray-500 ${isExpanded ? 'absolute  p-2 bg-white shadow' : 'line-clamp-1'}`}>
+                    <div className={`flex-grow text-[12px] z-50 text-gray-500 ${isExpanded ? 'absolute -top-12  p-2 bg-white shadow' : 'line-clamp-1'}`}>
                         Kohinoor Buildcom has launched Celesta in Vaishali Nagar, Jaipur. A residential project spread over 0.22 Acres, it offers ample amount of facilities for residents. The project was launched in May 2023. It offers Ready to Move units. Popular configurations include 3 BHK units. As per the area plan, units are in the size range of 1442.0 - 1560.0 sq.ft. There are 30 units in Celesta. Overall, there is 1 building.
                         <button className="text-blue-500 text-xs ml-2" onClick={toggleExpansion}>
                             {isExpanded ? 'collapse' : 'More'}
