@@ -38,10 +38,10 @@ export default function TopProject() {
 
 
             <main className='bg-[#f4f4f4] pt-4'>
-                <div className="container mx-auto p-4 my-4">
+                <div className="container mx-auto pt-6 px-2 my-4">
 
                     <div className="grid lg:grid-cols-7 gap-4">
-                        <div className="col-span-5 p-4">
+                        <div className="col-span-5 p-0 md:p-4">
 
                             <div className='bg-gray-100 rounded-t-md pb-2'>
                                 <div className='flex flex-wrap justify-between items-end'>
@@ -67,7 +67,7 @@ export default function TopProject() {
                             </div>
                         </div>
                         <div className="col-span-2 p-4 hidden lg:block">
-<LatestCard/>
+                            <LatestCard />
                         </div>
                     </div>
                 </div>
