@@ -30,8 +30,8 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-200 to-white grid lg:grid-cols-7  ">
-                    <div className="lg:col-span-2 order-2 lg:order-1 flex flex-col justify-between lg:h-80 p-2 lg:p-5 ">
+                <div className="rounded-xl mx-2 bg-gradient-to-b from-indigo-50 via-transparent to-indigo-50 grid lg:grid-cols-7  ">
+                    <div className="lg:col-span-2 order-2 lg:order-1 flex flex-col justify-between lg:h-96 p-2 lg:p-5 ">
                         <div className=' flex items-center gap-4 mb-2'>
                             <Image alt='' src="/image/medium.avif" className=' rounded-md' width={80} height={80} />
                             <h2 className='  font-semibold'>vinayak buildersand developers</h2>
@@ -48,7 +48,7 @@ export default function Card() {
                         <button className=' bg-[#5e23dc] mt-2 text-white rounded-md px-4 py-2 w-full font-medium'>Contact</button>
                     </div>
                     <div className="lg:col-span-5 order-1 lg:order-2">
-                        <Image alt='' className='object-cover lg:h-80 h-52 rounded-lg  w-full' src="/image/the_century_garden-bhankrota-jaipur-century.avif" width={982} height={880} />
+                        <Image alt='' className='object-cover lg:h-96 h-52 rounded-lg  w-full' src="/image/the_century_garden-bhankrota-jaipur-century.avif" width={982} height={880} />
                     </div>
                 </div>
 

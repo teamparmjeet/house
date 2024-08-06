@@ -12,11 +12,11 @@ import Link from 'next/link'
 export default function page() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Banner title=" Jaipur" />
 
       <div className=' '>
-        <div className='container lg:w-3/4 mx-auto py-5 lg:py-8'>
+        <div className='container lg:w-4/5 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2'>
             <h2 className='text-xl md:text-3xl font-semibold text-gray-600'>
               In <span className='text-gray-800'>Spotlight</span>
@@ -33,9 +33,9 @@ export default function page() {
 
 
 
-      <div >
+      <div className=' '>
 
-        <div className=' container lg:w-3/4 mx-auto py-5 lg:py-8'>
+        <div className=' container lg:w-4/5 mx-auto py-5 lg:py-8'>
           <div className=' lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <h2 className=' text-xl md:text-3xl text-gray-600' >Top <span className=' font-semibold text-gray-800'>Project</span></h2>
@@ -54,7 +54,7 @@ export default function page() {
       </div>
 
       <div >
-        <div className=' container lg:w-3/4 mx-auto py-5 lg:py-8'>
+        <div className=' container lg:w-4/5 mx-auto py-5 lg:py-8'>
           <div className=' lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <h2 className=' text-xl md:text-3xl text-gray-600'>Projects in <span className=' font-semibold text-gray-800'> Focus</span></h2>
@@ -70,7 +70,7 @@ export default function page() {
 
 
       <div >
-        <div className=' container lg:w-3/4 mx-auto py-5 lg:py-8'>
+        <div className=' container lg:w-4/5 mx-auto py-5 lg:py-8'>
           <div className=' lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <h2 className=' text-xl md:text-3xl text-gray-600'>Featured  <span className='text-gray-800 font-semibold'>Projects</span></h2>
@@ -87,7 +87,7 @@ export default function page() {
 
 
       <div>
-        <div className=' container lg:w-3/4 mx-auto py-5 lg:py-8'>
+        <div className=' container lg:w-4/5 mx-auto py-5 lg:py-8'>
           <div className=' lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <h2 className=' text-xl md:text-3xl text-gray-600'> Featured <span className='text-gray-800 font-semibold'>Collections</span></h2>
@@ -101,7 +101,7 @@ export default function page() {
         </div>
       </div>
 
-<Footer/>
+      <Footer />
     </>
   )
 }

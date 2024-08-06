@@ -8,21 +8,21 @@ import BestDealCard from "@/components/card/bestdeal/Card";
 import Link from 'next/link';
 
 export default function TopProject() {
-    // State to handle current page and items per page
+ 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
-    // Mock data for demonstration; replace with real data fetching logic
+   
     const items = [...Array(16)].map((_, index) => `Item ${index + 1}`);
 
-    // Calculate total pages
+   
     const totalPages = Math.ceil(items.length / itemsPerPage);
 
-    // Get items to display for the current page
+   
     const startIndex = (currentPage - 1) * itemsPerPage;
     const currentItems = items.slice(startIndex, startIndex + itemsPerPage);
 
-    // Pagination button handlers
+    
     const handlePrevPage = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);

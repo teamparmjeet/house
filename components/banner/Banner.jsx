@@ -3,13 +3,16 @@ import { Search } from 'lucide-react';
 
 export default function Banner({ title }) {
   return (
-    <div className='relative h-full container mx-auto lg:w-[90%] bg-banner border-t border-b border-gray-200 top-0 left-0 right-0 z-40 md:rounded-b-[50px]'>
+    <div className='relative h-full container mx-auto lg:w-[90%] bg-banner overflow-hidden border-t border-b border-gray-200 top-0 left-0 right-0 z-40 md:rounded-b-[50px]'>
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black/60 rounded-md"></div>
       <div className='relative overflow-hidden h-full'>
         <div className='absolute bottom-0 left-0 right-0'>
           <div className='mx-auto lg:w-3/5 mb-10 md:mb-24'>
-            <h1 className='text-white  md:text-4xl text-2xl  mb-3 text-center md:text-left'> Properties to buy in {title}</h1>
+            <h1 className="text-white md:text-5xl text-3xl mb-5 text-center md:text-left font-extrabold">
+              Properties to buy in <span className="text-indigo-600">{title}</span>
+            </h1>
 
-            <div className="rounded-xl bg-black/60 p-4 backdrop-blur-md">
+            <div className="rounded-xl bg-indigo-600/50 p-4 backdrop-blur-md">
               <ul className='flex md:gap-x-7 gap-x-4 text-white'>
                 <li className='uppercase text-xs md:underline underline-offset-4 bg-white md:bg-transparent rounded-md text-black md:text-white font-medium p-2 md:p-0'>Buy</li>
                 <li className='uppercase text-xs font-medium p-2 md:p-0'>Rent</li>
@@ -37,7 +40,7 @@ export default function Banner({ title }) {
         </div>
 
         <div className='absolute bottom-0 mb-2 left-0 right-0 text-center'>
-          <p className='bg-black/50 inline text-white font-medium text-sm px-5 py-2 rounded-[30px]'>
+          <p className='bg-black/50 backdrop-blur-md inline text-white font-medium text-sm px-5 py-2 rounded-[30px]'>
             Are you an Owner?
             <span className='underline cursor-pointer ml-1 text-green-400'>Post property for free</span>
           </p>
