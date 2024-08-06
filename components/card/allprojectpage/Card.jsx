@@ -15,7 +15,7 @@ export default function Card() {
     return (
         <div className='rounded-md bg-white mb-4 hover:shadow border p-2 gap-2 grid grid-cols-1 sm:grid-cols-7'>
             <div className='relative overflow-hidden sm:col-span-2'>
-                <Image src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" className='rounded-md object-center h-full w-full' width={200} height={100} alt='' />
+                <Image  src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" className='rounded-md object-center h-full w-full' width={200} height={100} alt='' />
                 <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-transparent rounded-md to-black/60'></div>
             </div>
             <div className='flex flex-col sm:col-span-5 bg-gradient-to-b from-white via-indigo-50'>
@@ -74,7 +74,7 @@ export default function Card() {
 
                 <div className='flex justify-between items-center mt-2  rounded-md px-1'>
                     <div className='flex'>
-                        <Image src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={51.5} height={19.312} />
+                        <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={51.5} height={19.312} />
                     </div>
                     <div><button className='bg-green-500 text-white rounded-md px-2 py-1 gap-x-2 flex'><Phone width={15} color='white' />Contact Developer</button></div>
                 </div>

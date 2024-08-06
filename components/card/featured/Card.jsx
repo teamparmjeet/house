@@ -32,7 +32,7 @@ export default function Card() {
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
                 {[...Array(3)].map((_,index)=>(
                     
-            <div className="rounded-md group bg-indigo-100/20 overflow-hidden my-1 lg:mb-4 mx-3 group backdrop-blur-md shadow hover:shadow-lg duration-150">
+            <div key={index} className="rounded-md group bg-indigo-100/20 overflow-hidden my-1 lg:mb-4 mx-3 group backdrop-blur-md shadow hover:shadow-lg duration-150">
                    <div className="overflow-hidden">
                      <Image 
                        className='object-cover h-52 w-full transition duration-300 ease-in-out transform group-hover:scale-105'
