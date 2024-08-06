@@ -71,11 +71,13 @@
 /* carousel button */
 .react-multiple-carousel__arrow--left {
     left: 0px!important;
+    z-index: revert!important;
 }
 
 
 .react-multiple-carousel__arrow--right{
     right: 0px!important;
+    z-index: revert!important;
     
     
 }

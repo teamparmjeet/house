@@ -23,9 +23,9 @@ export default function Navbar() {
   return (
     <>
 
-      <nav className={`fixed left-0 right-0 z-50  `}>
-        <div className="container  lg:w-[94%] mx-auto">
-          <div className="flex justify-between isolate p-2 rounded-b-xl bg-gradient-to-b from-black/80 to-[#5e23dc]/90 shadow-lg ring-1 ring-black/5">
+      <nav className={`fixed z-50 left-0 bg-[#222] right-0   `}>
+        <div className="container   mx-auto">
+          <div className="flex justify-between isolate p-2">
             <div className='bg-white rounded-md px-4 py-1 items-center flex'>
               <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
             </div>
@@ -37,13 +37,13 @@ export default function Navbar() {
 
             
               <ul
-                className={`fixed top-0 right-0 w-96 p-4 h-full bg-indigo-800/50  text-white transform ${show ? 'translate-x-0 backdrop-blur-md' : 'translate-x-full'} transition-transform duration-300 lg:relative lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:translate-x-0 lg:gap-x-4 lg:items-center lg:justify-end z-50`}
+                className={`fixed top-0 right-0 w-96  h-full bg-[#222]  text-white transform ${show ? 'translate-x-0 backdrop-blur-md' : 'translate-x-full'} transition-transform duration-300 lg:relative lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:translate-x-0 lg:gap-x-4 lg:items-center lg:justify-end z-50`}
               >
                 <button className="block lg:hidden " onClick={handleToggle}>
                   <XCircleIcon size={24} color="white" />
                 </button>
                 {links.map((item) => (
-                  <li key={item.id} className="text-sm border-b lg:border-0 hover:bg-blue-200/20 cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
+                  <li key={item.id} className="text-sm border-b lg:border-0 hover:text-[#AA8453] cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
                     {item.icon}
                     {item.title}
                   </li>
