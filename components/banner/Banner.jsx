@@ -9,7 +9,7 @@ export default function Banner({ title }) {
         <div className='absolute bottom-0 left-0 right-0'>
           <div className='mx-auto lg:w-3/5 mb-10 md:mb-24'>
             <h1 className="text-white md:text-5xl text-3xl mb-5 text-center md:text-left font-extrabold">
-              Properties to buy in <span className="text-indigo-600">{title}</span>
+              Properties to buy  in <span className="text-indigo-600">{title}</span>
             </h1>
 
             <div className="rounded-xl bg-indigo-600/50 p-4 backdrop-blur-md">
