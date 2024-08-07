@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <>
 
-      <nav className={`fixed z-50 left-0 bg-[#222] right-0   `}>
+      <nav className={`fixed z-50 left-0 bg-2 right-0   `}>
         <div className="container   mx-auto">
           <div className="flex justify-between isolate p-2">
             <div className='bg-white rounded-md px-4 py-1 items-center flex'>
@@ -43,7 +43,7 @@ export default function Navbar() {
                   <XCircleIcon size={24} color="white" />
                 </button>
                 {links.map((item) => (
-                  <li key={item.id} className="text-sm border-b lg:border-0 hover:text-[#AA8453] cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
+                  <li key={item.id} className="text-sm border-b lg:border-0 hover:text-[#aa8453] cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
                     {item.icon}
                     {item.title}
                   </li>

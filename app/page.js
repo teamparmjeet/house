@@ -33,16 +33,16 @@ export default function MainPage() {
         </div>
       </div>
 
-      <div className=' '>
+      <div className=' bg-3 '>
         <div className='container lg:w-4/5 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
-              <h2 className=' text-xl md:text-3xl text-gray-600'>Top <span className=' font-semibold text-gray-800'>Project</span></h2>
+              <h2 className=' font-bold text-4xl'>Top Project</h2>
               <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Best developers in <span className=' text-blue-700 font-semibold'>{location}</span> to explore</p>
             </div>
             <div className=''>
               <Link href="/page/Top_Project">
-                <Button />
+                <Button title=" View All"  />
               </Link>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function MainPage() {
               <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Noteworthy projects in  <span className=' text-blue-700 font-semibold'>{location}</span> </p>
             </div>
             <div className=''>
-              <Button />
+              <Button title=" View All"  />
             </div>
           </div>
           <FocusCard />
@@ -74,7 +74,7 @@ export default function MainPage() {
               <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Exclusive showcase of top projects in  <span className=' text-blue-700 font-semibold'>{location}</span> </p>
             </div>
             <div className=''>
-              <Button />
+              <Button title=" View All"  />
             </div>
           </div>
           <FeatureCard />
@@ -89,7 +89,7 @@ export default function MainPage() {
               <p className=' text-gray-500 text-sm  md:mt-2 font-medium'>Handpicked projects for you in  <span className=' text-blue-700 font-semibold'>{location}</span> </p>
             </div>
             <div className=''>
-              <Button />
+              <Button title=" View All"  />
             </div>
           </div>
           <CollectionCard />
