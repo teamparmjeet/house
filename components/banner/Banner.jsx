@@ -4,7 +4,7 @@ import { Search } from 'lucide-react';
 
 // Define an object with cities as keys and arrays of suggestions as values
 const citySuggestions = {
-  Jaipur: ['Amber Fort', 'City Palace', 'Hawa Mahal'],
+  Jaipur: ['Amber', 'City Palace', 'Hawa Mahal'],
   Mumbai: ['Gateway of India', 'Marine Drive', 'Elephanta Caves'],
   Delhi: ['Red Fort', 'Qutub Minar', 'India Gate'],
   Bangalore: ['Lalbagh Botanical Garden', 'Bangalore Palace', 'Cubbon Park'],
