@@ -32,7 +32,7 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className="rounded-2xl overflow-hidden mx-2 bg-white grid lg:grid-cols-7">
+                <div className="rounded-2xl group overflow-hidden mx-2 bg-white grid lg:grid-cols-7">
                     <div className="lg:col-span-2 order-2 lg:order-1 flex flex-col p-4 lg:p-6">
                         <div className='flex  bg-3 p-3 justify-center'>
                             <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" className='rounded-md' width={80} height={80} />
@@ -58,7 +58,8 @@ export default function Card() {
                     </div>
 
                     <div className="lg:col-span-5 relative order-1 lg:order-2">
-                        <Image alt='' className='object-cover lg:h-96 h-52  w-full' src="/property-grid-3.png" width={982} height={880} />
+                        <Image alt='' className='object-cover absolute opacity-0 group-hover:opacity-100 duration-300 lg:h-96 h-52  w-full' src="/property-grid-3.png" width={982} height={880} />
+                        <Image alt='' className='object-cover absolute opacity-100 group-hover:opacity-0 duration-300 lg:h-96 h-52  w-full' src="/image/matt-jones-xpDHTc-pkog-unsplash.webp" width={982} height={880} />
                         <div className=' absolute left-0 right-0 top-0 bottom-0 bg-gradient-to-b filter grayscale  from-transparent via-transparent to-black/50'></div>
                     </div>
                 </div>
