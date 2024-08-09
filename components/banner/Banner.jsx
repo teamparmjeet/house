@@ -49,16 +49,16 @@ export default function Banner({ title, location, setLocation }) {
   };
 
   return (
-    <div className='relative h-full container mx-auto lg:w-[90%] bg-banner overflow-hidden border-t border-b border-gray-200 top-0 left-0 right-0 z-40 md:rounded-b-[50px]'>
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black/60 rounded-md"></div>
+    <div className='relative h-full container mx-auto  bg-banner overflow-hidden '>
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-[#222]/50 rounded-md"></div>
       <div className='relative overflow-hidden h-full'>
         <div className='absolute bottom-0 left-0 right-0'>
           <div className='mx-auto lg:w-3/5 mb-10 md:mb-24'>
             <h1 className="text-white md:text-5xl text-3xl mb-5 text-center md:text-left font-extrabold">
-              {title} in <span className="text-indigo-600">{location}</span>
+              {title} in <span className="">{location}</span>
             </h1>
 
-            <div className="rounded-xl bg-indigo-600/50 p-4 backdrop-blur-md">
+            <div className="rounded-xl  bg-[#222]/50 p-4 backdrop-blur-md">
               <ul className='flex md:gap-x-7 gap-x-4 text-white'>
                 <li className='uppercase text-xs md:underline underline-offset-4 bg-white md:bg-transparent rounded-md text-black md:text-white font-medium p-2 md:p-0'>Buy</li>
                 <li className='uppercase text-xs font-medium p-2 md:p-0'>Rent</li>

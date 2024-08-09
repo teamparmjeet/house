@@ -42,12 +42,12 @@
 
 /* BG_IMAGE */
 .bg-banner {
-    background-image: url("/image/beautiful-cityscape-with-skyscrapers (1).webp");
+    background-image: url("/image/matt-jones-xpDHTc-pkog-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
     /* Center the image */
-    height: 480px;
+    height:100vh;
 }
 
 /* For tablets and smaller screens */

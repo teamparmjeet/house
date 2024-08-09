@@ -20,15 +20,14 @@ export default function MainPage() {
       <Navbar />
       <Banner title="Properties to buy" location={location} setLocation={setLocation} />
 
-      <div className=' bg-3'>
-        <div className='container lg:w-4/5 mx-auto py-5 lg:py-8'>
-          <div className='lg:mb-4 mb-2 px-2'>
-            <h2 className=' font-bold  text-2xl md:text-4xl'>
-              In Spotlight
-            </h2>
-            <p className='font-medium text-gray-500 text-sm md:mt-2'>
-              Find your best place to live with us in.
-            </p>
+      <div className=' bg-3 '>
+        <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
+          <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
+            <div>
+              <h2 className=' font-bold  text-2xl md:text-4xl'>In Spotlight</h2>
+              <div className=' bg-1 w-20 h-0.5 mt-2'></div>
+            </div>
+
           </div>
           <SpotlightCard />
         </div>
@@ -37,11 +36,11 @@ export default function MainPage() {
       <div className=' bg-2 '>
         <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
-          <div>
-            <div className=' relative'>
-              <h2 className=' font-bold text-white  text-2xl md:text-4xl'>Top Project</h2>
-              <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
-            </div>
+            <div>
+              <div className=' relative'>
+                <h2 className=' font-bold text-white  text-2xl md:text-4xl'>Top Project</h2>
+                <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
+              </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
@@ -59,10 +58,10 @@ export default function MainPage() {
         <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
-            <div className=' relative'>
-              <h2 className=' font-bold  text-2xl md:text-4xl'>Projects in Focus</h2>
-              <p className=' absolute -top-4   bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
-            </div>
+              <div className=' relative'>
+                <h2 className=' font-bold  text-2xl md:text-4xl'>Projects in Focus</h2>
+                <p className=' absolute -top-4   bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
+              </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
@@ -74,13 +73,13 @@ export default function MainPage() {
       </div>
 
       <div className=' bg-2 '>
-      <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
+        <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
-            <div className=' relative'>
-              <h2 className=' font-bold text-white  text-2xl md:text-4xl'>Featured Project</h2>
-              <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
-            </div>
+              <div className=' relative'>
+                <h2 className=' font-bold text-white  text-2xl md:text-4xl'>Featured Project</h2>
+                <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
+              </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
@@ -92,13 +91,13 @@ export default function MainPage() {
       </div>
 
       <div className=' bg-3'>
-      <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
+        <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
-            <div className=' relative'>
-              <h2 className=' font-bold  text-2xl md:text-4xl'>Featured Collections</h2>
-              <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
-            </div>
+              <div className=' relative'>
+                <h2 className=' font-bold  text-2xl md:text-4xl'>Featured Collections</h2>
+                <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
+              </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
