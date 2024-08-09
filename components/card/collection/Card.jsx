@@ -30,54 +30,25 @@ export default function Card() {
 
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
-                <div className=" mx-2 lg:mb-4 ">
-                    <div className="relative group rounded-md overflow-hidden duration-300">
-                        <Image className=' object-cover' src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" alt='' width={400} height={300} />
-                        <div className="absolute bg-gradient-to-b from-transparent   to-black/50 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
-                            <div className="flex border border-gray-800 overflow-hidden justify-center items-center opacity-0 group-hover:opacity-100 h-0 w-0 group-hover:h-24 group-hover:w-24 rounded-full bg-black/60 text-white duration-300">
-                                <span className=' duration-300 group-hover:opacity-100 flex flex-col text-center capitalize font-bold'>1682 <span>properties</span></span>
-                            </div>
-                        </div>
-                        <div className="absolute bottom-0 m-1 md:m-0 bg-white/70 md:bg-transparent left-0 right-0 md:text-white  rounded-full p-3 text-center">
-                            <h4 className=' font-semibold'>Ready to Move-In</h4>
-                            
-                          <p className=' text-xs'>  Comfortable homes available for immediate use</p>
-                        </div>
-                    </div>
-                </div>
+                {[...Array(3)].map((_,index)=>(
 
-               
-                <div className=" mx-2 lg:mb-4 ">
+                    <div className=" mx-2 lg:mb-4 ">
                     <div className="relative group rounded-md overflow-hidden duration-300">
-                        <Image className=' object-cover' src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" alt='' width={400} height={300} />
-                        <div className="absolute bg-gradient-to-b from-transparent   to-black/50 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
+                        <Image className=' object-cover' src="/property-grid-3.png" alt='' width={400} height={300} />
+                        <div className="absolute bg-gradient-to-b from-transparent   via-transparent to-black/70 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
                             <div className="flex border border-gray-800 overflow-hidden justify-center items-center opacity-0 group-hover:opacity-100 h-0 w-0 group-hover:h-24 group-hover:w-24 rounded-full bg-black/60 text-white duration-300">
                                 <span className=' duration-300 group-hover:opacity-100 flex flex-col text-center capitalize font-bold'>1682 <span>properties</span></span>
                             </div>
                         </div>
-                        <div className="absolute bottom-0 m-1 md:m-0 bg-white/70 md:bg-transparent left-0 right-0 md:text-white  rounded-full p-3 text-center">
-                            <h4 className=' font-semibold'>Ready to Move-In</h4>
+                        <div className="absolute bottom-0 m-1 md:m-0 bg-black/60 md:bg-transparent left-0 right-0 md:text-white  rounded-full p-3 text-center">
+                            <h4 className=' text-white font-semibold'>Ready to Move-In</h4>
                             
-                          <p className=' text-xs'>  Comfortable homes available for immediate use</p>
+                          <p className=' text-xs text-white'>  Comfortable homes available for immediate use</p>
                         </div>
                     </div>
                 </div>
+                ))}
 
-                <div className=" mx-2 lg:mb-4 ">
-                    <div className="relative group rounded-md overflow-hidden duration-300">
-                        <Image className=' object-cover' src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" alt='' width={400} height={300} />
-                        <div className="absolute bg-gradient-to-b from-transparent   to-black/50 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
-                            <div className="flex border border-gray-800 overflow-hidden justify-center items-center opacity-0 group-hover:opacity-100 h-0 w-0 group-hover:h-24 group-hover:w-24 rounded-full bg-black/60 text-white duration-300">
-                                <span className=' duration-300 group-hover:opacity-100 flex flex-col text-center capitalize font-bold'>1682 <span>properties</span></span>
-                            </div>
-                        </div>
-                        <div className="absolute bottom-0 m-1 md:m-0 bg-white/70 md:bg-transparent left-0 right-0 md:text-white  rounded-full p-3 text-center">
-                            <h4 className=' font-semibold'>Ready to Move-In</h4>
-                            
-                          <p className=' text-xs'>  Comfortable homes available for immediate use</p>
-                        </div>
-                    </div>
-                </div>
             </Carousel>
 
         </>
