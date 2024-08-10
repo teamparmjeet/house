@@ -4,13 +4,14 @@ import Footer from '@/components/Footer'
 import Btn3 from "@/components/button/Btn3"
 import { Phone } from "lucide-react"
 import Gallery from '@/components/gallery/Gallery'
+import Details from "@/components/singlepagedetails/Details"
 export default function page({ params }) {
     const id = params.id
     return (
         <>
             <Navbar />
             <div className=' h-14' />
-            <div className="container px-2 border-b mb-5 mx-auto lg:w-[80%]">
+            <div className="container px-2 border-b mx-auto lg:w-[80%]">
 
                 <div className="flex justify-between  md:mt-8 md:mb-5 mb-2">
                     <div>
@@ -22,9 +23,9 @@ export default function page({ params }) {
                     <div>
                         <h2 className=' text-xl md:text-3xl font-semibold md:mb-2 text-end'>₹ 41.82 L</h2>
                         <p className=' text-1  text-sm font-semibold text-end'>EMI starts at ₹22.15 K</p>
-                      <div className=' hidden md:block'>
-                      <Btn3 title="Contact Developers" icon={<Phone width={20} />} />
-                      </div>
+                        <div className=' hidden md:block'>
+                            <Btn3 title="Contact Developers" icon={<Phone width={20} />} />
+                        </div>
                     </div>
 
                 </div>
@@ -60,7 +61,16 @@ export default function page({ params }) {
                     </div>
                 </div>
 
+
+
             </div>
+
+            <div className=' bg-zinc-100'>
+            <div className="container  mx-auto lg:w-[80%]">
+                <Details/>
+            </div>
+            </div>
+
             <Footer />
         </>
     )
