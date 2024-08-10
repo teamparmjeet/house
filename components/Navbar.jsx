@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Heart, Menu, XCircleIcon } from 'lucide-react';
-
+import Link from 'next/link';
 export default function Navbar() {
   const [show, setShow] = useState(false);
 
@@ -27,7 +27,9 @@ export default function Navbar() {
         <div className="container w-[90%]  mx-auto">
           <div className="flex justify-between isolate p-2">
             <div className='bg-white rounded-md px-4 py-1 items-center flex'>
+              <Link href="/">
               <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
+              </Link>
             </div>
 
             <div className="relative w-full flex items-center justify-end">
