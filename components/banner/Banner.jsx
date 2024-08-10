@@ -49,9 +49,9 @@ export default function Banner({ title, location, setLocation }) {
   };
 
   return (
-    <div className='relative h-full container mx-auto  bg-banner overflow-hidden '>
+    <div className='relative h-full bg-banner overflow-hidden '>
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-[#222]/50 rounded-md"></div>
-      <div className='relative overflow-hidden h-full'>
+      <div className='relative container mx-auto overflow-hidden h-full'>
         <div className='absolute bottom-0 left-0 right-0'>
           <div className='mx-auto lg:w-3/5 mb-10 md:mb-24'>
             <h1 className="text-white md:text-5xl text-3xl mb-5 text-center md:text-left font-extrabold">

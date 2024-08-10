@@ -7,22 +7,23 @@ import LatestCard from "@/components/card/latest/Card";
 import BestDealCard from "@/components/card/bestdeal/Card";
 import Link from 'next/link';
 
-export default function TopProject() {
- 
+export default function TopProject({ params }) {
+    const title = params.title
+
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
-   
+
     const items = [...Array(16)].map((_, index) => `Item ${index + 1}`);
 
-   
+
     const totalPages = Math.ceil(items.length / itemsPerPage);
 
-   
+
     const startIndex = (currentPage - 1) * itemsPerPage;
     const currentItems = items.slice(startIndex, startIndex + itemsPerPage);
 
-    
+
     const handlePrevPage = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
@@ -76,7 +77,7 @@ export default function TopProject() {
                                 <div className='flex flex-col md:flex-row md:justify-between md:items-center'>
                                     <div className='mb-0 md:mb-2'>
                                         <p className='text-gray-600 text-1 text-xs md:text-sm'>Showing {startIndex + 1} - {Math.min(startIndex + itemsPerPage, items.length)} of {items.length}</p>
-                                        <p className='text-sm md:text-lg font-semibold'>Ready to Move-In Projects in Jaipur</p>
+                                        <p className='text-sm md:text-lg font-semibold'>{title} Project in Jaipur</p>
                                     </div>
                                     <div className='flex justify-between md:justify-end w-full md:w-fit flex-row md:items-center gap-y-2 md:gap-x-4'>
                                         <div className='text-xs flex items-center gap-x-2'>
@@ -101,7 +102,9 @@ export default function TopProject() {
 
                             <div className='overflow-auto bg-white h-[100vh] pb-56 p-2'>
                                 {currentItems.map((item, index) => (
-                                    <AllProjectCard key={index} />
+                                    <Link  key={index} href={`/page/singlepage/${index}`}>
+                                    <AllProjectCard/>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

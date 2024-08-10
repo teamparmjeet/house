@@ -44,9 +44,10 @@ export default function MainPage() {
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href="/page/Top_Project">
+            <Link href={`/page/collectionproject/Top`}>
                 <Button title=" View All" />
-              </Link>
+            </Link>
+             
             </div>
           </div>
 
@@ -65,7 +66,9 @@ export default function MainPage() {
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Button title=" View All" />
+            <Link href={`/page/collectionproject/Focus`}>
+                <Button title=" View All" />
+            </Link>
             </div>
           </div>
           <Carouselcard />
@@ -83,7 +86,9 @@ export default function MainPage() {
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Button title=" View All" />
+            <Link href={`/page/collectionproject/Featured`}>
+                <Button title=" View All" />
+            </Link>
             </div>
           </div>
           <Carouselcard />
@@ -100,9 +105,7 @@ export default function MainPage() {
               </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
-            <div className=''>
-              <Button title=" View All" />
-            </div>
+          
           </div>
           <CollectionCard />
         </div>
