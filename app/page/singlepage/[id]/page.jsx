@@ -5,7 +5,7 @@ import Btn3 from "@/components/button/Btn3"
 import { Phone } from "lucide-react"
 import Gallery from '@/components/gallery/Gallery'
 import Details from "@/components/singlepagedetails/Details"
-export default function page({ params }) {
+export default function SinglePage({ params }) {
     const id = params.id
     return (
         <>

@@ -17,7 +17,7 @@ export default function Navbar() {
     { id: 2, title: "Saved", path: "/", icon: <Heart color="white" size={14} /> },
     { id: 3, title: "Service", path: "/" },
     { id: 4, title: "About Us", path: "/" },
-    { id: 5, title: "List Property", path: "/" },
+    { id: 5, title: "List Property", path: "/page/auth/login" },
   ];
 
   return (
@@ -39,16 +39,18 @@ export default function Navbar() {
 
             
               <ul
-                className={`fixed top-0 right-0 w-96  h-full bg-[#222]  text-white transform ${show ? 'translate-x-0 backdrop-blur-md' : 'translate-x-full'} transition-transform duration-300 lg:relative lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:translate-x-0 lg:gap-x-4 lg:items-center lg:justify-end z-50`}
+                className={`fixed top-0 right-0 w-full md:w-96 p-6 lg:p-0  h-full bg-[#222]  text-white transform ${show ? 'translate-x-0 backdrop-blur-md' : 'translate-x-full'} transition-transform duration-300 lg:relative lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:translate-x-0 lg:gap-x-4 lg:items-center lg:justify-end z-50`}
               >
                 <button className="block lg:hidden " onClick={handleToggle}>
-                  <XCircleIcon size={24} color="white" />
+                  <XCircleIcon size={24} color="#aa8453" />
                 </button>
                 {links.map((item) => (
-                  <li key={item.id} className="text-sm border-b lg:border-0 hover:text-[#aa8453] cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
+                  <Link  key={item.id} href={item.path}>
+                  <li className="text-sm border-b lg:border-0 hover:text-[#aa8453] cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
                     {item.icon}
                     {item.title}
                   </li>
+                  </Link>
                 ))}
               </ul>
 

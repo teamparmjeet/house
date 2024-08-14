@@ -7,7 +7,7 @@ import LatestCard from "@/components/card/latest/Card";
 import BestDealCard from "@/components/card/bestdeal/Card";
 import Link from 'next/link';
 
-export default function TopProject({ params }) {
+export default function Collectionproject({ params }) {
     const title = params.title
 
     const [currentPage, setCurrentPage] = useState(1);
