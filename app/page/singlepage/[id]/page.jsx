@@ -65,7 +65,7 @@ export default function page({ params }) {
 
             </div>
 
-            <div className=' bg-zinc-100'>
+            <div className=' bg-zinc-100 py-6'>
             <div className="container  mx-auto lg:w-[80%]">
                 <Details/>
             </div>
