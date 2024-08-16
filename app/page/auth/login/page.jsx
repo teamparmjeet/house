@@ -56,7 +56,7 @@ export default function LoginPage() {
             router.push('/admin/dashboard');
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {
-                // Handle API-specific errors
+
                 setError('Server error: ' + (error.response.data.message || 'An error occurred.'));
             } else {
                 setError('Invalid Credentials. Please try again.');
@@ -128,14 +128,14 @@ export default function LoginPage() {
                         <button
                             type='submit'
                             disabled={!isFormValid() || loading}
-                            className={`w-full py-2 px-4 rounded-lg shadow-lg transform transition duration-300 ease-in-out ${
-                                isFormValid() ? 'bg-[#aa8453] text-white hover:bg-[#aa8453] hover:scale-105' : 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                            } focus:outline-none focus:ring-2 focus:ring-[#aa8453]`}>
+                            className={`w-full py-2 px-4 rounded-lg shadow-lg transform transition duration-300 ease-in-out ${isFormValid() ? 'bg-[#aa8453] text-white hover:bg-[#aa8453] hover:scale-105' : 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                                } focus:outline-none focus:ring-2 focus:ring-[#aa8453]`}>
                             {loading ? 'Signing In...' : 'Sign In'}
                         </button>
-                        
+
                         <Link href="/page/auth/signup" className='block text-center text-sm text-gray-700 hover:text-gray-900 mt-4'>
-                            Don't have an account? <span className='text-[#aa8453] font-semibold'>Sign Up</span>
+                            Don&apos;t have an account? <span className='text-[#aa8453] font-semibold'>Sign Up</span>
+
                         </Link>
                     </form>
                 </div>
