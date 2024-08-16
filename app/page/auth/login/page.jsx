@@ -53,7 +53,7 @@ export default function LoginPage() {
                 return;
             }
 
-            router.push('/admin/dashboard');
+            router.push('/admin');
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {
 
