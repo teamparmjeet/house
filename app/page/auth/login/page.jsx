@@ -1,48 +1,142 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
+import axios from 'axios';
+import { useRouter } from "next/navigation";
+import { signIn } from 'next-auth/react';
 
 export default function LoginPage() {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const router = useRouter();
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [id]: value
+        }));
+    };
+
+    const isFormValid = () => {
+        return Object.values(formData).every(field => field.trim() !== '');
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(''); // Clear any previous errors
+
+        try {
+            const userData = await fetchUserData(formData.email);
+
+            if (!userData) {
+                setError('No user found with this email.');
+                setLoading(false);
+                return;
+            }
+
+            const res = await signIn("credentials", {
+                email: formData.email,
+                password: formData.password,
+                redirect: false,
+            });
+
+            if (res.error) {
+                setError("Invalid Credentials");
+                setLoading(false);
+                return;
+            }
+
+            router.push('/admin/dashboard');
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                // Handle API-specific errors
+                setError('Server error: ' + (error.response.data.message || 'An error occurred.'));
+            } else {
+                setError('Invalid Credentials. Please try again.');
+            }
+            setLoading(false);
+        }
+    };
+
+    const fetchUserData = async (email) => {
+        try {
+            const response = await axios.get(`/api/admin/find-admin-byemail/${email}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching user:', error);
+            setLoading(false);
+            setError('Failed to fetch user data. Please try again later.');
+            return null;
+        }
+    };
+
     return (
         <>
             <Navbar />
-            <div className='bg-banner  px-1 md:px-0 relative z-10 flex justify-center items-center min-h-screen'>
-                <div className='absolute inset-0 backdrop-blur-md z-20'></div>
+            <div className='bg-banner flex justify-center items-center min-h-screen'>
+                <div className='absolute inset-0 bg-opacity-50 backdrop-blur-sm'></div>
 
-                <div className='z-30 bg-white p-8 rounded-md shadow-lg max-w-md w-full'>
-                <h2 className='text-4xl font-extrabold mb-8 text-center text-gray-800'>Sign In</h2>
+                <div className='relative z-30 bg-white p-10 rounded-xl shadow-2xl max-w-md w-full'>
+                    <h2 className='text-4xl font-bold mb-8 text-center text-gray-800'>Sign In</h2>
 
-                    <form className='space-y-6'>
+                    {error && (
+                        <div className="text-red-600 text-center mb-4 animate-bounce">
+                            {error}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleSubmit} className='space-y-6'>
                         <div className='w-full'>
-                            <label className='block text-2 font-semibold mb-2' htmlFor="email">
+                            <label className='block text-lg font-medium text-gray-700 mb-2' htmlFor="email">
                                 Email
                             </label>
                             <input
-                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-1 focus:ring-[#aa8453] hover:shadow-lg hover:border-[#aa8453] bg-gray-100'
+                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#aa8453] hover:shadow-md bg-gray-100'
                                 placeholder="Enter your email"
                                 type="email"
                                 id="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                disabled={loading}
                                 required
                             />
                         </div>
 
                         <div className='w-full'>
-                            <label className='block text-2 font-semibold mb-2' htmlFor="password">
+                            <label className='block text-lg font-medium text-gray-700 mb-2' htmlFor="password">
                                 Password
                             </label>
                             <input
-                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-1 focus:ring-[#aa8453] hover:shadow-lg hover:border-[#aa8453] bg-gray-100'
+                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#aa8453] hover:shadow-md bg-gray-100'
                                 placeholder="Enter your password"
                                 type="password"
                                 id="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                disabled={loading}
                                 required
                             />
                         </div>
 
                         <button
                             type='submit'
-                            className='w-full bg-1 text-white py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-blue-500'>
-                            Sign In
+                            disabled={!isFormValid() || loading}
+                            className={`w-full py-2 px-4 rounded-lg shadow-lg transform transition duration-300 ease-in-out ${
+                                isFormValid() ? 'bg-[#aa8453] text-white hover:bg-[#aa8453] hover:scale-105' : 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                            } focus:outline-none focus:ring-2 focus:ring-[#aa8453]`}>
+                            {loading ? 'Signing In...' : 'Sign In'}
                         </button>
+                        
+                        <Link href="/page/auth/signup" className='block text-center text-sm text-gray-700 hover:text-gray-900 mt-4'>
+                            Don't have an account? <span className='text-[#aa8453] font-semibold'>Sign Up</span>
+                        </Link>
                     </form>
                 </div>
             </div>
