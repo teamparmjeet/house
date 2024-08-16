@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image'
 import { StarIcon, Check, ArrowDown, ArrowUp, Calendar, Home, MapPin, Tag, Info, Phone } from 'lucide-react';
 
-export default function Card() {
+export default function Card({projdata}) {
     const [isVisible, setIsVisible] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const toggleVisibility = () => {
@@ -20,7 +20,7 @@ export default function Card() {
             </div>
             <div className='flex flex-col sm:col-span-5 bg-gradient-to-b from-white via-indigo-50'>
                 <div className='flex flex-wrap gap-x-2 items-center'>
-                    <h4 className='text-sm font-semibold'>₹1.08 Cr - 1.17 Cr</h4>
+                    <h4 className='text-sm font-semibold'>₹1.08 Cr - 1.17 Cr{projdata.location}</h4>
                     <p className='text-xs text-1 font-medium'>EMI starts at ₹53.62 K</p>
                 </div>
                 <div className='text-xs font-medium flex gap-x-2 items-center mt-1'>

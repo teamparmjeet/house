@@ -2,7 +2,10 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
-
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Signup() {
     const [formData, setFormData] = useState({
         name: '',
@@ -13,9 +16,11 @@ export default function Signup() {
 
     const [errors, setErrors] = useState({
         mobile: '',
-        email: ''
+        email: '',
+        general: ''
     });
 
+    const router = useRouter();
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData(prevState => ({
@@ -30,7 +35,8 @@ export default function Signup() {
 
         const errors = {
             mobile: mobileRegex.test(formData.mobile.replace(/\D/g, '')) ? '' : 'Invalid mobile number',
-            email: emailRegex.test(formData.email) ? '' : 'Invalid email address'
+            email: emailRegex.test(formData.email) ? '' : 'Invalid email address',
+            general: ''
         };
 
         setErrors(errors);
@@ -49,15 +55,36 @@ export default function Signup() {
         }
 
         try {
-            alert(`Name: ${formData.name}\nMobile Number: ${formData.mobile}\nEmail: ${formData.email}\nPassword: ${formData.password}`);
+            const response = await axios.post('/api/admin/signup', formData);
+
+            if (response.status === 201) {
+                toast.success("Admin registered successfully!")
+               
+                setFormData({
+                    name: '',
+                    mobile: '',
+                    email: '',
+                    password: ''
+                });
+            } else {
+                setErrors(prevErrors => ({
+                    ...prevErrors,
+                    general: response.data.message || 'An error occurred. Please try again.'
+                }));
+            }
         } catch (error) {
             console.error('Error submitting the form:', error);
-            alert('An error occurred while submitting the form. Please try again.');
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                general: error.response?.data?.message || 'An error occurred while submitting the form. Please try again.'
+            }));
         }
     };
 
+
     return (
         <>
+            <ToastContainer />
             <Navbar />
             <div className='bg-banner px-1 md:px-0 relative z-10 flex justify-center items-end md:items-center min-h-screen'>
                 <div className='absolute inset-0 bg-opacity-50 backdrop-blur-md z-20'></div>
@@ -66,6 +93,8 @@ export default function Signup() {
                     <h2 className='text-4xl font-bold mb-8 text-center text-gray-800'>Sign Up</h2>
 
                     <form onSubmit={handleSubmit} className='space-y-4'>
+                        {errors.general && <p className='bg-red-500 font-semibold rounded-md text-center text-white text-sm mb-4'>{errors.general}</p>}
+
                         <div className='w-full'>
                             <label className='block text-lg font-semibold mb-2 text-gray-700' htmlFor="name">
                                 Name
@@ -131,9 +160,8 @@ export default function Signup() {
                         <button
                             type='submit'
                             disabled={!isFormValid()}
-                            className={`w-full py-2 px-4 rounded-lg shadow-lg transform transition duration-300 ease-in-out ${
-                                isFormValid() ? 'bg-[#aa8453] text-white hover:bg-[#8c6d45] hover:scale-105' : 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                            } focus:outline-none focus:ring-2 focus:ring-[#aa8453]`}>
+                            className={`w-full py-2 px-4 rounded-lg shadow-lg transform transition duration-300 ease-in-out ${isFormValid() ? 'bg-[#aa8453] text-white hover:bg-[#8c6d45] hover:scale-105' : 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                                } focus:outline-none focus:ring-2 focus:ring-[#aa8453]`}>
                             Sign Up
                         </button>
 
