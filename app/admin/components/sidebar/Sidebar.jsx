@@ -22,6 +22,7 @@ export default function Sidebar() {
         <ul className="space-y-4">
           <li><Link href="/admin" className="block p-2 hover:text-[#aa8453] duration-150 font-semibold rounded">Dashboard</Link></li>
           <li><Link href="/admin/page/property" className="block p-2 hover:text-[#aa8453] duration-150 font-semibold rounded">Manage Properties</Link></li>
+          <li><Link href="/admin/page/addnew" className="block p-2 hover:text-[#aa8453] duration-150 font-semibold rounded">Add Propertie</Link></li>
          
         </ul>
 

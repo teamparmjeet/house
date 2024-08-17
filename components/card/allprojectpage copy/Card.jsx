@@ -21,16 +21,16 @@ export default function Card({projdata}) {
             <div className='flex flex-col justify-between sm:col-span-5 bg-gradient-to-b from-white via-indigo-50'>
              <div>
              <div className='flex flex-wrap gap-x-2 items-center'>
-                    <h4 className='text-sm font-semibold'>₹1.08 Cr - 1.17 Cr</h4>
-                    <p className='text-xs text-1 font-medium'>EMI starts at ₹53.62 K</p>
+                    <h4 className='text-sm font-semibold'>{projdata.price} ₹</h4>
+                   
                 </div>
                 <div className='text-xs font-medium flex gap-x-2 items-center mt-1'>
-                    <span className='font-semibold text-2'>Celesta</span>
-                    <div className='h-4 gap-x-1 bg-1 px-1 flex items-center text-white rounded'>5 <StarIcon width={10} color='white' /></div>
+                    <span className='font-semibold text-2'>{projdata.type}</span>
+                    <div className='h-4 gap-x-1 bg-1 px-1 flex items-center text-white rounded'>{projdata.energyRating}</div>
                     <div className='h-4 bg-gray-200 text-2 font-semibold text-[10px] flex items-center gap-x-1 rounded-md px-1'>RERA <Check width={12} color='green' /></div>
                 </div>
-                <p className=' font-semibold text-[11px]'>By Kohinoor Buildcom</p>
-                <p className='text-xs text-gray-500 my-1 font-semibold'><span className='text-2'>3 BHK Flat</span> for sale in Vaishali Nagar, Jaipur</p>
+                <p className=' font-semibold text-[11px]'>By Real State</p>
+                <p className='text-xs text-gray-500 my-1 font-semibold'><span className='text-2'>{projdata.bedrooms} BHK Flat</span> for sale in {projdata?.address?.city}</p>
 
                 <div className='relative hidden md:block'>
                     <div className={`z-50 rounded-md flex ${isVisible ? 'shadow-lg absolute left-0 right-0 bg-white z-50 border' : 'bg-gray-100'}`}>
@@ -39,18 +39,18 @@ export default function Card({projdata}) {
                                 <Calendar width={10} color="black" /><span>Possession Date <br /><span className='text-black text-[12px]'>Aug. 2023</span></span>
                             </div>
                             <div className="col-span-1 px-1 my-1 flex items-center  font-semibold  gap-x-2 border-l-2">
-                                <Tag width={10} color="black" /><span>Average Price<br /><span className='text-black text-[12px]'>₹7.49 K/sq.ft</span></span>
+                                <Tag width={10} color="black" /><span>Average Price<br /><span className='text-black text-[12px]'>₹{projdata.price}</span></span>
                             </div>
                             <div className="col-span-1 px-1 my-1 flex items-center  font-semibold  gap-x-2 border-l-2">
-                                <Info width={10} color="black" /><span>Possession Status<br /><span className='text-black text-[12px]'>Ready to Move</span></span>
+                                <Info width={10} color="black" /><span>Possession Status<br /><span className='text-black text-[12px]'>{projdata.status}</span></span>
                             </div>
                             {isVisible && (
                                 <>
                                     <div className="col-span-1 px-1 my-1 flex items-center  font-semibold  gap-x-2">
-                                        <Home width={10} color="black" /><span>Sizes<br /><span className='text-black text-[12px]'>1442 - 1560 sq.ft.</span></span>
+                                        <Home width={10} color="black" /><span>Sizes<br /><span className='text-black text-[12px]'>{projdata.size}</span></span>
                                     </div>
                                     <div className="col-span-1 px-1 my-1 flex items-center  font-semibold  gap-x-2 border-l-2">
-                                        <MapPin width={10} color="black" /><span>Locality<br /><span className='text-black text-[12px]'>Vaishali Nagar, Jaipur</span></span>
+                                        <MapPin width={10} color="black" /><span>Locality<br /><span className='text-black text-[12px]'>{projdata.address?.street},{projdata.address?.city},{projdata.address?.state}</span></span>
                                     </div>
                                 </>
                             )}
@@ -61,17 +61,13 @@ export default function Card({projdata}) {
                         </div>
                     </div>
                 </div>
-                <div className="relative flex items-start">
-                    <div className={`flex-grow text-[12px] z-40 text-2 ${isExpanded ? 'absolute -top-12  p-2 bg-white shadow' : 'line-clamp-1'}`}>
-                        Kohinoor Buildcom has launched Celesta in Vaishali Nagar, Jaipur. A residential project spread over 0.22 Acres, it offers ample amount of facilities for residents. The project was launched in May 2023. It offers Ready to Move units. Popular configurations include 3 BHK units. As per the area plan, units are in the size range of 1442.0 - 1560.0 sq.ft. There are 30 units in Celesta. Overall, there is 1 building.
-                        <button className="text-1 text-xs ml-2" onClick={toggleExpansion}>
-                            {isExpanded ? 'collapse' : 'More'}
-                        </button>
+                    <div className="relative flex items-start">
+                        <div className="flex-grow text-[12px] line-clamp-2 text-2 ">
+                            {projdata.description}
+                           
+                        </div>
+                       
                     </div>
-                    <button className={`text-1 text-xs ml-2 ${isExpanded ? "hidden" : ""}`} onClick={toggleExpansion}>
-                        {isExpanded ? 'collapse' : 'More'}
-                    </button>
-                </div>
 
              </div>
                 <div className='flex justify-between items-center mt-2  rounded-md px-1'>

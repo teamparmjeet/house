@@ -31,7 +31,7 @@ export default function Card() {
       {[...Array(3)].map((_, index) => (
 
         <Link key={index} href={`/page/singlepage/${index}`}>
-          <div  className="group bg-white overflow-hidden my-1 lg:mb-4 mx-3 backdrop-blur-md border  duration-150 ">
+          <div  className="group rounded-md bg-white overflow-hidden my-1 lg:mb-4 mx-3 backdrop-blur-md border  duration-150 ">
             <div className="overflow-hidden relative">
               <Image
                 className='object-cover h-60 w-full transition duration-300 ease-in-out transform group-hover:scale-105'

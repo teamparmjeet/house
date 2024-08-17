@@ -5,7 +5,8 @@ export const GET = async (request) => {
     await dbConnect();
   
     try {
-      const fetch = await ProjectModel.find({});
+     const fetch = await ProjectModel.find({ _id: { $exists: true } });
+
       return Response.json(
         {
           message: "All data fetched!",

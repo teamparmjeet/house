@@ -39,7 +39,7 @@ export default function MainPage() {
             <div>
               <div className=' relative'>
                 <h2 className=' font-bold text-white  text-2xl md:text-4xl'>Top Project</h2>
-                <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
+                <p className=' absolute -top-4  bg-1 rounded-full px-3 font-semibold text-xs text-white'>{location}</p>
               </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
@@ -61,7 +61,7 @@ export default function MainPage() {
             <div>
               <div className=' relative'>
                 <h2 className=' font-bold  text-2xl md:text-4xl'>Projects in Focus</h2>
-                <p className=' absolute -top-4   bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
+                <p className=' absolute -top-4  bg-1 rounded-full px-3 font-semibold text-xs text-white'>{location}</p>
               </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>
@@ -81,7 +81,7 @@ export default function MainPage() {
             <div>
               <div className=' relative'>
                 <h2 className=' font-bold text-white  text-2xl md:text-4xl'>Featured Project</h2>
-                <p className=' absolute -top-4  bg-1 rounded-md px-3 text-sm text-white'>{location}</p>
+                <p className=' absolute -top-4  bg-1 rounded-full px-3 font-semibold text-xs text-white'>{location}</p>
               </div>
               <div className=' bg-1 w-20 h-0.5 mt-2'></div>
             </div>

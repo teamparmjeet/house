@@ -12,7 +12,7 @@ export async function POST(req,res) {
         return Response.json({
             message: "Property Register",
             success: true,
-            data: newproject
+            data: { id: newproject._id }
         }, { status: 201 })
     } catch (error) {
         console.log(error)

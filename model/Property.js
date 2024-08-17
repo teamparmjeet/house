@@ -7,26 +7,22 @@ const ProjectSchema = new Schema(
             enum: ['Luxury', 'Affordable', 'Investment', 'Family', 'Starter'],
             required: true,
         },
-
-        description: { type: String},
         location: { type: String, required: true },
-        price: { type: Number, },
-
+        price: { type: Number },
         type: {
             type: String,
             enum: ['Apartment', 'House', 'Villa', 'Commercial', 'Land', 'Office'],
             required: true,
         },
 
-
-        fetureimage: [{ type: String, }],
-        images: [{ type: String, }],
+        featureImage: [{ type: String }],
+        images: [{ type: String }],
         bedrooms: { type: Number, default: 0 },
-        bathrooms: { type: Number, default: 0, },
-        size: { type: Number, default: 0, },
-        landSize: { type: Number, default: 0, },
-        yearBuilt: { type: Number, },
-        floor: { type: Number, default: 0, },
+        bathrooms: { type: Number, default: 0 },
+        size: { type: Number, default: 0 },
+        landSize: { type: Number, default: 0 },
+        yearBuilt: { type: Number },
+        floor: { type: Number, default: 0 },
         amenities: [{ type: String }],
         features: [{ type: String }],
 
@@ -39,7 +35,6 @@ const ProjectSchema = new Schema(
             type: String,
             enum: ['New Listing', 'Featured', 'Focus', 'Top Project', 'Reduced Price', 'Open House'],
         },
-
 
         address: {
             street: { type: String },
@@ -54,18 +49,31 @@ const ProjectSchema = new Schema(
         status: {
             type: String,
             enum: ['Available', 'Sold', 'Pending', 'Under Offer'],
-            default: 'Available'
+            default: 'Available',
         },
 
-        energyRating: { type: String, },
-        nearbyFacilities: [{ type: String, }],
-        parkingSpaces: { type: Number, default: 0, },
+        energyRating: { type: String },
+        nearbyFacilities: [{ type: String }],
+        parkingSpaces: { type: Number, default: 0 },
 
+        description: { type: String },// End
+        // Additional details
+        propertyType: { type: String },
+        yearRenovated: { type: Number },
+        hasGarage: { type: Boolean, default: false },
+        hasPool: { type: Boolean, default: false },
+        hasGarden: { type: Boolean, default: false },
+        heatingType: { type: String },
+        coolingType: { type: String },
+        securityFeatures: [{ type: String }],
+        flooringType: { type: String },
+        viewType: { type: String },
+        petFriendly: { type: Boolean, default: false },
     },
     { timestamps: true }
 );
 
 const ProjectModel =
-    mongoose.models.Project2 || mongoose.model("Project2", ProjectSchema);
+    mongoose.models.Project3 || mongoose.model("Project3", ProjectSchema);
 
-export default ProjectModel
+export default ProjectModel;

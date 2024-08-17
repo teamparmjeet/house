@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import AllProjectCard from "@/components/card/allprojectpage/Card"
+import AllProjectCard from "@/components/card/allprojectpage copy/Card"
 
 export default function Property() {
   const [project, setProject] = useState([]);

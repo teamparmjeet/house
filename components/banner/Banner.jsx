@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
-
+import Link from 'next/link';
 // Define an object with cities as keys and arrays of suggestions as values
 const citySuggestions = {
   Jaipur: ['Amber', 'City Palace', 'Hawa Mahal'],
@@ -118,7 +118,9 @@ export default function Banner({ title, location, setLocation }) {
         <div className='absolute bottom-0 mb-2 left-0 right-0 text-center'>
           <p className='bg-black/50 backdrop-blur-md inline text-white font-medium text-sm px-5 py-2 rounded-[30px]'>
             Are you an Owner?
+            <Link href="/page/auth/login">
             <span className='underline cursor-pointer ml-1 text-green-400'>Post property for free</span>
+            </Link>
           </p>
         </div>
       </div>
