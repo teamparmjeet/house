@@ -10,7 +10,7 @@ export default function Property() {
 
     const fetchproject = async () => {
       try {
-        const response = await axios.get('/api/project/fetchall');
+        const response = await axios.get('/api/project/fetchall/project');
         setProject(response.data.fetch);
       } catch (error) {
         console.error("Error fetching total properties:", error);

@@ -69,11 +69,12 @@ const ProjectSchema = new Schema(
         flooringType: { type: String },
         viewType: { type: String },
         petFriendly: { type: Boolean, default: false },
+        defaultdata: { type: String, required: true, default: "project" }
     },
     { timestamps: true }
 );
 
 const ProjectModel =
-    mongoose.models.Project3 || mongoose.model("Project3", ProjectSchema);
+    mongoose.models.Project4 || mongoose.model("Project4", ProjectSchema);
 
 export default ProjectModel;

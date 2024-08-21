@@ -28,19 +28,14 @@ export default function Navbar() {
 
 
 
-  //   { id: 2, title: "", path: "/", icon: <Heart color="white" size={14} /> },
-  //   { id: 3, title: "Service", path: "/" },
-  //   { id: 4, title: "About Us", path: "/" },
-  //   { id: 5, title: "", path: "/page/auth/login", icon: <User color="white" size={20} /> },
-
 
   return (
     <>
 
       <nav className={`z-50 left-0 right-0 ${scrolled ? 'bg-2 shadow-lg fixed top-0' : 'absolute bg-gradient-to-b from-black to-transparent'} transition-all duration-300`}>
         <div className="container w-[90%]  mx-auto">
-          <div className="flex justify-between isolate p-2">
-            <div className='bg-white order order-2 lg:order-1 rounded-md px-4 py-1 items-center flex'>
+          <div className="flex justify-between isolate p-1 md:p-2">
+            <div className='bg-white order order-3 lg:order-1 rounded-md px-4 py-1 items-center flex'>
               <Link href="/">
                 <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
               </Link>
@@ -91,7 +86,6 @@ export default function Navbar() {
 
               </ul>
 
-
               {show && (
                 <div
                   className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -99,7 +93,19 @@ export default function Navbar() {
                 />
               )}
             </div>
-          </div>
+
+
+            <div className='order-2 '>
+              <Link href="/page/auth/login" className='flex items-center gap-x-1 lg:hidden  text-white pr-3 py-1 rounded-full  transition duration-300 ease-in-out transform '>
+                <li className="cursor-pointer bg-white rounded-full p-2 inline-block shadow-md">
+                  <User color="#4A4A4A" size={16} />
+                </li>
+             
+              </Link>
+
+            </div>
+            
+            </div>
         </div>
       </nav>
 
