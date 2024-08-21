@@ -22,7 +22,7 @@ export const GET = async (request, context) => {
     return Response.json(
 
 
-        project,
+      { project: project },
 
       { status: 200 }
     );

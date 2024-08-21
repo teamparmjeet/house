@@ -11,7 +11,7 @@ import Carouselcard from "@/components/card/carouselcard/Carouselcard";
 
 import Button from "@/components/button/Btn";
 import Link from 'next/link';
-
+import Ping from '@/components/button/ping';
 export default function MainPage() {
   const [location, setLocation] = useState('Jaipur');
 
@@ -39,7 +39,7 @@ export default function MainPage() {
             <div>
               <div className=' relative'>
                 <h2 className=' font-bold   text-2xl md:text-4xl'>Top Project</h2>
-                <p className=' absolute -top-4  bg-2 rounded-full px-3 font-semibold text-xs text-white'>{location}</p>
+              <Ping location={location}/>
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
@@ -61,7 +61,7 @@ export default function MainPage() {
             <div>
               <div className=' relative'>
                 <h2 className=' font-bold  text-2xl md:text-4xl'>Projects in Focus</h2>
-                <p className=' absolute -top-4  bg-2 rounded-full px-3 font-semibold text-xs text-white'>{location}</p>
+                <Ping location={location}/>
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
@@ -81,7 +81,7 @@ export default function MainPage() {
             <div>
               <div className=' relative'>
                 <h2 className=' font-bold  text-2xl md:text-4xl'>Featured Project</h2>
-                <p className=' absolute -top-4  bg-2 rounded-full px-3 font-semibold text-xs text-white'>{location}</p>
+                <Ping location={location}/>
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
@@ -101,7 +101,7 @@ export default function MainPage() {
             <div>
               <div className=' relative'>
                 <h2 className=' font-bold  text-2xl md:text-4xl'>Featured Collections</h2>
-                <p className=' absolute -top-4  bg-2 rounded-full px-3 font-semibold text-xs text-white'>{location}</p>
+                <Ping location={location}/>
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>

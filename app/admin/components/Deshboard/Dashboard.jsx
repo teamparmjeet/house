@@ -24,9 +24,10 @@ export default function Dashboard() {
     }, []);
     return (
         <div className="">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">
-                Welcome, {session?.user?.name}
+            <h2 className="text-4xl font-extrabold mb-8  bg-gray-100 p-4 rounded-lg shadow-lg">
+                Welcome, <span className="text-2">{session?.user?.name}</span>
             </h2>
+
 
             <div className="bg-white p-8 rounded-xl shadow-lg">
 
@@ -44,7 +45,7 @@ export default function Dashboard() {
                         </div>
                     </Link>
 
-                    
+
 
                 </div>
             </div>

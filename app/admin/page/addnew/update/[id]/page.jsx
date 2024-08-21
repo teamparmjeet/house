@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
+import AddImage from '@/app/admin/components/image/AddImage';
 export default function Home({ params }) {
     const id = params.id;
     const [featureImages, setFeatureImages] = useState([]);
@@ -79,7 +80,7 @@ export default function Home({ params }) {
         }
 
         try {
-            const response = await axios.patch("/api/project/update", {
+            const response = await axios.patch("/api/project/updateimage", {
                 id,
                 featureImage: uploadFeatureImageUrls,
                 images: uploadedImageUrls,
@@ -116,92 +117,104 @@ export default function Home({ params }) {
 
 
     return (
-        <div className="flex flex-col items-center justify-center p-6 bg-gray-100">
+        <>
             <ToastContainer />
-            <h1 className="text-3xl font-extrabold mb-6 text-gray-800">Upload and Manage Your Images</h1>
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
-                <div className="mb-6">
-                    <label className="block text-lg font-medium text-gray-700 mb-2">Feature Images:</label>
-                    <input
-                        type="file"
-                        multiple
-                        onChange={handleFeatureImagesChange}
-                        disabled={uploading}
-                        className="p-2 border border-gray-300 rounded-md"
-                    />
-                    <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                        {featureImagePreviews.map((preview, index) => (
-                            <div key={index} className="relative">
-                                <Image src={preview} alt={`Feature preview ${index}`} width={200} height={200} className="w-full h-32 object-cover rounded-md border border-gray-300 shadow-sm" />
-                                <button
-                                    onClick={() => handleDeleteFeatureImage(index)}
+            <div className="">
+              
+                <div className='  overflow-hidden'>
+                    <div className=" items-center justify-center p-6 bg-gray-100">
+
+                        <h1 className="text-3xl font-extrabold mb-6 text-gray-800">Upload Your Images</h1>
+                        <div className="bg-white p-8 rounded-lg shadow-lg w-full ">
+                            <div className="">
+                                <label className="block text-lg font-medium text-gray-700 mb-2">Feature Images:</label>
+                                <input
+                                    type="file"
+                                    multiple
+                                    onChange={handleFeatureImagesChange}
                                     disabled={uploading}
-                                    className="absolute top-2 right-2 bg-red-600 text-white p-1 rounded-full shadow-md hover:bg-red-700"
-                                >
-                                    &times;
-                                </button>
+                                    className=" file:border-0 border rounded-md file:bg-blue-600 file:text-white"
+                                />
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {featureImagePreviews.map((preview, index) => (
+                                        <div key={index} className="relative">
+                                            <Image src={preview} alt={`Feature preview ${index}`} width={10} height={10} className=" h-28 w-28 object-cover rounded-md border border-gray-300 shadow-sm" />
+                                            <button
+                                                onClick={() => handleDeleteFeatureImage(index)}
+                                                disabled={uploading}
+                                                className="absolute top-2 right-2 bg-red-600 text-white p-1 w-5 h-5 flex justify-center items-center rounded-full shadow-md hover:bg-red-700"
+                                            >
+                                                &times;
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="mb-6">
-                    <label className="block text-lg font-medium text-gray-700 mb-2">Additional Images:</label>
-                    <input
-                        type="file"
-                        multiple
-                        onChange={handleImagesChange}
-                        disabled={uploading}
-                        className="p-2 border border-gray-300 rounded-md"
-                    />
-                    <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                        {imagePreviews.map((preview, index) => (
-                            <div key={index} className="relative">
-                                <Image src={preview} alt={`Image preview ${index}`} width={200} height={200} className="w-full h-32 object-cover rounded-md border border-gray-300 shadow-sm" />
-                                <button
-                                    onClick={() => handleDeleteImage(index)}
+                            <div className="mb-2">
+                                <label className="block text-lg font-medium text-gray-700 mb-2">Additional Images:</label>
+                                <input
+                                    type="file"
+                                    multiple
+                                    onChange={handleImagesChange}
                                     disabled={uploading}
-                                    className="absolute top-2 right-2 bg-red-600 text-white p-1 rounded-full shadow-md hover:bg-red-700"
-                                >
-                                    &times;
-                                </button>
+                                    className=" file:border-0 border rounded-md file:bg-blue-600 file:text-white"
+                                />
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {imagePreviews.map((preview, index) => (
+                                        <div key={index} className="relative">
+                                            <Image src={preview} alt={`Image preview ${index}`} width={10} height={10} className=" h-28 w-28 object-cover rounded-md border border-gray-300 shadow-sm" />
+                                            <button
+                                                onClick={() => handleDeleteImage(index)}
+                                                disabled={uploading}
+                                                className="absolute top-2 right-2 bg-red-600  w-5 h-5 flex justify-center items-center text-white p-1 rounded-full shadow-md hover:bg-red-700"
+                                            >
+                                                &times;
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-                <button
-                    onClick={handleUpload}
-                    disabled={uploading}
-                    className={`py-3 px-6 text-white font-semibold rounded-md flex items-center justify-center ${uploading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'}`}
-                >
-                    {uploading ? (
-                        <div className="flex items-center">
-                            <svg
-                                className="animate-spin h-6 w-6 text-white mr-2"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
+                            <button
+                                onClick={handleUpload}
+                                disabled={uploading}
+                                className={`py-1 px-6  w-full    text-white font-semibold rounded-md flex items-center justify-center ${uploading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'}`}
                             >
-                                <circle
-                                    className="opacity-25"
-                                    cx="12"
-                                    cy="12"
-                                    r="10"
-                                    stroke="currentColor"
-                                    strokeWidth="4"
-                                ></circle>
-                                <path
-                                    className="opacity-75"
-                                    fill="currentColor"
-                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 2.71 1.11 5.17 2.906 6.906l1.094-1.615z"
-                                ></path>
-                            </svg>
-                            Uploading...
+                                {uploading ? (
+                                    <div className="flex items-center">
+                                        <svg
+                                            className="animate-spin h-6 w-6 text-white mr-2"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <circle
+                                                className="opacity-25"
+                                                cx="12"
+                                                cy="12"
+                                                r="10"
+                                                stroke="currentColor"
+                                                strokeWidth="4"
+                                            ></circle>
+                                            <path
+                                                className="opacity-75"
+                                                fill="currentColor"
+                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 2.71 1.11 5.17 2.906 6.906l1.094-1.615z"
+                                            ></path>
+                                        </svg>
+                                        Uploading...
+                                    </div>
+                                ) : (
+                                    'Upload'
+                                )}
+                            </button>
                         </div>
-                    ) : (
-                        'Upload'
-                    )}
-                </button>
+                    </div>
+                </div>
+                <div className='  border'>
+                    <AddImage id={`${id}`}/>
+                </div>
             </div>
-        </div>
+
+        </>
     );
 }
