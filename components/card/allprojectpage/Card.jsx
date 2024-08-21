@@ -22,11 +22,11 @@ export default function Card({projdata}) {
              <div>
              <div className='flex flex-wrap gap-x-2 items-center'>
                     <h4 className='text-sm font-semibold'>₹1.08 Cr - 1.17 Cr</h4>
-                    <p className='text-xs text-1 font-medium'>EMI starts at ₹53.62 K</p>
+                    <p className='text-xs text-2 font-medium'>EMI starts at ₹53.62 K</p>
                 </div>
                 <div className='text-xs font-medium flex gap-x-2 items-center mt-1'>
-                    <span className='font-semibold text-2'>Celesta</span>
-                    <div className='h-4 gap-x-1 bg-1 px-1 flex items-center text-white rounded'>5 <StarIcon width={10} color='white' /></div>
+                    <span className='font-semibold '>Celesta</span>
+                    <div className='h-4 gap-x-1 bg-2 px-1 flex items-center text-white rounded'>5 <StarIcon width={10} color='white' /></div>
                     <div className='h-4 bg-gray-200 text-2 font-semibold text-[10px] flex items-center gap-x-1 rounded-md px-1'>RERA <Check width={12} color='green' /></div>
                 </div>
                 <p className=' font-semibold text-[11px]'>By Kohinoor Buildcom</p>
@@ -62,15 +62,11 @@ export default function Card({projdata}) {
                     </div>
                 </div>
                 <div className="relative flex items-start">
-                    <div className={`flex-grow text-[12px] z-40 text-2 ${isExpanded ? 'absolute -top-12  p-2 bg-white shadow' : 'line-clamp-1'}`}>
+                    <div className={`flex-grow text-[12px] z-40  ${isExpanded ? 'absolute -top-12  p-2 bg-white shadow' : 'line-clamp-1'}`}>
                         Kohinoor Buildcom has launched Celesta in Vaishali Nagar, Jaipur. A residential project spread over 0.22 Acres, it offers ample amount of facilities for residents. The project was launched in May 2023. It offers Ready to Move units. Popular configurations include 3 BHK units. As per the area plan, units are in the size range of 1442.0 - 1560.0 sq.ft. There are 30 units in Celesta. Overall, there is 1 building.
-                        <button className="text-1 text-xs ml-2" onClick={toggleExpansion}>
-                            {isExpanded ? 'collapse' : 'More'}
-                        </button>
+                       
                     </div>
-                    <button className={`text-1 text-xs ml-2 ${isExpanded ? "hidden" : ""}`} onClick={toggleExpansion}>
-                        {isExpanded ? 'collapse' : 'More'}
-                    </button>
+                  
                 </div>
 
              </div>

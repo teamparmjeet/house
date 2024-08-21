@@ -50,11 +50,11 @@ export default function Banner({ title, location, setLocation }) {
 
   return (
     <div className='relative h-full bg-banner overflow-hidden '>
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-[#222]/50 rounded-md"></div>
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-transparent to-black rounded-md"></div>
       <div className='relative container mx-auto overflow-hidden h-full'>
         <div className='absolute bottom-0 left-0 right-0'>
           <div className='mx-auto lg:w-3/5 mb-10 md:mb-24'>
-            <h1 className="text-white md:text-5xl text-3xl mb-5 text-center md:text-left font-extrabold">
+            <h1 className="text-white text-1 md:text-5xl text-3xl mb-5 text-center md:text-left font-extrabold">
               {title} in <span className="">{location}</span>
             </h1>
 
@@ -119,7 +119,7 @@ export default function Banner({ title, location, setLocation }) {
           <p className='bg-black/50 backdrop-blur-md inline text-white font-medium text-sm px-5 py-2 rounded-[30px]'>
             Are you an Owner?
             <Link href="/page/auth/login">
-            <span className='underline cursor-pointer ml-1 text-green-400'>Post property for free</span>
+            <span className='underline cursor-pointer ml-1 text-1'>Post property for free</span>
             </Link>
           </p>
         </div>

@@ -1,16 +1,29 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Image from 'next/image';
 import { Heart, Menu, XCircleIcon,User } from 'lucide-react';
 import Link from 'next/link';
 export default function Navbar() {
   const [show, setShow] = useState(false);
-
+  const [scrolled, setScrolled] = useState(false);
   const handleToggle = () => {
     setShow(!show);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const links = [
     { id: 1, title: "Home", path: "/" },
@@ -23,7 +36,7 @@ export default function Navbar() {
   return (
     <>
 
-      <nav className={`fixed z-50 left-0 bg-2 right-0   `}>
+      <nav className={` z-50 left-0  right-0  ${scrolled ? 'bg-2 fixed shadow-lg' : ' absolute bg-gradient-to-b from-black to-transparent'} `}>
         <div className="container w-[90%]  mx-auto">
           <div className="flex justify-between isolate p-2">
             <div className='bg-white order order-2 lg:order-1 rounded-md px-4 py-1 items-center flex'>
@@ -47,7 +60,7 @@ export default function Navbar() {
                 </button>
                 {links.map((item) => (
                   <Link key={item.id} href={item.path}>
-                    <li className="text-sm border-b lg:border-0 hover:text-[#aa8453] cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
+                    <li className="text-sm font-semibold border-b lg:border-0 hover:text-[#aa8453] cursor-pointer rounded-md flex items-center gap-1 pt-4 px-2 lg:m-0 mt-2 pb-1 lg:p-0">
                       {item.icon}
                       {item.title}
                     </li>

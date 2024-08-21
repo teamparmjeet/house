@@ -76,7 +76,7 @@ export default function Collectionproject({ params }) {
                             <div className='bg-gray-100 rounded-t-md pb-2 px-4'>
                                 <div className='flex flex-col md:flex-row md:justify-between md:items-center'>
                                     <div className='mb-0 md:mb-2'>
-                                        <p className='text-gray-600 text-1 text-xs md:text-sm'>Showing {startIndex + 1} - {Math.min(startIndex + itemsPerPage, items.length)} of {items.length}</p>
+                                        <p className='text-gray-600 text-2 text-xs md:text-sm'>Showing {startIndex + 1} - {Math.min(startIndex + itemsPerPage, items.length)} of {items.length}</p>
                                         <p className='text-sm md:text-lg font-semibold'>{title} Project in Jaipur</p>
                                     </div>
                                     <div className='flex justify-between md:justify-end w-full md:w-fit flex-row md:items-center gap-y-2 md:gap-x-4'>
@@ -91,9 +91,9 @@ export default function Collectionproject({ params }) {
                                             </select>
                                         </div>
                                         <div className='flex gap-1 md:gap-2 mt-2 md:mt-0'>
-                                            <button onClick={handlePrevPage} className='bg-[#b7986e] hover:bg-[#aa8453] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize' disabled={currentPage === 1}>Prev</button>
-                                            <button className='bg-[#aa8453] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize'>{currentPage}</button>
-                                            <button onClick={handleNextPage} className='bg-[#b7986e] hover:bg-[#aa8453] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize' disabled={currentPage === totalPages}>Next</button>
+                                            <button onClick={handlePrevPage} className='bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize' disabled={currentPage === 1}>Prev</button>
+                                            <button className='bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize'>{currentPage}</button>
+                                            <button onClick={handleNextPage} className='bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize' disabled={currentPage === totalPages}>Next</button>
                                         </div>
                                     </div>
                                 </div>

@@ -36,7 +36,7 @@ export default function Card() {
 
                 <div key={index} className=' flex justify-between items-end bg-white rounded-md border p-2 mx-2'>
                     <div>
-                        <p className=' text-sm font-semibold text-1'>School</p>
+                        <p className=' text-sm font-semibold text-2'>School</p>
                         <p> The santa kidz school</p>
                     </div>
                     <div>

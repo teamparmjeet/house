@@ -9,7 +9,7 @@ export default function Overview() {
 
                 <div className=' p-2 lg:col-span-1 md:col-span-1 flex items-center gap-x-2 border rounded-md'>
                     <div>
-                        <Square width={20} color='#aa8453' />
+                        <Square width={20} color='#0078db' />
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Project Area</p>
@@ -19,7 +19,7 @@ export default function Overview() {
 
                 <div className=' p-2 lg:col-span-1 md:col-span-1 flex items-center gap-x-2 border rounded-md'>
                     <div>
-                        <SquareChartGantt width={20} color='#aa8453' />
+                        <SquareChartGantt width={20} color='#0078db' />
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Sizes</p>
@@ -29,7 +29,7 @@ export default function Overview() {
 
                 <div className=' p-2 lg:col-span-1 md:col-span-1 flex items-center gap-x-2 border rounded-md'>
                     <div>
-                        <Building width={20} color='#aa8453' />
+                        <Building width={20} color='#0078db' />
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Project Size</p>
@@ -39,7 +39,7 @@ export default function Overview() {
 
                 <div className=' p-2 lg:col-span-1 md:col-span-1 flex items-center gap-x-2 border rounded-md'>
                     <div>
-                        <Calendar width={20} color='#aa8453' />
+                        <Calendar width={20} color='#0078db' />
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Launch Date</p>
@@ -49,7 +49,7 @@ export default function Overview() {
 
                 <div className=' p-2 lg:col-span-1 md:col-span-1 flex items-center gap-x-2 border rounded-md'>
                     <div>
-                        <IndianRupee width={20} color='#aa8453' />
+                        <IndianRupee width={20} color='#0078db' />
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Avg. Price</p>
@@ -59,7 +59,7 @@ export default function Overview() {
 
                 <div className=' p-2 lg:col-span-1 md:col-span-1 flex items-center gap-x-2 border rounded-md'>
                     <div>
-                        <SquareChartGantt width={20} color='#aa8453' />
+                        <SquareChartGantt width={20} color='#0078db' />
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Possession Status</p>
@@ -69,7 +69,7 @@ export default function Overview() {
 
                 <div className=' p-2 lg:col-span-1 md:col-span-1 flex items-center gap-x-2 border rounded-md'>
                     <div>
-                        <Box width={20} color='#aa8453' />
+                        <Box width={20} color='#0078db' />
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Configurations</p>

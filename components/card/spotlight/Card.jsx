@@ -33,26 +33,26 @@ export default function Card() {
 
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
                 <Link href={`/page/singlepage/id`}>
-                    <div className="rounded-2xl group overflow-hidden mx-2 bg-white grid lg:grid-cols-7">
+                    <div className="rounded-2xl border-2 group overflow-hidden mx-2 bg-white grid lg:grid-cols-7">
                         <div className="lg:col-span-2 order-2 lg:order-1 flex flex-col p-4 lg:p-6">
-                            <div className='flex  bg-3 p-3 justify-center'>
+                            <div className='flex  bg-1 p-3 justify-center'>
                                 <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" className='rounded-md' width={80} height={80} />
 
                             </div>
 
                             <div className='p-4'>
-                                <h3 className='text-2xl font-bold text-1 mb-2'>₹ 39.9 L</h3>
-                                <p className='font-semibold text-lg text-2 mb-4'>Samanvay Group</p>
+                                <h3 className='text-2xl font-bold text-2 mb-2'>₹ 39.9 L</h3>
+                                <p className='font-semibold text-lg mb-4'>Samanvay Group</p>
                                 <div className='flex items-center gap-x-2 mb-4'>
                                     <LocateIcon width={15} color='#aa8453' />
-                                    <span className='text-sm text-2 font-medium'>2305 Frog Lane Overlandpk, MO 66210</span>
+                                    <span className='text-sm  font-medium'>2305 Frog Lane Overlandpk, MO 66210</span>
                                 </div>
-                                <div className="flex gap-x-6 mb-4">
-                                    <div className='flex items-center gap-x-1'><Bed width={15} color='#222' /><span className='text-sm text-2'>2</span></div>
-                                    <div className='flex items-center gap-x-1'><Bath width={15} color='#222' /><span className='text-sm text-2'>1</span></div>
-                                    <div className='flex items-center gap-x-1'><Square width={15} color='#222' /><span className='text-sm text-2'>1200 SQFT</span></div>
+                                <div className="flex gap-x-4 mb-4">
+                                    <div className='flex items-center gap-x-1'><Bed width={15} color='#0078db' /><span className='text-sm'>2</span></div>
+                                    <div className='flex items-center gap-x-1'><Bath width={15} color='#0078db' /><span className='text-sm'>1</span></div>
+                                    <div className='flex items-center gap-x-1'><Square width={15} color='#0078db' /><span className='text-sm'>1200 SQFT</span></div>
                                 </div>
-                                <button className='bg-1 text-white rounded-lg px-4 py-2 w-full font-medium'>
+                                <button className='bg-2 text-white rounded-lg px-4 py-2 w-full font-medium'>
                                     Contact
                                 </button>
                             </div>

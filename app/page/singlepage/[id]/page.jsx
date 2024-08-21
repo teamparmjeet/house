@@ -16,13 +16,13 @@ export default function SinglePage({ params }) {
                 <div className="flex justify-between  md:mt-8 md:mb-5 mb-2">
                     <div>
                         <h1 className=' text-xl md:text-3xl font-semibold md:mb-2'>Royal Gravitaz</h1>
-                        <p className=' text-gray-600 text-sm font-semibold md:mb-1'>By <span className=' text-1'>Ganga Kotecha Group</span></p>
+                        <p className=' text-gray-600 text-sm font-semibold md:mb-1'>By <span className=' text-2'>Ganga Kotecha Group</span></p>
                         <p className=' text-gray-500 text-sm font-semibold'>Vaishali Nagar, Jaipur</p>
                     </div>
 
                     <div>
                         <h2 className=' text-xl md:text-3xl font-semibold md:mb-2 text-end'>₹ 41.82 L</h2>
-                        <p className=' text-1  text-sm font-semibold text-end'>EMI starts at ₹22.15 K</p>
+                        <p className=' text-2  text-sm font-semibold text-end'>EMI starts at ₹22.15 K</p>
                         <div className=' hidden md:block'>
                             <Btn3 title="Contact Developers" icon={<Phone width={20} />} />
                         </div>

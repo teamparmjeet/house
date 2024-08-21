@@ -4,10 +4,10 @@
 
 
 :root {
-    --color-primary: #aa8453;
-    --color-secondary: #222;
-    --color-tertiary: #f8f5f0;
-    --color-quaternary: #b7986e;
+    --color-primary: #fff5e4;
+    --color-secondary: #0078db;
+    --color-tertiary: rgb(240, 249, 255);
+    --color-quaternary: rgba(215, 242, 227, .5);
   }
 
 .bg-1{background-color: var(--color-primary);}
@@ -32,7 +32,7 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #aa8453; 
+    background: #0078db; 
     border-radius: 10px;
   }
 
