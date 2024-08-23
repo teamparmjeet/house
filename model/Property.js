@@ -14,44 +14,44 @@ const ProjectSchema = new Schema(
             enum: ['Apartment', 'House', 'Villa', 'Commercial', 'Land', 'Office'],
             required: true,
         },
-
         featureImage: [{ type: String }],
         images: [{ type: String }],
+       
+        address: {
+            houseNumber: { type: String },
+            colony: { type: String },
+            area: { type: String },
+            landmark: { type: String },
+            city: { type: String },
+            pincode: { type: String },
+            state: { type: String },
+            country: { type: String, default: 'India' },
+        },
+
+        size: { type: Number, default: 0 },
+        floor: { type: Number, default: 0 },
         bedrooms: { type: Number, default: 0 },
         bathrooms: { type: Number, default: 0 },
-        size: { type: Number, default: 0 },
         landSize: { type: Number, default: 0 },
         yearBuilt: { type: Number },
-        floor: { type: Number, default: 0 },
-        amenities: [{ type: String }],
-        features: [{ type: String }],
-
         category: {
             type: String,
             enum: ['Luxury', 'Affordable', 'Investment', 'Family', 'Starter'],
         },
-
-        listingType: {
-            type: String,
-            enum: ['New Listing', 'Featured', 'Focus', 'Top Project', 'Reduced Price', 'Open House'],
-        },
-
-        address: {
-            street: { type: String },
-            city: { type: String },
-            state: { type: String },
-            zipCode: { type: String },
-            country: { type: String },
-        },
-
-        dateListed: { type: Date, default: Date.now },
-
         status: {
             type: String,
             enum: ['Available', 'Sold', 'Pending', 'Under Offer'],
             default: 'Available',
         },
 
+ //
+        amenities: [{ type: String }],
+        features: [{ type: String }],
+        listingType: {
+            type: String,
+            enum: ['New Listing', 'Featured', 'Focus', 'Top Project', 'Reduced Price', 'Open House'],
+        },
+        dateListed: { type: Date, default: Date.now },
         energyRating: { type: String },
         nearbyFacilities: [{ type: String }],
         parkingSpaces: { type: Number, default: 0 },
@@ -75,6 +75,6 @@ const ProjectSchema = new Schema(
 );
 
 const ProjectModel =
-    mongoose.models.Project4 || mongoose.model("Project4", ProjectSchema);
+    mongoose.models.Project5 || mongoose.model("Project5", ProjectSchema);
 
 export default ProjectModel;

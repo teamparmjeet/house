@@ -22,11 +22,14 @@ export default function Property() {
   }, []);
   return (
     <>
-      {project.map((project, index) => (
-        <div key={index}>
-          <AllProjectCard projdata={project}/>
-        </div>
-      ))}
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-2">
+
+        {project.map((project, index) => (
+          <div key={index}>
+            <AllProjectCard projdata={project} />
+          </div>
+        ))}
+      </div>
 
 
     </>

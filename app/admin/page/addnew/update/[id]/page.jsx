@@ -5,7 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 import AddImage from '@/app/admin/components/image/AddImage';
-export default function Home({ params }) {
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+export default function Update({ params }) {
     const id = params.id;
     const [featureImages, setFeatureImages] = useState([]);
     const [images, setImages] = useState([]);
@@ -120,11 +122,18 @@ export default function Home({ params }) {
         <>
             <ToastContainer />
             <div className="">
-              
+
                 <div className='  overflow-hidden'>
                     <div className=" items-center justify-center p-6 bg-gray-100">
 
-                        <h1 className="text-3xl font-extrabold mb-6 text-gray-800">Upload Your Images</h1>
+                        <div className=' flex justify-end'>
+                            <Link href={`../update2/${id}`}>
+                            
+                            <div className=' flex items-center justify-center bg-2 text-white font-semibold px-4 rounded-md'>Next <ArrowRight width={20} /></div>
+                            </Link>
+                        </div>
+                        <h1 className="text-3xl font-extrabold mb-6 text-gray-800">Upload and Manage Your Images</h1>
+
                         <div className="bg-white p-8 rounded-lg shadow-lg w-full ">
                             <div className="">
                                 <label className="block text-lg font-medium text-gray-700 mb-2">Feature Images:</label>
@@ -211,7 +220,7 @@ export default function Home({ params }) {
                     </div>
                 </div>
                 <div className='  border'>
-                    <AddImage id={`${id}`}/>
+                    <AddImage id={`${id}`} />
                 </div>
             </div>
 

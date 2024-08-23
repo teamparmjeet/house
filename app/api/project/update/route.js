@@ -3,7 +3,6 @@ import ProjectModel from "@/model/Property";
 
 export const PATCH = async (request) => {
     await dbConnect();
-console.log("object",request)
     try {
         const data = await request.json();
 
@@ -19,7 +18,10 @@ console.log("object",request)
             );
         }
 
-        await ProjectModel.updateOne(data);
+        await ProjectModel.updateOne(
+            { _id: data.id },
+            { $set: data }   
+        );
 
         return new Response(
             JSON.stringify({
