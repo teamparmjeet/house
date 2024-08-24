@@ -24,7 +24,7 @@ export default function MainPage() {
         <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
-              <h2 className=' font-bold  text-2xl md:text-4xl'>In Spotlight</h2>
+              <h2 className='   text-2xl md:text-4xl'>In <span className='font-bold'> Spotlight</span> </h2>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
 
@@ -38,8 +38,9 @@ export default function MainPage() {
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <div className=' relative'>
-                <h2 className=' font-bold   text-2xl md:text-4xl'>Top Project</h2>
               <Ping location={location}/>
+                <h2 className='  text-2xl md:text-4xl'>Top <span className='font-bold'>Project</span></h2>
+             
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
@@ -60,8 +61,9 @@ export default function MainPage() {
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <div className=' relative'>
-                <h2 className=' font-bold  text-2xl md:text-4xl'>Projects in Focus</h2>
-                <Ping location={location}/>
+              <Ping location={location}/>
+                <h2 className='text-2xl md:text-4xl'>Projects <span className='font-bold'>in Focus</span></h2>
+                
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
@@ -80,8 +82,9 @@ export default function MainPage() {
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <div className=' relative'>
-                <h2 className=' font-bold  text-2xl md:text-4xl'>Featured Project</h2>
-                <Ping location={location}/>
+              <Ping location={location}/>
+                <h2 className=' text-2xl md:text-4xl'>Featured <span className='font-bold'>Project</span></h2>
+               
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
@@ -100,8 +103,9 @@ export default function MainPage() {
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <div className=' relative'>
-                <h2 className=' font-bold  text-2xl md:text-4xl'>Featured Collections</h2>
-                <Ping location={location}/>
+              <Ping location={location}/>
+                <h2 className='text-2xl md:text-4xl'>Featured <span className='font-bold'>Collections</span></h2>
+               
               </div>
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>

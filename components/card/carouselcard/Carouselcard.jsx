@@ -43,7 +43,7 @@ export default function Card() {
               <div className="absolute bg-gradient-to-b from-transparent   via-transparent to-black/70 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
 
               </div>
-              <button className=' absolute top-0 left-0 m-3  bg-black/70 text-1  rounded-full px-3 font-bold text-sm '>For Sale</button>
+              <button className=' absolute top-0 left-0 m-3  bg-black/70 text-1  rounded-full px-3 py-1 font-bold text-[10px] '>For Sale</button>
               <button className=' absolute bottom-0 left-0 m-3  h-6 text-sm px-2  text-white flex items-center gap-x-2 '><Home color='#0078db' width={20} />Appartment</button>
 
             </div>
@@ -64,7 +64,7 @@ export default function Card() {
                 </div>
                 <div className='border-t  flex justify-between items-center p-4'>
                   <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
-                  <span className='text-sm font-semibold'>2 Months Ago</span>
+                  <span className='text-sm '>2 Months Ago</span>
                 </div>
               </div>
             </div>

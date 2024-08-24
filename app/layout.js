@@ -1,8 +1,10 @@
-import { Barlow } from "next/font/google";
+import { Roboto } from 'next/font/google'
+ 
+
 import "./globals.css";
 
 import { AuthProvider } from "./Providers";
-const roboto = Barlow({
+const roboto = Roboto({
   weight: '400',
   subsets: ['latin'],
 })
