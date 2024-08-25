@@ -22,7 +22,7 @@ export default function Property() {
   }, []);
   return (
     <>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-2">
+      <div className="grid lg:grid-cols-3 p-3 md:grid-cols-2 gap-2">
 
         {project.map((project, index) => (
           <div key={index}>

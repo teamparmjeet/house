@@ -23,7 +23,7 @@ export default function Dashboard() {
 
     }, []);
     return (
-        <div className="">
+        <div className="p-3">
             <h2 className="text-4xl font-extrabold mb-8  bg-gray-100 p-4 rounded-lg shadow-lg">
                 Welcome, <span className="text-2">{session?.user?.name}</span>
             </h2>

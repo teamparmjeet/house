@@ -5,7 +5,7 @@
 
 :root {
     --color-primary: #fff5e4;
-    --color-secondary: #0078db;
+    --color-secondary: #005ca8;
     --color-tertiary: rgb(240, 249, 255);
     --color-quaternary: rgba(215, 242, 227, .5);
   }
@@ -32,7 +32,7 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #0078db; 
+    background: #005ca8; 
     border-radius: 10px;
   }
 
