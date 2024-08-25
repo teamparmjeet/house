@@ -120,3 +120,39 @@
   .shimmer-animation {
     animation: shimmer 2s infinite;
   }
+  /* Dropdown styling */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #444;
+}
+
+/* Show dropdown on hover */
+.navbar-item:hover .dropdown-menu {
+  display: block;
+}
+
+/* Mobile-specific styling */
+@media (max-width: 1024px) {
+  .dropdown-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}

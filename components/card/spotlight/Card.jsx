@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { Bed, Bath, Square, LocateIcon, Home } from 'lucide-react';
+import { BedDouble, Bath, PencilRuler, MapPinned, Home } from 'lucide-react';
 import Link from 'next/link';
 export default function Card() {
 
@@ -44,14 +44,30 @@ export default function Card() {
                                 <h3 className='text-2xl font-bold text-2 mb-2'>₹ 39.9 L</h3>
                                 <p className='font-semibold text-lg mb-4'>Samanvay Group</p>
                                 <div className='flex items-center gap-x-2 mb-4'>
-                                    <LocateIcon width={15} color='#aa8453' />
-                                    <span className='text-sm  font-medium'>2305 Frog Lane Overlandpk, MO 66210</span>
+                                    <MapPinned width={18} color='#aa8453' />
+                                    <span className='text-[12px]  font-medium'>2305 Frog Lane Overlandpk, MO 66210</span>
                                 </div>
                                 <div className="flex gap-x-4 mb-4">
-                                    <div className='flex items-center gap-x-1'><Bed width={15} color='#0078db' /><span className='text-sm'>2</span></div>
-                                    <div className='flex items-center gap-x-1'><Bath width={15} color='#0078db' /><span className='text-sm'>1</span></div>
-                                    <div className='flex items-center gap-x-1'><Square width={15} color='#0078db' /><span className='text-sm'>1200 SQFT</span></div>
+                                    <div className='flex items-center gap-x-1'>
+                                        <div className='flex items-center justify-center w-6 h-6 bg-[#ffaa3e] rounded-full'>
+                                            <BedDouble  width={12} color='#fff' />
+                                        </div>
+                                        <span  className='text-[12px] ms-1'>2</span>
+                                    </div>
+                                    <div className='flex items-center gap-x-1'>
+                                        <div className='flex items-center justify-center w-6 h-6 bg-[#ffaa3e] rounded-full'>
+                                            <Bath width={12} color='#fff' />
+                                        </div>
+                                        <span className='text-[12px] ms-1'>1</span>
+                                    </div>
+                                    <div className='flex items-center gap-x-1'>
+                                        <div className='flex items-center justify-center w-6 h-6 bg-[#ffaa3e] rounded-full'>
+                                            <PencilRuler width={12} color='#fff' />
+                                        </div>
+                                        <span className='text-[12px] ms-1'>1200 SQFT</span>
+                                    </div>
                                 </div>
+
                                 <button className='bg-2 text-white rounded-lg px-4 py-2 w-full font-medium'>
                                     Contact
                                 </button>

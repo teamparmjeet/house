@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { Bed, Bath, Square, LocateIcon, Home } from 'lucide-react';
+import { BedDouble, Bath, PencilRuler, MapPinned, Home } from 'lucide-react';
 import Link from 'next/link';
 export default function Card() {
 
@@ -40,7 +40,7 @@ export default function Card() {
                 width={400}
                 height={300}
               />
-              <div className="absolute bg-gradient-to-b from-transparent   via-transparent to-black/70 top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
+              <div className="absolute  bg-gradient-to-t from-black   top-0 bottom-0 left-0 right-0 flex justify-center items-center duration-300">
 
               </div>
               <button className=' absolute top-0 left-0 m-3  bg-black/70 text-1  rounded-full px-3 py-1 font-bold text-[10px] '>For Sale</button>
@@ -53,18 +53,33 @@ export default function Card() {
                   <h3 className='text-xl font-bold text-'>₹ 39.9 L</h3>
                   <p className='font-semibold text-lg '>Samanvay Group</p>
                   <div className='flex items-center gap-x-2 mt-2 mb-1'>
-                    <LocateIcon width={15} color='#0078db' />
+                    <MapPinned  width={18} color='#0078db' />
                     <span className='text-sm  font-medium'>2305 Frog Lane Overlandpk, MO 66210</span>
                   </div>
                   <div className="flex gap-x-4 mt-3">
-                    <div className='flex items-center gap-x-1'><Bed width={15} color='#0078db' /><span className='text-sm'>2</span></div>
-                    <div className='flex items-center gap-x-1'><Bath width={15} color='#0078db' /><span className='text-sm'>1</span></div>
-                    <div className='flex items-center gap-x-1'><Square width={15} color='#0078db' /><span className='text-sm'>1200 SQFT</span></div>
-                  </div>
+                                    <div className='flex items-center gap-x-1'>
+                                        <div className='flex items-center justify-center w-6 h-6 bg-[#ffaa3e] rounded-full'>
+                                            <BedDouble  width={12} color='#fff' />
+                                        </div>
+                                        <span  className='text-[12px] ms-1'>2</span>
+                                    </div>
+                                    <div className='flex items-center gap-x-1'>
+                                        <div className='flex items-center justify-center w-6 h-6 bg-[#ffaa3e] rounded-full'>
+                                            <Bath width={12} color='#fff' />
+                                        </div>
+                                        <span className='text-[12px] ms-1'>1</span>
+                                    </div>
+                                    <div className='flex items-center gap-x-1'>
+                                        <div className='flex items-center justify-center w-6 h-6 bg-[#ffaa3e] rounded-full'>
+                                            <PencilRuler width={12} color='#fff' />
+                                        </div>
+                                        <span className='text-[12px] ms-1'>1200 SQFT</span>
+                                    </div>
+                                </div>
                 </div>
                 <div className='border-t  flex justify-between items-center p-4'>
                   <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
-                  <span className='text-sm '>2 Months Ago</span>
+                  <span className='text-sm text-gray-500'>2 Months Ago</span>
                 </div>
               </div>
             </div>

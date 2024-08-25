@@ -101,7 +101,7 @@ export default function Banner({ title, location, setLocation }) {
                 </div>
                 <div className="col-span-1 flex items-center p-1 md:px-2 justify-center">
                   <button
-                    className="p-2 bg-green-500 w-full mx-auto rounded-full text-white transition duration-300 hover:bg-green-600"
+                    className="p-2 bg-[#ffaa3e] w-full mx-auto rounded-full text-white transition duration-300 hover:bg-green-600"
                     onClick={handleSearch}
                   >
                     <span className="md:hidden flex justify-center">
