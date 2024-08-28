@@ -10,11 +10,11 @@ export default function Banner({ location, setLocation, motive, setMotive,type,s
   return (
     <div className='relative h-full bg-banner overflow-hidden'>
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-transparent to-black rounded-md"></div>
-      <div className='relative container mx-auto overflow-hidden h-full'>
-        <div className='absolute bottom-0 left-0 right-0 p-5 mt-24'>
-          <h1 className="lg:text-white  sm:block text-black text-1 sm:text-5xl text-3xl mb-5 text-center  font-extrabold">
+      <div className='relative container lg:w-5/6 mx-auto py-5 lg:py-8 overflow-hidden h-full'>
+        <div className='absolute bottom-0 left-0 right-0 p-5 mt-10'>
+          {/* <h1 className="lg:text-white  sm:block text-black text-1 sm:text-5xl text-3xl mb-5 text-center  font-extrabold">
             Properties for {motive} in <span className="">{location}</span>
-          </h1>
+          </h1> */}
           <div className='xl:w-2/6 mb-2 '>
 
             <div className=' hidden sm:block'>
