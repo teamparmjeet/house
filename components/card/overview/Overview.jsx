@@ -1,6 +1,6 @@
 import React from 'react'
 import { Square,SquareChartGantt,Building,Calendar,IndianRupee,Box } from "lucide-react"
-export default function Overview() {
+export default function Overview({item}) {
     return (
         <>
 
@@ -13,7 +13,7 @@ export default function Overview() {
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Project Area</p>
-                        <p className='text-zinc-600 text-sm font-semibold '>0.37 Acres</p>
+                        <p className='text-zinc-600 text-sm font-semibold '>{item.address.area}</p>
                     </div>
                 </div>
 
@@ -23,7 +23,7 @@ export default function Overview() {
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Sizes</p>
-                        <p className='text-zinc-600 text-sm font-semibold '>1583 - 2160 sq.ft.</p>
+                        <p className='text-zinc-600 text-sm font-semibold '>{item.size}</p>
                     </div>
                 </div>
 
@@ -32,8 +32,8 @@ export default function Overview() {
                         <Building width={20} color='#0078db' />
                     </div>
                     <div>
-                        <p className=' text-zinc-400 font-semibold'>Project Size</p>
-                        <p className='text-zinc-600 text-sm font-semibold '>1 Building - 42 unitss</p>
+                        <p className=' text-zinc-400 font-semibold'>Floor</p>
+                        <p className='text-zinc-600 text-sm font-semibold '>{item.floor}</p>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@ export default function Overview() {
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Launch Date</p>
-                        <p className='text-zinc-600 text-sm font-semibold '>Oct, 2023</p>
+                        <p className='text-zinc-600 text-sm font-semibold '>{item.dateListed}</p>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@ export default function Overview() {
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Avg. Price</p>
-                        <p className='text-zinc-600 text-sm font-semibold '>₹ 7.1 K/sq.ft</p>
+                        <p className='text-zinc-600 text-sm font-semibold '>{item.price}</p>
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@ export default function Overview() {
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Possession Status</p>
-                        <p className='text-zinc-600 text-sm font-semibold '>Ready to Move</p>
+                        <p className='text-zinc-600 text-sm font-semibold '>{item.status}</p>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@ export default function Overview() {
                     </div>
                     <div>
                         <p className=' text-zinc-400 font-semibold'>Configurations</p>
-                        <p className='text-zinc-600 text-sm font-semibold '>3, 4 BHK Apartments</p>
+                        <p className='text-zinc-600 text-sm font-semibold '>{item.bedrooms} BHK {item.type}</p>
                     </div>
                 </div>
 

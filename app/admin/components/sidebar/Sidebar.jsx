@@ -1,17 +1,19 @@
 "use client";
 import React, { useState } from 'react';
-import { Menu, XCircleIcon, Home, FileText, PlusCircle } from 'lucide-react'; // Import icons
+import { Menu, XCircleIcon, Home, FileText, PlusCircle,ServerIcon,Mail } from 'lucide-react'; 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // Import the usePathname hook
-
+import { usePathname } from 'next/navigation';
 export default function Sidebar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const pathname = usePathname(); // Get the current pathname
+  const pathname = usePathname(); 
 
   const menuItems = [
     { name: 'Dashboard', href: '/admin', icon: <Home size={20} /> },
     { name: 'Manage Properties', href: '/admin/page/property', icon: <FileText size={20} /> },
     { name: 'Add Property', href: '/admin/page/addnew', icon: <PlusCircle size={20} /> },
+    { name: 'Service Request', href: '/admin/page/service', icon: <ServerIcon size={20} /> },
+    { name: 'Enquiry', href: '/admin/page/enquiry', icon: <Mail size={20} /> },
+
   ];
 
   return (
@@ -31,6 +33,7 @@ export default function Sidebar() {
             <li key={item.href}>
               <Link
                 href={item.href}
+                onClick={() => setSidebarOpen(false)}
                 className={`flex items-center text-sm px-4 py-2 rounded-md duration-150 ${pathname === item.href ? 'bg-[#ffffff38]' : 'hover:bg-[#ffffff38]'
                   } text-[#fff]`}
               >
@@ -45,7 +48,7 @@ export default function Sidebar() {
         className="md:hidden bg-3 rounded-br text-white mr-4 absolute top-16"
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
-        <Menu size={24} color='#aa8453' />
+        <Menu size={24} color='#0078db' />
       </button>
     </>
   );

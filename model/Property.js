@@ -34,9 +34,9 @@ const ProjectSchema = new Schema(
         bathrooms: { type: Number, default: 0 },
         landSize: { type: Number, default: 0 },
         yearBuilt: { type: Number },
-        category: {
+        purpose: {
             type: String,
-            enum: ['Luxury', 'Affordable', 'Investment', 'Family', 'Starter'],
+            enum: ['Buy', 'Rent'],
         },
         status: {
             type: String,
@@ -44,7 +44,7 @@ const ProjectSchema = new Schema(
             default: 'Available',
         },
 
- //
+
         amenities: [{ type: String }],
         features: [{ type: String }],
         listingType: {
@@ -75,6 +75,6 @@ const ProjectSchema = new Schema(
 );
 
 const ProjectModel =
-    mongoose.models.Project5 || mongoose.model("Project5", ProjectSchema);
+    mongoose.models.Project7 || mongoose.model("Project7", ProjectSchema);
 
 export default ProjectModel;

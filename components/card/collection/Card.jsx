@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Link from 'next/link';
-export default function Card() {
+export default function Card({ location }) {
 
     const responsive = {
         superLargeDesktop: {
@@ -26,9 +26,10 @@ export default function Card() {
         }
     };
     const item = [
-        { id: "1", title: "Ready" },
-        { id: "2", title: "Townships" },
-        { id: "3", title: "Luxury" },
+        { id: "1", title: "Luxury" },
+        { id: "2", title: "Affordable" },
+        { id: "3", title: "Investment" },
+        { id: "4", title: "Family" },
     ]
 
     return (
@@ -39,7 +40,7 @@ export default function Card() {
 
                 {item.map((index) => (
 
-                    <Link key={index.id} href={`/page/collectionproject/${index.title}`} >
+                    <Link key={index.id} href={`/page/collectionproject/${index.title},${location}`} >
                         <div className=" mx-2 lg:mb-4 ">
                             <div className="relative group rounded-md overflow-hidden duration-300">
                                 <Image className=' w-full object-cover' src="/image/property-grid-3.png" alt='' width={400} height={300} />

@@ -1,28 +1,70 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AllProjectCard from "@/components/card/allprojectpage/Card";
 import { Search } from 'lucide-react';
 import LatestCard from "@/components/card/latest/Card";
 import BestDealCard from "@/components/card/bestdeal/Card";
 import Link from 'next/link';
+import Loading from '@/components/Loader/Loading';
+import axios from 'axios';
 
 export default function Collectionproject({ params }) {
-    const title = params.title
+    const [title, location] = decodeURIComponent(params.title).split(',');
 
+    const [rawItems, setRawItems] = useState([]);
+    const [items, setItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 5;
+    const [sortOrder, setSortOrder] = useState('Relevance');
+    const [selectedTitle, setSelectedTitle] = useState('All Category');
+    const [titles, setTitles] = useState(['All Category']);
+    const [loading, setLoading] = useState(true); // Add loading state
+    const itemsPerPage = 2;
 
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true); // Set loading to true before fetch
+            try {
+                const response = await axios.get('/api/project/fetchall/project');
+                const fetchedItems = response.data.fetch;
+                setRawItems(fetchedItems);
 
-    const items = [...Array(16)].map((_, index) => `Item ${index + 1}`);
+                const uniqueTitles = ['All Category', ...new Set(fetchedItems.map(item => item.title))];
+                setTitles(uniqueTitles);
 
+                setItems(fetchedItems);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false); // Set loading to false after fetch
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        let sortedItems = [...rawItems];
+
+        if (sortOrder === 'Price (Inc)') {
+            sortedItems.sort((a, b) => a.price - b.price);
+        } else if (sortOrder === 'Price (Dec)') {
+            sortedItems.sort((a, b) => b.price - a.price);
+        }
+
+        if (selectedTitle !== 'All Category') {
+            sortedItems = sortedItems.filter(item => item.title === selectedTitle);
+        }
+
+        setItems(sortedItems);
+        setCurrentPage(1);
+    }, [sortOrder, selectedTitle, rawItems]);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
     const totalPages = Math.ceil(items.length / itemsPerPage);
-
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const currentItems = items.slice(startIndex, startIndex + itemsPerPage);
-
 
     const handlePrevPage = () => {
         if (currentPage > 1) {
@@ -34,6 +76,15 @@ export default function Collectionproject({ params }) {
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
         }
+    };
+
+    const handleSortChange = (e) => {
+        setSortOrder(e.target.value);
+    };
+
+    const handleTitleChange = (e) => {
+        setSelectedTitle(e.target.value);
+        setCurrentPage(1);
     };
 
     return (
@@ -76,36 +127,78 @@ export default function Collectionproject({ params }) {
                             <div className='bg-gray-100 rounded-t-md pb-2 px-4'>
                                 <div className='flex flex-col md:flex-row md:justify-between md:items-center'>
                                     <div className='mb-0 md:mb-2'>
-                                        <p className='text-gray-600 text-2 text-xs md:text-sm'>Showing {startIndex + 1} - {Math.min(startIndex + itemsPerPage, items.length)} of {items.length}</p>
-                                        <p className='text-sm md:text-lg font-semibold'>{title} Project in Jaipur</p>
+                                        <p className='text-gray-600 text-2 text-xs md:text-sm'>
+                                            Showing {indexOfFirstItem + 1} - {Math.min(indexOfLastItem, items.length)} of {items.length}
+                                        </p>
+                                        <p className='text-sm md:text-lg font-semibold'>{title} Project in {location}</p>
                                     </div>
                                     <div className='flex justify-between md:justify-end w-full md:w-fit flex-row md:items-center gap-y-2 md:gap-x-4'>
                                         <div className='text-xs flex items-center gap-x-2'>
                                             <p className='hidden md:block'>Sort by:</p>
-                                            <select name="" id="" className='px-2 py-1 text-xs md:text-sm shadow rounded focus:border-none focus:outline-none'>
-                                                <option value="">Relevance</option>
-                                                <option value="">Price (Inc)</option>
-                                                <option value="">Price (Dec)</option>
-                                                <option value="">Area (Inc)</option>
-                                                <option value="">Area (Dec)</option>
+                                            <select
+                                                value={sortOrder}
+                                                onChange={handleSortChange}
+                                                className='px-2 py-1 text-xs md:text-sm shadow rounded focus:border-none focus:outline-none'
+                                            >
+                                                <option value="Relevance">Relevance</option>
+                                                <option value="Price (Inc)">Price (Inc)</option>
+                                                <option value="Price (Dec)">Price (Dec)</option>
+                                            </select>
+                                        </div>
+                                        <div className='text-xs flex items-center gap-x-2'>
+                                            <p className='hidden md:block'>Filter by Category:</p>
+                                            <select
+                                                value={selectedTitle}
+                                                onChange={handleTitleChange}
+                                                className='px-2 py-1 text-xs md:text-sm shadow rounded focus:border-none focus:outline-none'
+                                            >
+                                                {titles.map(title => (
+                                                    <option key={title} value={title}>{title}</option>
+                                                ))}
+                                            
                                             </select>
                                         </div>
                                         <div className='flex gap-1 md:gap-2 mt-2 md:mt-0'>
-                                            <button onClick={handlePrevPage} className='bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize' disabled={currentPage === 1}>Prev</button>
-                                            <button className='bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize'>{currentPage}</button>
-                                            <button onClick={handleNextPage} className='bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize' disabled={currentPage === totalPages}>Next</button>
+                                            <button
+                                                className='bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize'
+                                                onClick={handlePrevPage}
+                                                disabled={currentPage === 1}
+                                            >
+                                                Prev
+                                            </button>
+                                            <button
+                                                className='bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize'
+                                            >
+                                                {currentPage}
+                                            </button>
+                                            <button
+                                                className='bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize'
+                                                onClick={handleNextPage}
+                                                disabled={currentPage === totalPages}
+                                            >
+                                                Next
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-
                             <div className='overflow-auto bg-white h-[100vh] pb-56 p-2'>
-                                {currentItems.map((item, index) => (
-                                    <Link  key={index} href={`/page/singlepage/${index}`}>
-                                    <AllProjectCard/>
-                                    </Link>
-                                ))}
+                                {loading ? (
+                                    <Loading />
+                                ) : currentItems.length === 0 ? (
+                                    <div className='flex flex-col items-center justify-center text-gray-500'>
+                                        <svg className='w-12 h-12 mb-4 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M15 17h5l-1.403-1.403M9 17H4l1.403-1.403M12 7v6m0 4h.01' />
+                                        </svg>
+                                        <p className='text-lg font-semibold'>No data available</p>
+                                        <p className='text-sm text-gray-400 mt-2'>Please check back later or adjust your filters.</p>
+                                    </div>
+                                ) : (
+                                    currentItems.map((item) => (
+                                        <AllProjectCard key={item._id} item={item} />
+                                    ))
+                                )}
                             </div>
                         </div>
                         <div className="col-span-2 justify-between p-4 hidden lg:block">
