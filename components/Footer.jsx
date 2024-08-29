@@ -33,8 +33,8 @@ export default function Footer() {
                     <div className="lg:col-span-2 md:col-span-2 ">
                         <h4 className='text-lg md:mb-4 font-semibold md:h-12 mb-2'>Contact Info</h4>
                         <p className='text-sm mb-2 leading-6'>Unicoder Design Agency 301 The Greenhouse, Custard Factory, London, E3 8DY.</p>
-                        <p className='text-sm mb-2'>+1 246-345-0695</p>
-                        <p className='text-sm mb-2'>helpline@homex.com</p>
+                        <p className='text-sm mb-2'>+91-9828988333</p>
+                        <p className='text-sm mb-2'>sales@GharDhundo.com</p>
                     </div>
                     <div className="lg:col-span-2 md:col-span-2 ">
                         <h4 className='text-lg md:mb-4 font-semibold md:h-12 mb-2'>Quick Links</h4>
@@ -54,7 +54,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='text-center py-2 border-t border-gray-700 text-xs'>
-                    © 2022 Uniland. All rights reserved.
+                    © 2022 GharDhundo.com. All rights reserved.
                 </div>
             </div>
         </div>

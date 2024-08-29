@@ -30,11 +30,11 @@ export default function LoginPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setError(''); 
+        setError('');
 
         try {
             const userData = await fetchUserData(formData.email);
-console.log(userData)
+            console.log(userData)
             if (!userData) {
                 setError('No user found with this email.');
                 setLoading(false);
@@ -103,7 +103,7 @@ console.log(userData)
                                 Email
                             </label>
                             <input
-                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#aa8453] hover:shadow-md bg-gray-100'
+                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#005ca8] hover:shadow-md bg-gray-100'
                                 placeholder="Enter your email"
                                 type="email"
                                 id="email"
@@ -119,7 +119,7 @@ console.log(userData)
                                 Password
                             </label>
                             <input
-                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#aa8453] hover:shadow-md bg-gray-100'
+                                className='w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#005ca8] hover:shadow-md bg-gray-100'
                                 placeholder="Enter your password"
                                 type="password"
                                 id="password"
@@ -133,13 +133,13 @@ console.log(userData)
                         <button
                             type='submit'
                             disabled={!isFormValid() || loading}
-                            className={`w-full py-2 px-4 rounded-lg shadow-lg transform transition duration-300 ease-in-out ${isFormValid() ? 'bg-[#aa8453] text-white hover:bg-[#aa8453] hover:scale-105' : 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                                } focus:outline-none focus:ring-2 focus:ring-[#aa8453]`}>
+                            className={`w-full py-2 px-4 rounded-lg shadow-lg transform transition duration-300 ease-in-out ${isFormValid() ? 'bg-[#005ca8] text-white hover:bg-[#005ca8] hover:scale-105' : 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                                } focus:outline-none focus:ring-2 focus:ring-[#005ca8]`}>
                             {loading ? 'Signing In...' : 'Sign In'}
                         </button>
 
                         <Link href="/page/auth/signup" className='block text-center text-sm text-gray-700 hover:text-gray-900 mt-4'>
-                            Don&apos;t have an account? <span className='text-[#aa8453] font-semibold'>Sign Up</span>
+                            Don&apos;t have an account? <span className='text-2 font-semibold'>Sign Up</span>
                         </Link>
                     </form>
                 </div>

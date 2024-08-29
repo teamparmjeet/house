@@ -17,9 +17,7 @@ export default function Navbar() {
         setIsDropdownOpen(false);
     };
 
-    const handleNotificationClick = () => {
-        router.push('/notifications');
-    };
+    
 
     return (
         <>
@@ -37,7 +35,7 @@ export default function Navbar() {
                         type="text"
                         name="search"
                         placeholder="Search..."
-                        className="bg-transparent text-white px-4 py-2 w-72 text-sm focus:outline-none"
+                        className="bg-transparent placeholder:text-white text-white px-4 py-2 w-72 text-sm focus:outline-none"
                     />
                     <button type="submit" className="flex items-center justify-center px-2">
                         <Search color="#fff" size={20} />
@@ -82,8 +80,10 @@ export default function Navbar() {
                         </>
                     )}
 
-                    <div className="flex items-center cursor-pointer ml-4" onClick={handleNotificationClick}>
-                        <Bell color="#fff" size={20} />
+                    <div className="flex items-center cursor-pointer ml-4" >
+                       <Link href="/admin/page/notification">
+                       <Bell color="#fff" size={20} />
+                       </Link>
                     </div>
                 </div>
             </header>

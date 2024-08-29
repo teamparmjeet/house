@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image'
-import { StarIcon, Check, ArrowDown, ArrowUp, Calendar, Home, MapPin, Tag, Info, Edit } from 'lucide-react';
+import { StarIcon, Check, ArrowDown, ArrowUp, Calendar, Home, MapPin, Tag, Info, Edit, Fullscreen, LucideFullscreen } from 'lucide-react';
 import Link from 'next/link';
 export default function Card({ item }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -13,10 +13,10 @@ export default function Card({ item }) {
     return (
         <div className='rounded-md bg-white mb-4 hover:shadow border p-2 gap-2 grid grid-cols-1 sm:grid-cols-7'>
             <div className='relative overflow-hidden sm:col-span-2'>
-                {item.images.length > 0 && (
+                {item.featureImage.length > 0 && (
                     <Image
-                        key={item.images[0].id}
-                        src={item.images[0]}
+                        key={item.featureImage[0].id}
+                        src={item.featureImage[0]}
                         className="rounded-md object-cover lg:h-56 h-36 w-full"
                         width={200}
                         height={100}
@@ -44,7 +44,8 @@ export default function Card({ item }) {
                         <div className={`z-50 rounded-md flex ${isVisible ? 'shadow-lg absolute left-0 right-0 bg-white z-50 border' : 'bg-gray-100'}`}>
                             <div className='grid grid-cols-3 w-full p-1 text-xs text-gray-500'>
                                 <div className="col-span-1 px-1 my-1 flex items-center  font-semibold gap-x-2">
-                                    <Calendar width={10} color="black" /><span>Possession Date <br /><span className='text-black text-[12px]'>{item.dateListed}</span></span>
+                                    <Calendar width={10} color="black" /><span>Possession Date <br /><span className='text-black text-[12px]'><span>{new Date(item.dateListed).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' })}</span>
+                                    </span></span>
                                 </div>
                                 <div className="col-span-1 px-1 my-1 flex items-center  font-semibold  gap-x-2 border-l-2">
                                     <Tag width={10} color="black" /><span>Price<br /><span className='text-black text-[12px]'>{item.price} ₹</span></span>
@@ -81,9 +82,15 @@ export default function Card({ item }) {
                     <div className='flex'>
                         <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={51.5} height={19.312} />
                     </div>
-                    <Link href={`/admin/page/singlepage/${item._id}`}>
-                        <button className='bg-green-500 text-white rounded-md px-2 py-1 gap-x-2 flex'><Edit size={20} /></button>
+                   <div className=' flex gap-2'>
+                   <Link href={`/admin/page/singlepage/${item._id}`}>
+                        <button className='bg-blue-500 text-white rounded-md px-2 py-1 gap-x-2 flex'><LucideFullscreen size={20} />Detail View</button>
                     </Link>
+
+                    <Link href={`/admin/page/allimages/${item._id}`}>
+                        <button className='bg-green-600 text-white rounded-md px-2 py-1 gap-x-2 flex'><Edit size={20} /></button>
+                    </Link>
+                   </div>
                 </div>
             </div>
         </div>

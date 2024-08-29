@@ -145,8 +145,16 @@ export default function Property() {
 
             <div className='overflow-auto bg-white h-[100vh] pb-56 p-2'>
               {loading ? (
-              <Loading/>
-              ) : (
+                  <Loading />
+                ) : currentItems.length === 0 ? (
+                  <div className='flex flex-col items-center justify-center text-gray-500'>
+                    <svg className='w-12 h-12 mb-4 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M15 17h5l-1.403-1.403M9 17H4l1.403-1.403M12 7v6m0 4h.01' />
+                    </svg>
+                    <p className='text-lg font-semibold'>No data available</p>
+                    <p className='text-sm text-gray-400 mt-2'>Please check back later or adjust your filters.</p>
+                  </div>
+                ) : (
                 currentItems.map((item) => (
                   <AllProjectCard key={item._id} item={item} />
                 ))

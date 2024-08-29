@@ -33,6 +33,7 @@ export default function Sidebar() {
             <li key={item.href}>
               <Link
                 href={item.href}
+                onClick={() => setSidebarOpen(false)}
                 className={`flex items-center text-sm px-4 py-2 rounded-md duration-150 ${pathname === item.href ? 'bg-[#ffffff38]' : 'hover:bg-[#ffffff38]'
                   } text-[#fff]`}
               >

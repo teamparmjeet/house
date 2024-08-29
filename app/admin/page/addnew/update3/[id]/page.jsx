@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Input from "@/app/admin/components/Input/Input";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,6 +15,7 @@ export default function Update3({ params }) {
     listingType: "New Listing",
     dateListed: new Date().toISOString().split("T")[0],
     energyRating: "",
+    purpose: "",
     nearbyFacilities: [""],
     parkingSpaces: 0,
     description: "",
@@ -31,6 +32,47 @@ export default function Update3({ params }) {
     petFriendly: false,
   });
   const [isUpdating, setIsUpdating] = useState(false);
+
+  useEffect(() => {
+    // Fetch existing data when the component mounts
+    const fetchPropertyData = async () => {
+      try {
+        const response = await axios.get(`/api/project/fetch-single/${id}`);
+        const projectData = response.data.project;
+
+        if (projectData) {
+          setFormData({
+            amenities: projectData.amenities?.length ? projectData.amenities : [""],
+            features: projectData.features?.length ? projectData.features : [""],
+            listingType: projectData.listingType || "New Listing",
+            dateListed: projectData.dateListed || new Date().toISOString().split("T")[0],
+            energyRating: projectData.energyRating || "",
+            purpose: projectData.purpose || "",
+            nearbyFacilities: projectData.nearbyFacilities?.length ? projectData.nearbyFacilities : [""],
+            parkingSpaces: projectData.parkingSpaces || 0,
+            description: projectData.description || "",
+            propertyType: projectData.propertyType || "",
+            yearRenovated: projectData.yearRenovated || 0,
+            hasGarage: projectData.hasGarage || false,
+            hasPool: projectData.hasPool || false,
+            hasGarden: projectData.hasGarden || false,
+            heatingType: projectData.heatingType || "",
+            coolingType: projectData.coolingType || "",
+            securityFeatures: projectData.securityFeatures?.length ? projectData.securityFeatures : [""],
+            flooringType: projectData.flooringType || "",
+            viewType: projectData.viewType || "",
+            petFriendly: projectData.petFriendly || false,
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching property data:", error);
+        toast.error("Failed to load property data.");
+      }
+    };
+
+    fetchPropertyData();
+  }, [id]);
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -85,7 +127,7 @@ export default function Update3({ params }) {
       toast.success("Property Updated Successfully");
       const newProjectId = response.data?.projectid; // Optional chaining to avoid errors
       if (newProjectId) {
-        router.push(`../update3/${newProjectId}`);
+        window.location.reload();
       } else {
         console.error("ID not found in response data.");
       }
@@ -100,9 +142,35 @@ export default function Update3({ params }) {
       <h2 className="text-2xl font-bold mb-4">Update Details</h2>
 
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 bg-blue-50/50 p-2 rounded-md sm:grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 md:grid-cols-1  gap-6">
+          <div className="space-y-4 lg:col-span-1 md:col-span-1">
+            <div className="grid grid-cols-1  p-2 rounded-md sm:grid-cols-2 gap-4">
+
+            {/* <label htmlFor="purpose" className="block   text-sm font-medium text-gray-700">Buy/Rent</label> */}
+            <select name="purpose"
+              value={formData.purpose}
+              onChange={handleChange}
+              disabled={isUpdating}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm">
+                
+              <option value="Buy">Buy</option>
+              <option value="Rent">Rent</option>
+              <option value="Focus">Focus</option>
+              <option value="Top Project">Top Project</option>
+            </select>
+
+            {/* <label htmlFor="listingType" className="block  text-sm font-medium text-gray-700">ListingType</label> */}
+            <select name="listingType"
+              value={formData.listingType}
+              onChange={handleChange}
+              disabled={isUpdating}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm">
+              <option value="New Listing">New Listing</option>
+              <option value="Featured">Featured</option>
+              <option value="Focus">Focus</option>
+              <option value="Top Project">Top Project</option>
+            </select>
+
               <div>
                 {formData.amenities.map((amenity, index) => (
                   <div key={`amenity-${index}`} className="flex items-center">
@@ -261,6 +329,9 @@ export default function Update3({ params }) {
               onChange={handleChange}
               disabled={isUpdating}
             />
+
+          
+
             <Input
               label="Description"
               name="description"
@@ -283,6 +354,9 @@ export default function Update3({ params }) {
               onChange={handleChange}
               disabled={isUpdating}
             />
+
+          </div>
+          <div className="space-y-4 lg:col-span-1 md:col-span-1">
             <Input
               label="Heating Type"
               name="heatingType"
@@ -303,7 +377,7 @@ export default function Update3({ params }) {
               value={formData.flooringType}
               onChange={handleChange}
               disabled={isUpdating}
-                          />
+            />
             <Input
               label="View Type"
               name="viewType"
@@ -369,10 +443,10 @@ export default function Update3({ params }) {
         <div className="mt-6">
           <button
             type="submit"
-            className="text-white bg-blue-700 font-semibold py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-white w-full bg-blue-700 font-semibold py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             disabled={isUpdating}
           >
-            {isUpdating ? "Updating..." : "Update Property"}
+            {isUpdating ? "Updating..." : "Update"}
           </button>
         </div>
       </form>
