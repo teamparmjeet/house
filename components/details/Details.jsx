@@ -1,7 +1,6 @@
 import React from 'react'
-import { LocateIcon, CarIcon, TreesIcon, WindIcon, HeaterIcon, Waves } from "lucide-react" // Assuming you have these icons or similar
+import { LocateIcon, CarIcon, TreesIcon, WindIcon, HeaterIcon, Waves } from "lucide-react"
 
-import SmallCard from "@/components/card/smallcard/Card"
 import Overview from '@/components/card/overview/Overview'
 
 export default function Details({ item }) {
