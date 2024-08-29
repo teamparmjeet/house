@@ -95,9 +95,9 @@ export default function Navbar() {
                   </Link>
                   {dropdownOpen.projects && (
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                      <li className="px-4 py-2 font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Project 1</li>
-                      <li className="px-4 py-2 font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Project 2</li>
-                      <li className="px-4 py-2 font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Project 3</li>
+                      <li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Project 1</li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Project 2</li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Project 3</li>
                     </ul>
                   )}
                 </div>
@@ -115,10 +115,10 @@ export default function Navbar() {
                   </Link>
                   {dropdownOpen.services && (
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                      <li className="px-4 py-2 font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Plumbing`}>Plumbing Services</Link></li>
-                      <li className="px-4 py-2 font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Electrical`}>Electrical Services</Link></li>
-                      <li className="px-4 py-2 font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Carpentry`}>Carpentry Services</Link></li>
-                      <li className="px-4 py-2 font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Painting`}>Painting Services</Link></li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Plumbing`}>Plumbing Services</Link></li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Electrical`}>Electrical Services</Link></li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Carpentry`}>Carpentry Services</Link></li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Painting`}>Painting Services</Link></li>
                     </ul>
                   )}
                 </div>
