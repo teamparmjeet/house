@@ -4,7 +4,7 @@ import axios from "axios";
 import Loading from "@/components/Loader/Loading";
 import Imagegallery from "@/components/gallery/Imagegallery";
 import Gallery from "@/components/gallery/Gallery";
-import Details from "@/components/Details/Details";
+import Details from "@/components/details/Details";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 export default function SinglePage({ params }) {
