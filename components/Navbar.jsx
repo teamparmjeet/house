@@ -1,0 +1,169 @@
+"use client";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { Heart, Menu, XCircleIcon, User, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
+import Ani from './button/ani';
+
+export default function Navbar() {
+  const [show, setShow] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState({ services: false, projects: false });
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleToggle = () => {
+    setShow(!show);
+  };
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  const updateScreenSize = () => {
+    setIsMobile(window.innerWidth < 1024);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateScreenSize);
+    updateScreenSize();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }, []);
+
+  const handleDropdownToggle = (name) => {
+    if (isMobile) {
+      setDropdownOpen((prev) => ({ ...prev, [name]: !prev[name] }));
+    }
+  };
+
+  const handleMouseEnter = (name) => {
+    if (!isMobile) {
+      setDropdownOpen((prev) => ({ ...prev, [name]: true }));
+    }
+  };
+
+  const handleMouseLeave = (name) => {
+    if (!isMobile) {
+      setDropdownOpen((prev) => ({ ...prev, [name]: false }));
+    }
+  };
+
+  return (
+    <>
+      <nav className={`z-50 py-2 left-0 right-0 ${scrolled ? 'bg-2 shadow-lg fixed top-0' : 'absolute bg-gradient-to-b from-black to-transparent'} transition-all duration-300`}>
+        <div className="container w-[90%]  mx-auto">
+          <div className="flex justify-between isolate p-1 md:p-2">
+            <div className='bg-white order order-3 lg:order-1 rounded-md px-4 py-1 items-center flex'>
+              <Link href="/">
+                <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
+              </Link>
+            </div>
+
+            <div className="relative order order-1 lg:order-2 w-full flex items-center lg:justify-end">
+              <button className="block lg:hidden" onClick={handleToggle}>
+                <Menu size={30} color="white" />
+              </button>
+
+              <ul
+                className={`fixed lg:overflow-visible overflow-scroll top-0 right-0 w-full md:w-96 p-6 lg:p-0 h-full bg-[#222] transform ${show ? 'translate-x-0 backdrop-blur-md' : 'translate-x-full'} transition-transform duration-300 lg:relative lg:flex lg:w-auto lg:h-auto lg:bg-transparent lg:translate-x-0 lg:items-center lg:justify-end z-50`}
+              >
+                <button className="block lg:hidden " onClick={handleToggle}>
+                  <XCircleIcon size={24} color="#fff" />
+                </button>
+                <Link href="/page/collectionproject/Family,Jaipur" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                  <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">New Property</li>
+                </Link>
+
+                <div
+                  className="relative mt-5 lg:mt-0"
+                  onMouseEnter={() => handleMouseEnter('projects')}
+                  onMouseLeave={() => handleMouseLeave('projects')}
+                  onClick={() => handleDropdownToggle('projects')}
+                >
+                  <Link href="/" className="flex items-center gap-x-1 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform">
+                    <li className="text-sm group text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">
+                      Our Projects <ChevronDown size={15} />
+
+                    </li>
+                  </Link>
+                  {dropdownOpen.projects && (
+                    <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
+                      <Link href="/page/singlepage/66cee28daff24a8b6cbc3774"><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Villa in Jaipur</li></Link>
+                      <Link href="/page/singlepage/66cee2deaff24a8b6cbc3776"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">House in Jaipur</li></Link>
+                      <Link href="/page/singlepage/66cee189aff24a8b6cbc376f"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Apartment in Jaipur</li></Link>
+                    </ul>
+                  )}
+                </div>
+
+                <div
+                  className="relative mt-5 lg:mt-0"
+                  onMouseEnter={() => handleMouseEnter('services')}
+                  onMouseLeave={() => handleMouseLeave('services')}
+                  onClick={() => handleDropdownToggle('services')}
+                >
+                  <Link href="/" className="flex items-center gap-x-1 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform">
+                    <li className="text-sm group text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">
+                      Services <ChevronDown size={15} />
+                    </li>
+                  </Link>
+                  {dropdownOpen.services && (
+                    <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Plumbing`}>Plumbing Services</Link></li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Electrical`}>Electrical Services</Link></li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Carpentry`}>Carpentry Services</Link></li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Painting`}>Painting Services</Link></li>
+                    </ul>
+                  )}
+                </div>
+
+                <Link href="/" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                  <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">Contact Us</li>
+                </Link>
+
+                <Link href="/page/postproperty" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 rounded-full transition duration-300 ease-in-out transform'>
+                  <li className="text-[12px] cursor-pointer rounded-2xl flex items-center gap-1 px-2 lg:m-0 pb-1 text-white lg:text-black lg:bg-white lg:px-5 lg:py-2">Post Property <Ani /></li>
+                </Link>
+
+                <Link href="/page/auth/login" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg px-5 lg:px-2 lg:shadow-none text-white py-1 rounded-full transition duration-300 ease-in-out transform'>
+                  <li className="cursor-pointer inline-block">
+                    <Heart color="#FFF" size={22} />
+                  </li>
+                </Link>
+
+                <Link href="/page/auth/login" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-2 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                  <li className="cursor-pointer bg-white rounded-full p-2 inline-block shadow-md">
+                    <User color="#4A4A4A" size={16} />
+                  </li>
+                  <span className="text-sm ms-1"> Login / Register</span>
+                </Link>
+              </ul>
+
+              {show && (
+                <div
+                  className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                  onClick={handleToggle}
+                />
+              )}
+            </div>
+
+            <div className='order-2 '>
+              <Link href="/page/auth/login" className='flex items-center gap-x-1 lg:hidden text-white pr-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <li className="cursor-pointer bg-white rounded-full p-2 inline-block shadow-md">
+                  <User color="#4A4A4A" size={16} />
+                </li>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+}
