@@ -41,6 +41,11 @@
 }
 
 /* BG_IMAGE */
+.bgblue{
+  background-image: url("/image/download (1).svg");
+  background-size: cover;
+}
+
 .bg-banner {
     background-image: url("/image/matt-jones-xpDHTc-pkog-unsplash.webp");
     background-size: cover;

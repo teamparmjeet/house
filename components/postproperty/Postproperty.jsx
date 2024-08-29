@@ -1,52 +1,147 @@
-import React from 'react'
-import Ani from '@/components/button/ani'
-import Radio from '../input/Radio'
-import Input from '@/app/admin/components/Input/Input'
+"use client";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; 
+import Ani from '@/components/button/ani';
+import Radio from '../input/Radio';
+import Input from '@/app/admin/components/Input/Input';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Postproperty() {
+    const [formData, setFormData] = useState({
+        propertytype: '',
+        purpose: '',
+        mobileNumber: '',
+        name: '',
+        city: ''
+    });
+    
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    useEffect(() => {
+        const isValid = 
+            formData.propertytype &&
+            formData.purpose &&
+            formData.mobileNumber &&
+            formData.name &&
+            formData.city;
+        setIsFormValid(isValid);
+    }, [formData]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post('/api/postproperty/create', formData);
+            if(response.status === 200){
+                toast.success("Property posted successfully! We'll contact you soon.");
+
+                setFormData({
+                    propertytype: '',
+                    purpose: '',
+                    mobileNumber: '',
+                    name: '',
+                    city: ''
+                });
+            } else {
+                toast.error("Error: Unable to post property.");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            toast.error('Failed to post property.');
+        }
+    };
+
     return (
-        <>
-
-            <div className="bg-white p-4 rounded-md ">
-                <div className=' relative inline-block'>
-                    <h1 className=' text-3xl font-semibold '>Post Property</h1>
-                    <div className=' absolute -top-4 -right-5'>
-                        <Ani />
-                    </div>
+        <div className="bg-white border p-6 rounded-lg shadow-lg mx-auto ">
+            <ToastContainer />
+            <div className="relative inline-block mb-6">
+                <h1 className="text-4xl font-bold text-gray-800">Post Property</h1>
+                <div className="absolute -top-4 -right-4">
+                    <Ani />
                 </div>
-
-                <form action="">
-                    <div className="flex flex-col justify-start items-start gap-2">
-                        <div className="flex flex-col gap-2">
-                            <h1 className="font-semibold mt-4 text-gray-700">Property Type</h1>
-                            <div className="flex gap-4">
-                                <Radio name="propertytype" value="Residential" id="1" />
-                                <Radio name="propertytype" value="Commercial" id="2" />
-
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col gap-2">
-                            <h1 className="font-semibold mt-2 text-gray-700">Looking to</h1>
-                            <div className="flex gap-4">
-                                <Radio name="purpose" value="Rent" id="3" />
-                                <Radio name="purpose" value="Sell" id="4" />
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col gap-2">
-
-                            <div className="flex flex-col">
-                                <p className='text-gray-700'>Mobile Number</p>
-                                <Input type="number" placeholder="Enter Mobile Number" />
-                            </div>
-                        </div>
-                    </div>
-
-                </form>
-
-
             </div>
 
-        </>
-    )
+            <form onSubmit={handleSubmit}>
+                <div className="space-y-6">
+                    <div className="space-y-2">
+                        <h2 className="text-lg font-semibold text-gray-700">Property Type</h2>
+                        <div className="flex gap-6">
+                            <Radio
+                                name="propertytype"
+                                value="Residential"
+                                id="1"
+                                checked={formData.propertytype === 'Residential'}
+                                onChange={handleChange}
+                            />
+                            <Radio
+                                name="propertytype"
+                                value="Commercial"
+                                id="2"
+                                checked={formData.propertytype === 'Commercial'}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h2 className="text-lg font-semibold text-gray-700">Looking to</h2>
+                        <div className="flex gap-6">
+                            <Radio
+                                name="purpose"
+                                value="Rent"
+                                id="3"
+                                checked={formData.purpose === 'Rent'}
+                                onChange={handleChange}
+                            />
+                            <Radio
+                                name="purpose"
+                                value="Sell"
+                                id="4"
+                                checked={formData.purpose === 'Sell'}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="space-y-4">
+                        <Input
+                            type="number"
+                            name="mobileNumber"
+                            placeholder="Enter Mobile Number"
+                            value={formData.mobileNumber}
+                            onChange={handleChange}
+                        />
+                        <Input
+                            name="name"
+                            placeholder="Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                        />
+                        <Input
+                            name="city"
+                            placeholder="City"
+                            value={formData.city}
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
+                <button
+                    type="submit"
+                    className={`mt-6 w-full py-2 px-4 rounded-lg ${isFormValid ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-300 text-gray-700 cursor-not-allowed'}`}
+                    disabled={!isFormValid}
+                >
+                    Submit
+                </button>
+            </form>
+        </div>
+    );
 }

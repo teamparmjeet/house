@@ -127,11 +127,11 @@ export default function Navbar() {
                   <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">Contact Us</li>
                 </Link>
 
-                <Link href="/" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/page/postproperty" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="text-[12px] cursor-pointer rounded-2xl flex items-center gap-1 px-2 lg:m-0 pb-1 text-white lg:text-black lg:bg-white lg:px-5 lg:py-2">Post Property <Ani /></li>
                 </Link>
 
-                <Link href="/page/auth/login" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg px-5 lg:px-2 lg:shadow-none text-white py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg px-5 lg:px-2 lg:shadow-none text-white py-1 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="cursor-pointer inline-block">
                     <Heart color="#FFF" size={22} />
                   </li>
