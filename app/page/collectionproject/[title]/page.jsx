@@ -91,9 +91,9 @@ export default function Collectionproject({ params }) {
         <>
             <header className='bg-2 py-2 fixed w-full top-0 left-0 z-50'>
                 <div className='mx-auto h-full flex items-center px-4 gap-x-3'>
-                    <div className='order-1 bg-white rounded-md px-4 py-1 items-center flex'>
+                    <div className='order-1  items-center flex'>
                         <Link href="/">
-                            <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={50.50} height={19.312} />
+                            <Image alt='' src="/logo/man-logo.svg"  width={201} height={38.625} />
                         </Link>
                     </div>
                     <div className='order-3 lg:order-2 text-white border-l ps-3 text-sm'>
