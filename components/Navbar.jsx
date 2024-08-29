@@ -91,14 +91,13 @@ export default function Navbar() {
                   <Link href="/" className="flex items-center gap-x-1 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform">
                     <li className="text-sm group text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">
                       Our Projects <ChevronDown size={15} />
-
                     </li>
                   </Link>
                   {dropdownOpen.projects && (
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                      <Link href="/page/singlepage/66cee28daff24a8b6cbc3774"><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Villa in Jaipur</li></Link>
-                      <Link href="/page/singlepage/66cee2deaff24a8b6cbc3776"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">House in Jaipur</li></Link>
-                      <Link href="/page/singlepage/66cee189aff24a8b6cbc376f"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Apartment in Jaipur</li></Link>
+                      <Link href="/page/singlepage/66cee028e84d075148302ffe"><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">House in Jaipur</li></Link>
+                      <Link href="/page/singlepage/66cee2b8aff24a8b6cbc3775"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Apartment in Jaipur</li></Link>
+                      <Link href="/page/singlepage/66cee28daff24a8b6cbc3774"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Villa in Jaipur</li></Link>
                     </ul>
                   )}
                 </div>
@@ -128,7 +127,7 @@ export default function Navbar() {
                   <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">Contact Us</li>
                 </Link>
 
-                <Link href="/page/postproperty" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="text-[12px] cursor-pointer rounded-2xl flex items-center gap-1 px-2 lg:m-0 pb-1 text-white lg:text-black lg:bg-white lg:px-5 lg:py-2">Post Property <Ani /></li>
                 </Link>
 
