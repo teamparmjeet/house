@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "@/components/Loader/Loading";
 import Imagegallery from "@/components/gallery/Imagegallery";
-import Details from "@/components/Details/Details";
+import Details from "@/components/details/Details";
 export default function SinglePage({ params }) {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
