@@ -115,7 +115,7 @@ export default function Card({ listingType, purpose, location, type }) {
                     </div>
                   </div>
                   <div className='border-t  flex justify-between items-center p-4'>
-                    <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
+                    <Image alt='' src="/logo/Group 349 (2).svg" width={150} height={38.625} />
                     <span className='text-sm text-gray-500'>{new Date(item.createdAt).toLocaleDateString('en-GB', {
                       day: '2-digit',
                       month: '2-digit',

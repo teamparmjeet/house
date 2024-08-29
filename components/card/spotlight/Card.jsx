@@ -35,8 +35,8 @@ export default function Card() {
                 <Link href={`/page/singlepage/id`}>
                     <div className="rounded-2xl border group overflow-hidden mx-2 bg-white grid lg:grid-cols-7">
                         <div className="lg:col-span-2 order-2 lg:order-1 flex flex-col p-4 lg:p-6">
-                            <div className='flex  bg-1 p-3 justify-center'>
-                                <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" className='rounded-md' width={80} height={80} />
+                            <div className='flex   bg-1 p-3 justify-center'>
+                                <Image alt='' src="/logo/Group 349 (2).svg" className='rounded-md' width={180} height={80} />
 
                             </div>
 

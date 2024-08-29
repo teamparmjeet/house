@@ -14,7 +14,7 @@ export default function Page() {
                             <h1 className=' text-white font-semibold text-4xl'>Upload your property in 1 steps</h1>
                             <p className=' text-white text-xl flex items-center gap-2 mt-2'><Circle size={15} color='yellow'/> Add Basic Details</p>
 
-                            <Image src="/image/download.svg" width={600} height={600} className='' />
+                            <Image alt='' src="/image/download.svg" width={600} height={600} className='' />
                         </div>
                         <div className="  order-1 md:order-2 lg:col-span-2">
                             <Postproperty />

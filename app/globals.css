@@ -43,7 +43,8 @@
 /* BG_IMAGE */
 .bgblue{
   background-image: url("/image/download (1).svg");
-  background-size: cover;
+  /* background-size: cover;
+  height:100vh; */
 }
 
 .bg-banner {

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Menu, XCircleIcon, Home, FileText, PlusCircle,ServerIcon,Mail,GitPullRequest } from 'lucide-react'; 
+import { Menu, XCircleIcon, Home, FileText, PlusCircle,ServerIcon,Mail,GitPullRequest,Contact } from 'lucide-react'; 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 export default function Sidebar() {
@@ -14,6 +14,7 @@ export default function Sidebar() {
     { name: 'Service Request', href: '/admin/page/service', icon: <ServerIcon size={20} /> },
     { name: 'Enquiry', href: '/admin/page/enquiry', icon: <Mail size={20} /> },
     { name: 'Property Post Request', href: '/admin/page/request', icon: <GitPullRequest size={20} /> },
+    { name: 'Contact Request', href: '/admin/page/contact', icon: <Contact size={20} /> },
 
   ];
 
@@ -22,10 +23,10 @@ export default function Sidebar() {
       <div className={`bg-2 text-white w-full sm:w-96 p-4 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-200 ease-in-out md:w-64 fixed md:static inset-y-0 left-0 z-20`}>
         <div className='flex justify-end'>
           <button
-            className="md:hidden text-white mr-4"
+            className="md:hidden text-white m-4"
             onClick={() => setSidebarOpen(!sidebarOpen)}
           >
-            <XCircleIcon size={24} color='#aa8453' />
+            <XCircleIcon size={24} color='#fff' />
           </button>
         </div>
 
@@ -38,7 +39,7 @@ export default function Sidebar() {
                 className={`flex items-center text-sm px-4 py-2 rounded-md duration-150 ${pathname === item.href ? 'bg-[#ffffff38]' : 'hover:bg-[#ffffff38]'
                   } text-[#fff]`}
               >
-                <span className="mr-2">{item.icon}</span> {/* Display the icon */}
+                <span className="mr-2">{item.icon}</span>
                 {item.name}
               </Link>
             </li>

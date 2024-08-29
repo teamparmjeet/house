@@ -61,9 +61,9 @@ export default function Navbar() {
       <nav className={`z-50 py-2 left-0 right-0 ${scrolled ? 'bg-2 shadow-lg fixed top-0' : 'absolute bg-gradient-to-b from-black to-transparent'} transition-all duration-300`}>
         <div className="container w-[90%]  mx-auto">
           <div className="flex justify-between isolate p-1 md:p-2">
-            <div className='bg-white order order-3 lg:order-1 rounded-md px-4 py-1 items-center flex'>
+            <div className=' order order-3 lg:order-1 items-center flex'>
               <Link href="/">
-                <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={101} height={38.625} />
+                <Image alt='' src="/logo/man-logo.svg" width={201} height={38.625} />
               </Link>
             </div>
 
@@ -123,7 +123,7 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <Link href="/" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/page/contactus" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">Contact Us</li>
                 </Link>
 

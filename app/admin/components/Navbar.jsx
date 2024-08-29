@@ -22,11 +22,11 @@ export default function Navbar() {
     return (
         <>
             <header className="bg-2  text-white px-2 md:px-4 py-2 flex justify-between items-center">
-                <div className='bg-white rounded-md px-4 py-1 flex items-center'>
+                <div className=' flex items-center'>
                     <Image
                         alt='Logo'
-                        src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png"
-                        width={101}
+                        src="/logo/man-logo.svg"
+                        width={205}
                         height={38.625}
                     />
                 </div>
