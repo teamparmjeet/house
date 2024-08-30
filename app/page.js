@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Banner from '@/components/banner/Banner';
-
+import Service from '@/components/service/Service';
 import SpotlightCard from '@/components/card/spotlight/Card';
 import CollectionCard from "@/components/card/collection/Card";
 
@@ -92,7 +92,7 @@ export default function MainPage() {
             </div>
 
           </div>
-         <Movein location={location} />
+          <Movein location={location} />
         </div>
       </div>
 
@@ -135,6 +135,10 @@ export default function MainPage() {
         </div>
       </div>
 
+
+    
+        <Service />
+      
       <Footer />
     </>
   );

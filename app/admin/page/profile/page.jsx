@@ -29,7 +29,7 @@ export default function Profile() {
                         name: response.data.name,
                         email: response.data.email,
                         mobile: response.data.mobile,
-                        password: '' // Clear password field on load
+                        password: ''
                     });
                     setLoading(false);
                 })
@@ -68,7 +68,7 @@ export default function Profile() {
                 name: response.data.name,
                 email: response.data.email,
                 mobile: response.data.mobile,
-                password: '' // Clear password field on successful update
+                password: ''
             });
 
             alert('User updated successfully');
@@ -91,13 +91,13 @@ export default function Profile() {
         <div className="p-4 mx-auto bg-white rounded-lg shadow-lg">
 
             <div className=" grid lg:grid-cols-5 items-center">
-                <div className='p-2 lg:col-span-1'>
+                <div className='p-2 lg:col-span-1 bg-1 rounded-md'>
                     <Image
-                        src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png"
+                        src="/logo/Group 349 (1).svg"
                         alt="User Avatar"
                         width={200}
                         height={200}
-                        className="shadow-md"
+                        
                     />
                 </div>
                 <div className=' lg:col-span-4 flex justify-between w-full'>

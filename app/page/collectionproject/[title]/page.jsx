@@ -8,7 +8,8 @@ import BestDealCard from "@/components/card/bestdeal/Card";
 import Link from 'next/link';
 import Loading from '@/components/Loader/Loading';
 import axios from 'axios';
-
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 export default function Collectionproject({ params }) {
     const [title, location] = decodeURIComponent(params.title).split(',');
 
@@ -89,13 +90,11 @@ export default function Collectionproject({ params }) {
 
     return (
         <>
-            <header className='bg-2 py-2 fixed w-full top-0 left-0 z-50'>
+        <Navbar/>
+        <div className=' h-16 bg-2'> </div>
+            <header className='bg-2 py-2  w-full top-0 left-0 z-50'>
                 <div className='mx-auto h-full flex items-center px-4 gap-x-3'>
-                    <div className='order-1  items-center flex'>
-                        <Link href="/">
-                            <Image alt='' src="/logo/man-logo.svg"  width={201} height={38.625} />
-                        </Link>
-                    </div>
+                   
                     <div className='order-3 lg:order-2 text-white border-l ps-3 text-sm'>
                         Buy In
                         <select name="" id="" className='bg-transparent text-white rounded focus:border-none focus:outline-none'>
@@ -120,8 +119,8 @@ export default function Collectionproject({ params }) {
                 </div>
             </header>
 
-            <main className='bg-[#f4f4f4] pt-4 fixed left-0 right-0'>
-                <div className="container mx-auto pt-6 px-2 my-4">
+            <main className='bg-[#f4f4f4] pt-4  left-0 right-0'>
+                <div className="container mx-auto px-2 ">
                     <div className="grid lg:grid-cols-7 gap-4">
                         <div className="col-span-5 p-0 md:p-4">
                             <div className='bg-gray-100 rounded-t-md pb-2 px-4'>
@@ -196,7 +195,9 @@ export default function Collectionproject({ params }) {
                                     </div>
                                 ) : (
                                     currentItems.map((item) => (
-                                        <AllProjectCard key={item._id} item={item} />
+                                        <Link key={item._id} href={`/page/singlepage/${item._id}`}>
+                                        <AllProjectCard  item={item} />
+                                        </Link>
                                     ))
                                 )}
                             </div>
@@ -219,6 +220,8 @@ export default function Collectionproject({ params }) {
                     </div>
                 </div>
             </main>
+
+            <Footer/>
         </>
     );
 }

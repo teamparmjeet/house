@@ -12,6 +12,7 @@ const sendOtp = async (mobileNumber, otp) => {
 
     return message;
   } catch (error) {
+    console.error('Error sending OTP:', error);
     throw new Error('Failed to send OTP via Twilio');
   }
 };

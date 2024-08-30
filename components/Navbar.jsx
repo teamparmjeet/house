@@ -4,13 +4,14 @@ import Image from 'next/image';
 import { Heart, Menu, XCircleIcon, User, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Ani from './button/ani';
-
+import axios from 'axios';
 export default function Navbar() {
   const [show, setShow] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState({ services: false, projects: false });
   const [isMobile, setIsMobile] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [services, setServices] = useState([]);
   const handleToggle = () => {
     setShow(!show);
   };
@@ -55,6 +56,24 @@ export default function Navbar() {
       setDropdownOpen((prev) => ({ ...prev, [name]: false }));
     }
   };
+
+
+  const fetchServices = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get('/api/AddService/getdata/addservice');
+      setServices(response.data.fetch);
+    } catch (error) {
+      console.error('Error fetching services:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
+  useEffect(() => {
+    fetchServices();
+  }, []);
 
   return (
     <>
@@ -108,17 +127,27 @@ export default function Navbar() {
                   onMouseLeave={() => handleMouseLeave('services')}
                   onClick={() => handleDropdownToggle('services')}
                 >
-                  <Link href="/" className="flex items-center gap-x-1 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform">
+                  <Link href="/page/ourservice" className="flex items-center gap-x-1 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform">
                     <li className="text-sm group text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">
                       Services <ChevronDown size={15} />
                     </li>
                   </Link>
                   {dropdownOpen.services && (
+
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Plumbing`}>Plumbing Services</Link></li>
-                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Electrical`}>Electrical Services</Link></li>
-                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Carpentry`}>Carpentry Services</Link></li>
-                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white"><Link href={`/page/service/Painting`}>Painting Services</Link></li>
+                       <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
+                            <Link href="/page/ourservice">All Services</Link>
+                          </li>
+                      {isLoading ? (
+                        <li className="px-4 py-2 text-sm font-medium text-gray-700">...</li>
+                      ) : (
+                        services.map((service, index) => (
+                          <li key={index} className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
+                            <Link href={`/page/service/${service.title}`}>{service.title}</Link>
+                          </li>
+                        ))
+                      )}
+
                     </ul>
                   )}
                 </div>

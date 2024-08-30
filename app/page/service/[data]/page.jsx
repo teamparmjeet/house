@@ -1,15 +1,17 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactUs from '@/components/card/contactus/ContactUs';
 import Input from '@/app/admin/components/Input/Input';
 import axios from 'axios';
-
+import Service from '@/components/service/Service';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Page({ params }) {
+    const [isLoading, setIsLoading] = useState(false);
+    const [services, setServices] = useState([]);
     const [serviceType, serviceLocation] = decodeURIComponent(params.data).split(',');
     const [formData, setFormData] = useState({
         name: '',
@@ -59,12 +61,29 @@ export default function Page({ params }) {
         }
     };
 
+
+    const fetchServices = async () => {
+        setIsLoading(true);
+        try {
+          const response = await axios.get('/api/AddService/getdata/addservice');
+          setServices(response.data.fetch);
+        } catch (error) {
+          console.error('Error fetching services:', error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+    
+    
+      useEffect(() => {
+        fetchServices();
+      }, []);
     return (
         <>
             <Navbar />
-            <div className="h-16 bg-blue-700"></div>
+         
             <ToastContainer />
-            <div className="bg-gray-50">
+            <div className="bg-gray-50 bgblue pt-20">
                 <div className="container mx-auto lg:w-[90%] py-12">
                     <div className="grid lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-1">
@@ -74,12 +93,7 @@ export default function Page({ params }) {
                         </div>
 
                         <div className="lg:col-span-2 bg-white p-8 border border-gray-300 rounded-lg shadow-lg">
-                            <div className="text-gray-700 mb-6">
-                                <h2 className="text-3xl font-bold mb-4">About Us</h2>
-                                <p className="">
-                                    We are JP Plumber Service, a trusted plumbing firm in Jaipur with over 23 years of experience. Our expertise allows us to understand and meet customer needs efficiently. We’re delighted to offer our exceptional services through Hometriangle.
-                                </p>
-                            </div>
+
 
                             <h2 className="text-3xl font-bold text-gray-800 my-8">Request a Service</h2>
                             <form className="space-y-4" onSubmit={handleSubmit}>
@@ -109,7 +123,7 @@ export default function Page({ params }) {
                                         <label htmlFor="city" className="block text-sm font-medium text-gray-800 mb-2">City</label>
                                         <select
                                             name="city"
-                                            className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
+                                            className="block h-12 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
                                             value={formData.city}
                                             onChange={handleChange}
                                         >
@@ -125,15 +139,21 @@ export default function Page({ params }) {
                                         <label htmlFor="servicetype" className="block text-sm font-medium text-gray-800 mb-2">Service Type</label>
                                         <select
                                             name="servicetype"
-                                            className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
+                                            className="block w-full h-12 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
                                             value={formData.servicetype}
                                             onChange={handleChange}
                                         >
                                             <option value="">Select Service</option>
-                                            <option value="Plumbing">Plumbing Services</option>
-                                            <option value="Electrical">Electrical Services</option>
-                                            <option value="Carpentry">Carpentry Services</option>
-                                            <option value="Painting">Painting Services</option>
+                                            {isLoading ? (
+                                                <li className="px-4 py-2 text-sm font-medium text-gray-700">...</li>
+                                            ) : (
+                                                services.map((service, index) => (
+                                                    <option key={index} value={service.title}>{service.title}</option>
+
+
+
+                                                ))
+                                            )}
                                         </select>
                                     </div>
 
@@ -175,6 +195,7 @@ export default function Page({ params }) {
                 </div>
             </div>
 
+<Service/>
             <Footer />
         </>
     );

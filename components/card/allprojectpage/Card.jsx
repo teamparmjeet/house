@@ -80,15 +80,9 @@ export default function Card({ item }) {
                 </div>
                 <div className='flex justify-between items-center mt-2  rounded-md px-1'>
                     <div className='flex'>
-                        <Image alt='' src="/image/Black_Outline_Street_Brand_Modern_Typography_Logo__1___1_-removebg-preview.png" width={51.5} height={19.312} />
+                        <Image alt='' src="/logo/Group 349 (2).svg" width={150} height={19.312} />
                     </div>
-                   <div className=' flex gap-2'>
-                   <Link href={``}>
-                        <button className='bg-blue-500 text-white rounded-md px-2 py-1 gap-x-2 flex'><LucideFullscreen size={20} />Detail View</button>
-                    </Link>
-
                  
-                   </div>
                 </div>
             </div>
         </div>
