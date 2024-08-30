@@ -42,7 +42,7 @@ export default function Postproperty() {
         try {
             const response = await axios.post('/api/postproperty/create', formData);
             if(response.status === 200){
-                toast.success("Property posted successfully! We'll contact you soon.");
+                toast.success("Your Requiest is Submitted successfully! We'll contact you soon.");
 
                 setFormData({
                     propertytype: '',
@@ -52,7 +52,7 @@ export default function Postproperty() {
                     city: ''
                 });
             } else {
-                toast.error("Error: Unable to post property.");
+                toast.error("Error: Unable to Submit property requiest.");
             }
         } catch (error) {
             console.error('Error:', error);
@@ -64,7 +64,7 @@ export default function Postproperty() {
         <div className="bg-white border p-6 rounded-lg shadow-lg mx-auto ">
             <ToastContainer />
             <div className="relative inline-block mb-6">
-                <h1 className="text-4xl font-bold text-gray-800">Post Property</h1>
+                <h1 className="text-xl text-[#005ca8] font-bold">Post Property</h1>
                 <div className="absolute -top-4 -right-4">
                     <Ani />
                 </div>
@@ -73,7 +73,7 @@ export default function Postproperty() {
             <form onSubmit={handleSubmit}>
                 <div className="space-y-6">
                     <div className="space-y-2">
-                        <h2 className="text-lg font-semibold text-gray-700">Property Type</h2>
+                        <h2 className="text-sm font-semibold text-gray-700">Property Type</h2>
                         <div className="flex gap-6">
                             <Radio
                                 name="propertytype"
@@ -93,7 +93,7 @@ export default function Postproperty() {
                     </div>
 
                     <div className="space-y-2">
-                        <h2 className="text-lg font-semibold text-gray-700">Looking to</h2>
+                        <h2 className="text-sm font-semibold text-gray-700">Looking to</h2>
                         <div className="flex gap-6">
                             <Radio
                                 name="purpose"
@@ -114,7 +114,7 @@ export default function Postproperty() {
 
                     <div className="space-y-4">
                         <Input
-                            type="number"
+                            type="text"
                             name="mobileNumber"
                             placeholder="Enter Mobile Number"
                             value={formData.mobileNumber}
@@ -136,10 +136,10 @@ export default function Postproperty() {
                 </div>
                 <button
                     type="submit"
-                    className={`mt-6 w-full py-2 px-4 rounded-lg ${isFormValid ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-300 text-gray-700 cursor-not-allowed'}`}
+                    className={`mt-6 w-full py-3 px-4 rounded-md ${isFormValid ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-300 text-gray-700 cursor-not-allowed'}`}
                     disabled={!isFormValid}
                 >
-                    Submit
+                    Start Now!
                 </button>
             </form>
         </div>

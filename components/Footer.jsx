@@ -57,6 +57,7 @@ export default function Footer() {
                     © 2022 GharDhundo.com. All rights reserved.
                 </div>
             </div>
+            
         </div>
     );
 }

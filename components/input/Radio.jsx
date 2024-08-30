@@ -16,7 +16,7 @@ const Radio = ({ name, value, id, checked, onChange }) => (
             aria-checked={checked}
             aria-labelledby={id}
         />
-        <span className="text-gray-500">{value}</span>
+        <span className="text-gray-500 text-sm">{value}</span>
     </label>
 );
 
