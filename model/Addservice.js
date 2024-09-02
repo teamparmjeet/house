@@ -5,6 +5,7 @@ const AddServiceSchema = new Schema(
 
         title: { type: String },
         description:{type:String},
+        imageUrl:{type:String},
         defaultdata: { type: String, required: true, default: "addservice" }
 
     },
@@ -12,6 +13,6 @@ const AddServiceSchema = new Schema(
 );
 
 const AddServiceModel =
-    mongoose.models.AddService1 || mongoose.model("AddService1", AddServiceSchema);
+    mongoose.models.AddService4 || mongoose.model("AddService4", AddServiceSchema);
 
 export default AddServiceModel

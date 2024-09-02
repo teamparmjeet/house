@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect ,useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Input from '../../components/Input/Input';
 import Select from '../../components/Input/Select';
@@ -11,6 +11,7 @@ export default function Addnew() {
         title: '',
         location: '',
         price: '',
+        metadata: '',
         type: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,8 +20,8 @@ export default function Addnew() {
     const router = useRouter();
 
     const validateForm = useCallback(() => {
-        const { title, location, price } = formData;
-        return title && location && price;
+        const { title, location, price, metadata } = formData;
+        return title && location && price && metadata;
     }, [formData]);
 
     useEffect(() => {
@@ -30,7 +31,7 @@ export default function Addnew() {
     useEffect(() => {
         setIsFormValid(validateForm());
     }, [formData, validateForm]);
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({
@@ -59,7 +60,8 @@ export default function Addnew() {
                     title: '',
                     location: '',
                     price: '',
-                    type: ''
+                    type: '',
+                    metadata:''
                 });
             } else {
                 setMessage(`Error: ${response.data.message}`);
@@ -105,6 +107,7 @@ export default function Addnew() {
                                 type="number"
                             />
                         </div>
+                        
                         <div className='lg:col-span-1'>
                             <label htmlFor="type" className="block text-sm font-medium text-gray-700">Type</label>
                             <select
@@ -124,6 +127,15 @@ export default function Addnew() {
                                 <option value="Land">Land</option>
                                 <option value="Office">Office</option>
                             </select>
+                        </div>
+                        <div className='lg:col-span-2'>
+                            <Input
+                                name="metadata"
+                                label="Metadata"
+                                value={formData.metadata}
+                                onChange={handleChange}
+                                type="text"
+                            />
                         </div>
                     </div>
 

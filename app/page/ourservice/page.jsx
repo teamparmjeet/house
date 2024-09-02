@@ -81,9 +81,9 @@ export default function Page() {
                         ) : (
                             services.map((service, index) => (
                                 <Link key={index} href={`/page/service/${service.title}`}>
-                                    <div className="p-6 h-full hover:bg-gray-50 transition duration-300 ease-in-out">
-                                        <div className="h-full rounded-xl bg-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 transition duration-300 ease-in-out">
-                                            <div className="p-6">
+                                    <div className=" p-6 h-full hover:bg-gray-50 transition duration-300 ease-in-out">
+                                        <div className="h-full relative rounded-xl overflow-hidden  shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 transition duration-300 ease-in-out">
+                                            <div className="p-6 bg-white/80  z-50">
                                                 <div className="flex items-center justify-between mb-4">
                                                     <h2 className="text-2xl font-extrabold text-gray-800">{service.title}</h2>
                                                     <div className=" p-2 rounded-md shadow-md">
@@ -91,8 +91,11 @@ export default function Page() {
                                                     </div>
                                                 </div>
                                                 <hr className="border-t-2 border-gray-200 opacity-50 mb-4" />
-                                                <p className="text-gray-600 text-lg leading-relaxed">{service.description}</p>
+                                                <p className="text-lg leading-relaxed">{service.description}</p>
                                             </div>
+                                       
+                                            <Image className=' -z-10 rounded-md absolute top-0 left-0 right-0 bottom-0' alt='' width={500} height={500} src={service.imageUrl}/>
+                                       
                                         </div>
                                     </div>
 

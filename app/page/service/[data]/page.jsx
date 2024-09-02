@@ -20,7 +20,9 @@ export default function Page({ params }) {
         city: serviceLocation,
         servicetype: serviceType,
         address: '',
-        description: ''
+        description: '',
+        date:'',
+        time:''
     });
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState(false);
@@ -49,7 +51,9 @@ export default function Page({ params }) {
                     city: serviceLocation,
                     servicetype: serviceType,
                     address: '',
-                    description: ''
+                    description: '',
+                    date: '',
+                    time: ''
                 });
                 toast.success("Request Sent Successfullt")
             }
@@ -213,6 +217,30 @@ export default function Page({ params }) {
                                             placeholder="Describe your request"
                                             className="text-lg"
                                             value={formData.description}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+
+                                    <div className='md:col-span-2'>
+                                        <Input
+                                            label="Date"
+                                            type="date"
+                                            name="date"
+                                            placeholder="Describe your request"
+                                            className="text-lg"
+                                            value={formData.date}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+
+                                    <div className='md:col-span-2'>
+                                        <Input
+                                            label="Time"
+                                            type="time"
+                                            name="time"
+                                            placeholder="Describe your request"
+                                            className="text-lg"
+                                            value={formData.time}
                                             onChange={handleChange}
                                         />
                                     </div>

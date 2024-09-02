@@ -19,6 +19,7 @@ const ProjectSchema = new Schema(
             required: true 
         },
         price: { type: Number },
+        metadata: { type: String },
         type: {
             type: String,
             enum: ['Apartment', 'House', 'Villa', 'Commercial', 'Land', 'Office'],
@@ -114,6 +115,6 @@ ProjectSchema.pre('save', async function(next) {
 });
 
 const ProjectModel =
-    mongoose.models.Project15 || mongoose.model("Project15", ProjectSchema);
+    mongoose.models.Project16 || mongoose.model("Project16", ProjectSchema);
 
 export default ProjectModel;
