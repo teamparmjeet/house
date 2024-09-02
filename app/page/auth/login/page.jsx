@@ -85,6 +85,7 @@ export default function LoginPage() {
     return (
         <>
             <Navbar />
+            <title>Login In LEEL House</title>
             <div className='bg-banner flex justify-center items-center min-h-screen'>
                 <div className='absolute inset-0 bg-opacity-50 backdrop-blur-sm'></div>
 

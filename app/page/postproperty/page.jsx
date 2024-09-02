@@ -1,13 +1,38 @@
-import React from 'react'
+"use client"
+import React,{useEffect,useState} from 'react'
 import Postproperty from '@/components/postproperty/Postproperty'
 import Image from 'next/image'
 import { Circle } from "lucide-react"
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import axios from 'axios'
+
 export default function Page() {
+    const [metadata, setMetadata] = useState([]);
+
+useEffect(() => {
+    const fetchMetadata = async () => {
+        try {
+            const response = await axios.get('/api/metadata/fetchall/metadata');
+            setMetadata(response.data.fetch);
+        } catch (err) {
+            console.error('Failed to fetch metadata:', err);
+        }
+    };
+
+    fetchMetadata();
+}, []);
+
+
+const filteredMetadata = metadata.filter(item => item.page === 'Postproperty');
+
+
     return (
         <>
             <Navbar />
+            {filteredMetadata.map((item) => (
+                  <title key={item._id}>{item.title}</title>
+            ))}
             <div className='lg:h-screen bgblue bg-gradient-to-br from-white to-blue-800 pt-36 p-5'>
 
                 <div className="container mx-auto lg:w-[90%] h-full flex  items-center justify-end py-5" >

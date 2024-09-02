@@ -9,10 +9,10 @@ const roboto = Roboto({
   subsets: ['latin'],
 })
 
-export const metadata = {
-  title: "Trusted Online Property Find | GharDekho.Com",
-  description: "Trusted Online Property Dundo | GharDekho.Com",
-};
+// export const metadata = {
+//   title: "Trusted Online Property Find | GharDekho.Com",
+//   description: "Trusted Online Property Dundo | GharDekho.Com",
+// };
 
 export default function RootLayout({ children }) {
   return (

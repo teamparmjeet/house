@@ -6,7 +6,7 @@ export const GET = async (request) => {
   
     try {
     
-      const cities = await ProjectModel.distinct("address.city");
+      const cities = await ProjectModel.distinct("location");
       return Response.json(
         {
           message: "All cities fetched!",

@@ -91,6 +91,7 @@ export default function Signup() {
         <>
             <ToastContainer />
             <Navbar />
+            <title>Sign Up In LEEL House</title>
             <div className='bg-banner px-1 md:px-0 relative z-10 flex justify-center items-end md:items-center min-h-screen'>
                 <div className='absolute inset-0 bg-opacity-50 backdrop-blur-md z-20'></div>
 

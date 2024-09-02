@@ -29,9 +29,30 @@ export default function Page() {
         fetchServices();
     }, []);
 
+    const [metadata, setMetadata] = useState([]);
+
+    useEffect(() => {
+        const fetchMetadata = async () => {
+            try {
+                const response = await axios.get('/api/metadata/fetchall/metadata');
+                setMetadata(response.data.fetch);
+            } catch (err) {
+                console.error('Failed to fetch metadata:', err);
+            }
+        };
+
+        fetchMetadata();
+    }, []);
+
+
+    const filteredMetadata = metadata.filter(item => item.page === 'AllService');
+
     return (
         <>
             <Navbar />
+            {filteredMetadata.map((item) => (
+                <title key={item._id}>{item.title}</title>
+            ))}
             <div className='bg-banner relative py-20 flex justify-center items-center'>
                 <div className=' absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black z-10'></div>
                 <div className='container px-2 mx-auto lg:w-[90%] text-center z-20'>

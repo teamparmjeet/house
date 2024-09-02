@@ -94,10 +94,30 @@ export default function Page({ params }) {
     useEffect(() => {
         fetchServices();
     }, []);
+
+    const [metadata, setMetadata] = useState([]);
+
+    useEffect(() => {
+        const fetchMetadata = async () => {
+            try {
+                const response = await axios.get('/api/metadata/fetchall/metadata');
+                setMetadata(response.data.fetch);
+            } catch (err) {
+                console.error('Failed to fetch metadata:', err);
+            }
+        };
+
+        fetchMetadata();
+    }, []);
+
+
+    const filteredMetadata = metadata.filter(item => item.page === 'Service');
     return (
         <>
             <Navbar />
-
+            {filteredMetadata.map((item) => (
+                 <title key={item._id}>{item.title}</title>
+            ))}
             <ToastContainer />
             <div className="bg-gray-50 bgblue pt-20">
                 <div className="container mx-auto lg:w-[90%] py-12">
@@ -146,7 +166,7 @@ export default function Page({ params }) {
                                             <option value="">Select City</option>
                                             {city.map((item) => (
 
-                                                <option key={item_id} value={item}>{item}</option>
+                                                <option key={item._id} value={item}>{item}</option>
                                             ))}
 
                                         </select>

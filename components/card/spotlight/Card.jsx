@@ -68,7 +68,7 @@ export default function Card() {
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
                 {totalProperties.map((item) => (
 
-                    <Link key={item.id} href={`/page/singlepage/${item._id}`}>
+                    <Link key={item.id} href={`/page/singlepage/${item.slug}`}>
                         <div className="rounded-2xl border group overflow-hidden mx-2 bg-white grid lg:grid-cols-7">
 
                             <div className="lg:col-span-2 order-2 lg:order-1 flex flex-col p-4 lg:p-6">

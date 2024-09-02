@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Banner from '@/components/banner/Banner';
@@ -12,14 +12,36 @@ import Movein from "@/components/card/movein/Movein"
 import Button from "@/components/button/Btn";
 import Link from 'next/link';
 import Ping from '@/components/button/ping';
+import axios from 'axios';
 export default function MainPage() {
   const [location, setLocation] = useState('Jaipur');
   const [motive, setMotive] = useState('Buy');
   const [type, setType] = useState('');
 
+  const [metadata, setMetadata] = useState([]);
+
+  useEffect(() => {
+    const fetchMetadata = async () => {
+      try {
+        const response = await axios.get('/api/metadata/fetchall/metadata');
+        setMetadata(response.data.fetch);
+      } catch (err) {
+        console.error('Failed to fetch metadata:', err);
+      }
+    };
+
+    fetchMetadata();
+  }, []);
+
+
+  const filteredMetadata = metadata.filter(item => item.page === 'Home');
+
   return (
     <>
       <Navbar />
+      {filteredMetadata.map((item) => (
+          <title key={item._id}>{item.title}</title>
+      ))}
       <Banner location={location} setLocation={setLocation} motive={motive} setMotive={setMotive} type={type} setType={setType} />
 
       <div className='  '>

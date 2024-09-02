@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Menu, User, XCircleIcon, Home, FileText, PlusCircle, ServerIcon, Mail, GitPullRequest, Contact } from 'lucide-react';
+import { Menu, User, XCircleIcon, Home, FileText, PlusCircle, ServerIcon, Mail, GitPullRequest, Contact ,Database} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 export default function Sidebar() {
@@ -17,6 +17,7 @@ export default function Sidebar() {
     { name: 'Enquiry', href: '/admin/page/enquiry', icon: <Mail size={20} /> },
     { name: 'Property Post Request', href: '/admin/page/request', icon: <GitPullRequest size={20} /> },
     { name: 'Contact Request', href: '/admin/page/contact', icon: <Contact size={20} /> },
+    { name: 'Website Metadata', href: '/admin/page/metadata', icon: <Database size={20} /> },
 
   ];
 

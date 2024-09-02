@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import moment from "moment"; // Import moment for date formatting
 
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+const toUpperCase = (str) => str.toUpperCase();
 
 const ProjectSchema = new Schema(
     {
@@ -86,23 +86,23 @@ const ProjectSchema = new Schema(
 ProjectSchema.pre('save', async function(next) {
     // Capitalize location
     if (this.location) {
-        this.location = capitalize(this.location);
+        this.location = toUpperCase(this.location);
     }
 
     // Capitalize address.city
-    if (this.address.city) {
-        this.address.city = capitalize(this.address.city);
+    if (this.address && this.address.city) {
+        this.address.city = toUpperCase(this.address.city);
     }
 
-    // Generate slug if not present
+    // Generate slug
     if (!this.slug) {
-        const formattedDate = moment().format('DDMMYYHHmmss'); // Remove spaces by default
-        this.slug = `${this.title.replace(/\s+/g, '')}${formattedDate}`;
-        
+        const formattedDate = moment().format('DDMMYY-HHmmss');
+        this.slug = `${this.title.replace(/\s+/g, '-')}-${formattedDate}`.toLowerCase();
+
         // Ensure the unique constraint is checked
         try {
-            const existingslug = await this.constructor.countDocuments({ slug: this.slug }).exec();
-            if (existingslug > 0) {
+            const existingSlugCount = await this.constructor.countDocuments({ slug: this.slug }).exec();
+            if (existingSlugCount > 0) {
                 // Handle duplicate key error if necessary
                 return next(new Error('Duplicate slug detected.'));
             }
@@ -114,6 +114,6 @@ ProjectSchema.pre('save', async function(next) {
 });
 
 const ProjectModel =
-    mongoose.models.Project12 || mongoose.model("Project12", ProjectSchema);
+    mongoose.models.Project15 || mongoose.model("Project15", ProjectSchema);
 
 export default ProjectModel;

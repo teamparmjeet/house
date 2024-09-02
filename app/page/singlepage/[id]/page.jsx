@@ -32,6 +32,27 @@ export default function SinglePage({ params }) {
         fetchProject();
     }, [id]);
 
+
+    const [metadata, setMetadata] = useState([]);
+
+    useEffect(() => {
+        const fetchMetadata = async () => {
+            try {
+                const response = await axios.get('/api/metadata/fetchall/metadata');
+                setMetadata(response.data.fetch);
+            } catch (err) {
+                console.error('Failed to fetch metadata:', err);
+            }
+        };
+
+        fetchMetadata();
+    }, []);
+
+
+    const filteredMetadata = metadata.filter(item => item.page === 'Single');
+
+
+
     if (loading) {
         return <Loading />;
     }
@@ -40,10 +61,13 @@ export default function SinglePage({ params }) {
         return <p>{error}</p>;
     }
 
+
     return (
         <>
             <Navbar />
-
+            {filteredMetadata.map((item) => (
+                  <title key={item._id}>{item.title}</title>
+            ))}
 
             <Carousel details={project.featureImage} />
 
@@ -100,7 +124,7 @@ export default function SinglePage({ params }) {
                     <h3 className="text-xl font-semibold underline">Related Posts</h3>
                     <Carouselcard listingType={project.listingType} />
 
-                    <Service/>
+                    <Service />
                 </div>
 
 

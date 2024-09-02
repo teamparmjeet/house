@@ -146,30 +146,30 @@ export default function Update3({ params }) {
           <div className="space-y-4 lg:col-span-1 md:col-span-1">
             <div className="grid grid-cols-1  p-2 rounded-md sm:grid-cols-2 gap-4">
 
-            {/* <label htmlFor="purpose" className="block   text-sm font-medium text-gray-700">Buy/Rent</label> */}
-            <select name="purpose"
-              value={formData.purpose}
-              onChange={handleChange}
-              disabled={isUpdating}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm">
-                
-              <option value="Buy">Buy</option>
-              <option value="Rent">Rent</option>
-              <option value="Focus">Focus</option>
-              <option value="Top Project">Top Project</option>
-            </select>
+              {/* <label htmlFor="purpose" className="block   text-sm font-medium text-gray-700">Buy/Rent</label> */}
+              <select name="purpose"
+                value={formData.purpose}
+                onChange={handleChange}
+                disabled={isUpdating}
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm">
+                <option value=""></option>
+                <option value="Buy">Buy</option>
+                <option value="Rent">Rent</option>
 
-            {/* <label htmlFor="listingType" className="block  text-sm font-medium text-gray-700">ListingType</label> */}
-            <select name="listingType"
-              value={formData.listingType}
-              onChange={handleChange}
-              disabled={isUpdating}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm">
-              <option value="New Listing">New Listing</option>
-              <option value="Featured">Featured</option>
-              <option value="Focus">Focus</option>
-              <option value="Top Project">Top Project</option>
-            </select>
+              </select>
+
+              {/* <label htmlFor="listingType" className="block  text-sm font-medium text-gray-700">ListingType</label> */}
+              <select name="listingType"
+                value={formData.listingType}
+                onChange={handleChange}
+                disabled={isUpdating}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm">
+                <option value="New Listing">New Listing</option>
+                <option value="Featured">Featured</option>
+                <option value="Focus">Focus</option>
+                <option value="Top Project">Top Project</option>
+              </select>
 
               <div>
                 {formData.amenities.map((amenity, index) => (
@@ -330,7 +330,7 @@ export default function Update3({ params }) {
               disabled={isUpdating}
             />
 
-          
+
 
             <Input
               label="Description"

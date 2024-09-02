@@ -125,9 +125,31 @@ export default function Collectionproject({ params }) {
         setCurrentPage(1);
     };
 
+    const [metadata, setMetadata] = useState([]);
+
+    useEffect(() => {
+        const fetchMetadata = async () => {
+            try {
+                const response = await axios.get('/api/metadata/fetchall/metadata');
+                setMetadata(response.data.fetch);
+            } catch (err) {
+                console.error('Failed to fetch metadata:', err);
+            }
+        };
+
+        fetchMetadata();
+    }, []);
+
+
+    const filteredMetadata = metadata.filter(item => item.page === 'Collection');
+
+
     return (
         <>
             <Navbar />
+            {filteredMetadata.map((item) => (
+                <title key={item._id}>{item.title}</title>
+            ))}
             <div className="h-16 bg-2"></div>
             <header className="bg-2 py-2 w-full top-0 left-0 z-50">
                 <div className="mx-auto h-full flex items-center px-4 gap-x-3">
@@ -140,7 +162,7 @@ export default function Collectionproject({ params }) {
                         >
                             {city.map((item) => (
 
-                                <option key={item._id} value= {item} className="text-black">
+                                <option key={item._id} value={item} className="text-black">
                                     {item}
                                 </option>
                             ))}
