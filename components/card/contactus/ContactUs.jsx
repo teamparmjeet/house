@@ -1,41 +1,62 @@
-import React from 'react'
-import Image from 'next/image'
-import { StarIcon, Share, Share2  , ChartBar} from "lucide-react"
-import Link from 'next/link'
+import React from 'react';
+import Image from 'next/image';
+import { StarIcon, Share2, ChartBar } from "lucide-react";
+import Link from 'next/link';
+import Whatsapp from '@/components/whatsapp/Whatsapp';
+
 export default function ContactUs() {
+    const handleShare = () => {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Ghar Dhundo',
+                text: 'Check out Ghar Dhundo for quality services since 2000.',
+                url: window.location.href,
+            })
+            .then(() => console.log('Thanks for sharing!'))
+            .catch((error) => console.error('Error sharing:', error));
+        } else {
+            alert('Web Share API not supported in this browser.');
+        }
+    };
+
     return (
-        <>
-            <div className=' bg-3 p-6  rounded-md shadow border'>
-
-                <div className="flex flex-col  gap-3">
-                    <div >
-                        <Image alt='' width={200} height={100} src="/logo/Group 349 (2).svg" />
-                    </div>
-                    <div>
-                        <h2 className="text-xl font-semibold text-gray-800">Ghar Dhundo</h2>
-                        <p className="text-sm text-gray-500">Quality services since 2000</p>
-                        <p className=" text-2 flex">
-                            <StarIcon size={20} /> <StarIcon size={20} /> <StarIcon size={20} /> <StarIcon size={20} />  <StarIcon size={20} />
-                        </p>
+        <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 max-w-sm mx-auto">
+            <div className="flex flex-col items-center gap-4">
+                <Image 
+                    alt="Ghar Dhundo Logo" 
+                    width={150} 
+                    height={80} 
+                    src="/logo/Group 349 (2).svg" 
+                    className="mb-2" 
+                />
+                <div className="text-center">
+                    <h2 className="text-2xl font-bold text-gray-800">Ghar Dhundo</h2>
+                    <p className="text-sm text-gray-500">Quality services since 2000</p>
+                    <div className="flex justify-center mt-2">
+                        {[...Array(5)].map((_, i) => (
+                            <StarIcon key={i} size={20} className="text-yellow-500" />
+                        ))}
                     </div>
                 </div>
-                <div className=' flex items-center justify-between my-4'>
-                    <p className="text-gray-600">
-                        Contact us today
-                    </p>
-                    <p className=' flex items-center gap-1 text-sm px-2 border rounded-md '> Share<Share2 size={15} color='#005ca8' /></p>
-                </div>
-                <Link href="/page/contactus">
-                <button className="w-full bg-2 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300">
-                    Contact Us
-                </button>
-                </Link>
-
-                <p className=' text-gray-500  flex items-center gap-2 mt-2'><ChartBar/> Responds in about 27 min</p>
-
-
             </div>
-
-        </>
-    )
+            <div className="flex items-center justify-between mt-5 mb-3">
+                <p className="text-gray-600 font-medium">Contact us today</p>
+                <button 
+                    onClick={handleShare} 
+                    className="flex items-center gap-1 text-sm border border-blue-500 rounded-md px-3 py-1 hover:bg-blue-500 hover:text-white transition"
+                >
+                    Share <Share2 size={15} />
+                </button>
+            </div>
+            <div className="flex items-center justify-between gap-2">
+                <Link href="/page/contactus" className="w-full block bg-blue-600 text-white text-center py-2 rounded-md hover:bg-blue-700 transition duration-300">
+                    Contact Us
+                </Link> 
+                <Whatsapp width={40} height={40} />
+            </div>
+            <p className="text-gray-500 flex items-center gap-2 mt-4 justify-between">
+                <ChartBar size={20} className="text-gray-400" /> Responds in about 27 min
+            </p>
+        </div>
+    );
 }

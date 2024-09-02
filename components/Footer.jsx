@@ -67,9 +67,11 @@ export default function Footer() {
             </div>
 
 
+            <div className='fixed bottom-0 right-0 z-40 m-5'>
+            <Whatsapp width={40} height={40}/>
+            </div>
 
-
-            <Whatsapp/>
+         
         </>
     );
 }

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Search } from "lucide-react";
 import Input from '@/app/admin/components/Input/Input';
 import { useRouter } from 'next/navigation';
-
+import axios from 'axios';
 export default function Tabbanner({ location, setLocation, motive, setMotive, type, setType }) {
+    const [city, setCity] = useState([]);
+    const [services, setServices] = useState([]);
+
     const [formData, setFormData] = useState({
         buyLocation: '',
         buyType: '',
@@ -53,6 +56,40 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
         }
     };
 
+
+    useEffect(() => {
+        const fetchCity = async () => {
+
+            try {
+                const response = await axios.get("/api/project/findallcity/project");
+                setCity(response.data.cities)
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+
+            }
+        };
+
+        fetchCity();
+    }, []);
+
+    useEffect(() => {
+        const fetchService = async () => {
+
+            try {
+                const response = await axios.get('/api/AddService/getdata/addservice');
+                setServices(response.data.fetch);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+
+            }
+        };
+
+        fetchService();
+    }, []);
+
+   
     return (
         <div className="bg-white shadow-lg rounded-2xl p-4 md:p-6 mx-auto max-w-4xl">
             <h2 className="text-xl font-semibold mb-5 text-center">Discover Properties</h2>
@@ -84,8 +121,10 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
 
                             >
                                 <option value="">Select Ciity</option>
-                                <option selected value="Jaipur">Jaipur</option>
-                                <option value="Kota">Kota</option>
+                                {city.map((item) => (
+                                    <option key={item.id} selected value={item}>{item}</option>
+                                ))}
+
                             </select>
 
 
@@ -106,7 +145,7 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                         </div>
                         <div className="flex justify-center mt-4">
                             <button type="submit" className="w-full flex font-medium justify-center items-center gap-x-2 py-3 px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
-                                Search 
+                                Search
                             </button>
                         </div>
                     </form>
@@ -124,8 +163,9 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
 
                             >
                                 <option value="">Select Ciity</option>
-                                <option value="Jaipur">Jaipur</option>
-                                <option value="Kota">Kota</option>
+                                {city.map((item) => (
+                                    <option  key={item.id} selected value={item}>{item}</option>
+                                ))}
                             </select>
 
 
@@ -146,7 +186,7 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                         </div>
                         <div className="flex justify-center mt-4">
                             <button type="submit" className="w-full font-medium flex justify-center items-center gap-x-2 py-3 px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
-                                Search  
+                                Search
                             </button>
                         </div>
                     </form>
@@ -155,16 +195,22 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                 <TabPanel>
                     <form onSubmit={handleServiceSearch}>
                         <div className="flex xl:flex-col gap-4">
-                        <label htmlFor="ger" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
+                            <label htmlFor="ger" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
 
-                            <Input
+                            <select
                                 id="ger"
                                 name="serviceLocation"
                                 value={formData.serviceLocation}
                                 onChange={handleInputChange}
-                                placeholder="Enter location"
-                                className="py-3 px-3 block"
-                            />
+                                className=" block w-full px-3 py-3 border border-gray-300 rounded-md  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+
+                            >
+                                <option value="">Select Ciity</option>
+                                {city.map((item) => (
+                                    <option  key={item.id} selected value={item}>{item}</option>
+                                ))}
+                            </select>
+
                             <label htmlFor="serviceType" className="block -mb-[14px] text-[12px] font-medium text-gray-700"> Service Type</label>
                             <select
                                 name="serviceType"
@@ -173,10 +219,11 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                                 className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                             >
                                 <option value="">Select Service</option>
-                                <option value="Plumbing">Plumbing Services</option>
-                                <option value="Electrical">Electrical Services</option>
-                                <option value="Carpentry">Carpentry Services</option>
-                                <option value="Painting">Painting Services</option>
+                                {services.map((item) => (
+
+                                    <option key={item.id} value={item.title}>{item.title}</option>
+                                ))}
+
                             </select>
                         </div>
                         <div className="flex justify-center mt-4">
@@ -184,7 +231,7 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                                 type="submit"
                                 className="w-full flex justify-center font-medium items-center gap-x-2 py-3 px-4 bg-2 bg-gray-200 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none"
                             >
-                                Search  
+                                Search
                             </button>
                         </div>
                     </form>

@@ -5,8 +5,7 @@ import Footer from '@/components/Footer'
 import Service from '@/components/service/Service'
 import axios from 'axios';
 import Loading from '@/components/Loader/Loading'
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -30,61 +29,56 @@ export default function Page() {
         fetchServices();
     }, []);
 
-    const responsive = {
-        superLargeDesktop: {
-            breakpoint: { max: 4000, min: 1200 },
-            items: 3
-        },
-        desktop: {
-            breakpoint: { max: 1200, min: 1024 },
-            items: 2
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 600 },
-            items: 2
-        },
-        mobile: {
-            breakpoint: { max: 600, min: 0 },
-            items: 1
-        }
-    };
-
     return (
         <>
             <Navbar />
-            <div className='bg-banner py-20 flex justify-center items-center'>
-                <div className='container mx-auto lg:w-[90%] text-center'>
+            <div className='bg-banner relative py-20 flex justify-center items-center'>
+                <div className=' absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black z-10'></div>
+                <div className='container px-2 mx-auto lg:w-[90%] text-center z-20'>
+
                     <h1 className='text-white text-5xl font-bold mb-12'>Our Services</h1>
-                    <Carousel 
-                        responsive={responsive} 
-                        infinite={true} 
-                        autoPlay 
-                        removeArrowOnDeviceType={["tablet", "mobile"]}
-                        className="z-10"
-                    >
+                    <p className=' hidden sm:block text-white text-justify'>At <span className=''>LEEL House</span> we go beyond just helping you find the perfect property.
+                        We offer a comprehensive range of home services to ensure your new home is as comfortable and functional as
+                        possible. From kitchen repairs to electrical work, plumbing, and general maintenance, our team of skilled
+                        professionals is here to assist you every step of the way. Whether you are moving into a new home or upgrading your
+                        current one, our services are designed to meet all your needs, ensuring a seamless and stress-free experience.
+                        Trust us to not only help you find your dream property but also to keep it in top-notch condition.</p>
+
+
+                </div>
+            </div>
+
+            <div className=''>
+                <div className=' container mx-auto px-4 lg:w-[90%]'>
+
+                    <div className="grid divide-y-2 divide-x-2 lg:grid-cols-3 md:grid-cols-2">
+
                         {isLoading ? (
-                            <Loading />
+                            <div className=' lg:col-span-3 md:col-span-2'>
+                                <Loading />
+                            </div>
                         ) : (
                             services.map((service, index) => (
                                 <Link key={index} href={`/page/service/${service.title}`}>
-                                    <div className="p-4">
-                                        <div className="rounded-lg shadow-2xl overflow-hidden transform transition duration-300 bg-white hover:scale-105 hover:shadow-lg">
+                                    <div className="p-6 h-full hover:bg-gray-50 transition duration-300 ease-in-out">
+                                        <div className="h-full rounded-xl bg-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 transition duration-300 ease-in-out">
                                             <div className="p-6">
                                                 <div className="flex items-center justify-between mb-4">
-                                                    <h2 className="text-2xl font-bold text-gray-800">{service.title}</h2>
-                                                    <div className='bg-white p-2 rounded-md shadow-md'>
-                                                        <Image alt='logo' width={100} height={100} src="/logo/Group 349 (2).svg" />
+                                                    <h2 className="text-2xl font-extrabold text-gray-800">{service.title}</h2>
+                                                    <div className=" p-2 rounded-md shadow-md">
+                                                        <Image alt="logo" width={120} height={120} src="/logo/Group 349 (2).svg" />
                                                     </div>
                                                 </div>
                                                 <hr className="border-t-2 border-gray-200 opacity-50 mb-4" />
-                                                <p className="text-gray-600 text-base">{service.description}</p>
+                                                <p className="text-gray-600 text-lg leading-relaxed">{service.description}</p>
                                             </div>
                                         </div>
                                     </div>
+
                                 </Link>
                             ))
                         )}
-                    </Carousel>
+                    </div>
                 </div>
             </div>
             <Service />
@@ -92,3 +86,7 @@ export default function Page() {
         </>
     )
 }
+
+
+
+

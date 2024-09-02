@@ -47,7 +47,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/page/collectionproject/Top`}>
+              <Link href={`/page/collectionproject/All Category,${location}`}>
                 <Button title=" View All" />
               </Link>
 
@@ -70,7 +70,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/page/collectionproject/Focus`}>
+              <Link href={`/page/collectionproject/All Category,${location}`}>
                 <Button title=" View All" />
               </Link>
             </div>
@@ -109,7 +109,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/page/collectionproject/Featured`}>
+              <Link href={`/page/collectionproject/All Category,${location}`}>
                 <Button title=" View All" />
               </Link>
             </div>
@@ -136,9 +136,9 @@ export default function MainPage() {
       </div>
 
 
-    
-        <Service />
-      
+
+      <Service />
+
       <Footer />
     </>
   );

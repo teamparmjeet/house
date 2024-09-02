@@ -1,4 +1,7 @@
 import mongoose, { Schema } from "mongoose";
+import moment from "moment"; // Import moment for date formatting
+
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 const ProjectSchema = new Schema(
     {
@@ -7,7 +10,14 @@ const ProjectSchema = new Schema(
             enum: ['Luxury', 'Affordable', 'Investment', 'Family', 'Starter'],
             required: true,
         },
-        location: { type: String, required: true },
+        slug: { 
+            type: String,
+            unique: true, // Ensure that slug is unique
+        },
+        location: { 
+            type: String, 
+            required: true 
+        },
         price: { type: Number },
         type: {
             type: String,
@@ -44,7 +54,6 @@ const ProjectSchema = new Schema(
             default: 'Available',
         },
 
-
         amenities: [{ type: String }],
         features: [{ type: String }],
         listingType: {
@@ -56,8 +65,7 @@ const ProjectSchema = new Schema(
         nearbyFacilities: [{ type: String }],
         parkingSpaces: { type: Number, default: 0 },
 
-        description: { type: String },// End
-        // Additional details
+        description: { type: String },
         propertyType: { type: String },
         yearRenovated: { type: Number },
         hasGarage: { type: Boolean, default: false },
@@ -74,7 +82,38 @@ const ProjectSchema = new Schema(
     { timestamps: true }
 );
 
+// Pre-save hook to capitalize location and address.city, and generate slug
+ProjectSchema.pre('save', async function(next) {
+    // Capitalize location
+    if (this.location) {
+        this.location = capitalize(this.location);
+    }
+
+    // Capitalize address.city
+    if (this.address.city) {
+        this.address.city = capitalize(this.address.city);
+    }
+
+    // Generate slug if not present
+    if (!this.slug) {
+        const formattedDate = moment().format('DDMMYYHHmmss'); // Remove spaces by default
+        this.slug = `${this.title.replace(/\s+/g, '')}${formattedDate}`;
+        
+        // Ensure the unique constraint is checked
+        try {
+            const existingslug = await this.constructor.countDocuments({ slug: this.slug }).exec();
+            if (existingslug > 0) {
+                // Handle duplicate key error if necessary
+                return next(new Error('Duplicate slug detected.'));
+            }
+        } catch (error) {
+            return next(error);
+        }
+    }
+    next();
+});
+
 const ProjectModel =
-    mongoose.models.Project7 || mongoose.model("Project7", ProjectSchema);
+    mongoose.models.Project12 || mongoose.model("Project12", ProjectSchema);
 
 export default ProjectModel;

@@ -1,5 +1,5 @@
 "use client"
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactUs from '@/components/card/contactus/ContactUs';
@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Page({ params }) {
     const [isLoading, setIsLoading] = useState(false);
     const [services, setServices] = useState([]);
+    const [city, setCity] = useState([]);
     const [serviceType, serviceLocation] = decodeURIComponent(params.data).split(',');
     const [formData, setFormData] = useState({
         name: '',
@@ -61,27 +62,42 @@ export default function Page({ params }) {
         }
     };
 
+    useEffect(() => {
+        const fetchCity = async () => {
+
+            try {
+                const response = await axios.get("/api/project/findallcity/project");
+                setCity(response.data.cities)
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+
+            }
+        };
+
+        fetchCity();
+    }, []);
 
     const fetchServices = async () => {
         setIsLoading(true);
         try {
-          const response = await axios.get('/api/AddService/getdata/addservice');
-          setServices(response.data.fetch);
+            const response = await axios.get('/api/AddService/getdata/addservice');
+            setServices(response.data.fetch);
         } catch (error) {
-          console.error('Error fetching services:', error);
+            console.error('Error fetching services:', error);
         } finally {
-          setIsLoading(false);
+            setIsLoading(false);
         }
-      };
-    
-    
-      useEffect(() => {
+    };
+
+
+    useEffect(() => {
         fetchServices();
-      }, []);
+    }, []);
     return (
         <>
             <Navbar />
-         
+
             <ToastContainer />
             <div className="bg-gray-50 bgblue pt-20">
                 <div className="container mx-auto lg:w-[90%] py-12">
@@ -128,10 +144,11 @@ export default function Page({ params }) {
                                             onChange={handleChange}
                                         >
                                             <option value="">Select City</option>
-                                            <option value="Jaipur">Jaipur</option>
-                                            <option value="Kota">Kota</option>
-                                            <option value="Jodhpur">Jodhpur</option>
-                                            <option value="Bikaner">Bikaner</option>
+                                            {city.map((item) => (
+
+                                                <option key={item_id} value={item}>{item}</option>
+                                            ))}
+
                                         </select>
                                     </div>
 
@@ -195,7 +212,7 @@ export default function Page({ params }) {
                 </div>
             </div>
 
-<Service/>
+            <Service />
             <Footer />
         </>
     );

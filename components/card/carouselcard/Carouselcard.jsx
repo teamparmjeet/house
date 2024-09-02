@@ -66,7 +66,7 @@ export default function Card({ listingType, purpose, location, type }) {
     <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
       {totalProperties.length > 0 ? (
         totalProperties.map((item) => (
-          <Link key={item._id} href={`/page/singlepage/${item._id}`}>
+          <Link key={item._id} href={`/page/singlepage/${item.slug}`}>
             <div className="group rounded-md bg-white overflow-hidden my-1 lg:mb-4 mx-3 backdrop-blur-md border  duration-150 ">
               <div className="overflow-hidden relative">
                 {item.featureImage.length > 0 && (

@@ -97,7 +97,7 @@ export default function Navbar() {
                 <button className="block lg:hidden " onClick={handleToggle}>
                   <XCircleIcon size={24} color="#fff" />
                 </button>
-                <Link href="/page/collectionproject/Family,Jaipur" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/page/collectionproject/All Category" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">New Property</li>
                 </Link>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
                   className="relative mt-5 lg:mt-0"
                   onMouseEnter={() => handleMouseEnter('projects')}
                   onMouseLeave={() => handleMouseLeave('projects')}
-                  onClick={() => handleDropdownToggle('projects')}
+                  onClick={() => handleDropdownToggle('projects')}d
                 >
                   <Link href="/" className="flex items-center gap-x-1 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform">
                     <li className="text-sm group text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">
@@ -114,9 +114,11 @@ export default function Navbar() {
                   </Link>
                   {dropdownOpen.projects && (
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                      <Link href="/page/singlepage/66cee028e84d075148302ffe"><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">House in Jaipur</li></Link>
-                      <Link href="/page/singlepage/66cee2b8aff24a8b6cbc3775"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Apartment in Jaipur</li></Link>
-                      <Link href="/page/singlepage/66cee28daff24a8b6cbc3774"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Villa in Jaipur</li></Link>
+                      <Link href="/page/collectionproject/Luxury,Jaipur"><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Luxury in Jaipur</li></Link>
+                      <Link href="/page/collectionproject/Affordable,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Affordable in Jaipur</li></Link>
+                      <Link href="/page/collectionproject/Investment,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Investment in Jaipur</li></Link>
+                      <Link href="/page/collectionproject/Family,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Family in Jaipur</li></Link>
+                      <Link href="/page/collectionproject/Starter,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Starter in Jaipur</li></Link>
                     </ul>
                   )}
                 </div>
@@ -135,9 +137,9 @@ export default function Navbar() {
                   {dropdownOpen.services && (
 
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                       <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
-                            <Link href="/page/ourservice">All Services</Link>
-                          </li>
+                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
+                        <Link href="/page/ourservice">All Services</Link>
+                      </li>
                       {isLoading ? (
                         <li className="px-4 py-2 text-sm font-medium text-gray-700">...</li>
                       ) : (
