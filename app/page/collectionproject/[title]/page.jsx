@@ -274,7 +274,7 @@ export default function Collectionproject({ params }) {
                                     </div>
                                 ) : (
                                     currentItems.map((item) => (
-                                        <Link key={item._id} href={`/page/singlepage/${item._id}`}>
+                                        <Link key={item._id} href={`/page/singlepage/${item.slug}`}>
                                             <AllProjectCard item={item} />
                                         </Link>
                                     ))

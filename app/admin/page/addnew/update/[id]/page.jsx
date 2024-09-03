@@ -129,7 +129,7 @@ export default function Update({ params }) {
                         <div className=' flex justify-end'>
                             <Link href={`../update2/${id}`}>
                             
-                            <div className=' flex items-center justify-center bg-2 text-white font-semibold px-4 rounded-md'>Next <ArrowRight width={20} /></div>
+                            <div className=' flex items-center justify-center bg-2 text-white font-semibold px-4 rounded-md'>Details <ArrowRight width={20} /></div>
                             </Link>
                         </div>
                         <h1 className="text-3xl font-extrabold mb-6 text-gray-800">Upload and Manage Your Images</h1>

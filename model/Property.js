@@ -10,24 +10,32 @@ const ProjectSchema = new Schema(
             enum: ['Luxury', 'Affordable', 'Investment', 'Family', 'Starter'],
             required: true,
         },
-        slug: { 
+        slug: {
             type: String,
-            unique: true, // Ensure that slug is unique
+            unique: true,
         },
-        location: { 
-            type: String, 
-            required: true 
+        location: {
+            type: String,
+            required: true
         },
         price: { type: Number },
-        metadata: { type: String },
+        metatitle: { type: String }, // pending
+        metadescription: { type: String }, // pending
+
+
+
         type: {
             type: String,
             enum: ['Apartment', 'House', 'Villa', 'Commercial', 'Land', 'Office'],
             required: true,
         },
-        featureImage: [{ type: String }],
-        images: [{ type: String }],
-       
+        dateListed: { type: Date, default: Date.now },
+
+
+
+        featureImage: [{ type: String }], // pending
+        images: [{ type: String }], // pending
+
         address: {
             houseNumber: { type: String },
             colony: { type: String },
@@ -36,9 +44,8 @@ const ProjectSchema = new Schema(
             city: { type: String },
             pincode: { type: String },
             state: { type: String },
-            country: { type: String, default: 'India' },
+            country: { type: String,required:true, default: 'India' },
         },
-
         size: { type: Number, default: 0 },
         floor: { type: Number, default: 0 },
         bedrooms: { type: Number, default: 0 },
@@ -49,34 +56,31 @@ const ProjectSchema = new Schema(
             type: String,
             enum: ['Buy', 'Rent'],
         },
+        listingType: {
+            type: String,
+            enum: ['New Listing', 'Featured', 'Focus', 'Top Project', 'Reduced Price', 'Open House'],
+        },
+        amenities: [{ type: String }],
+        features: [{ type: String }],
+        nearbyFacilities: [{ type: String }],
+        securityFeatures: [{ type: String }],
+        energyRating: { type: String },
+        description: { type: String },
+        propertyType: { type: String },
+        yearRenovated: { type: Number },
+        heatingType: { type: String },
+        coolingType: { type: String },
+        parkingSpaces: { type: Number, default: 0 },
+        flooringType: { type: String },
+        viewType: { type: String },
         status: {
             type: String,
             enum: ['Available', 'Sold', 'Pending', 'Under Offer'],
             default: 'Available',
         },
-
-        amenities: [{ type: String }],
-        features: [{ type: String }],
-        listingType: {
-            type: String,
-            enum: ['New Listing', 'Featured', 'Focus', 'Top Project', 'Reduced Price', 'Open House'],
-        },
-        dateListed: { type: Date, default: Date.now },
-        energyRating: { type: String },
-        nearbyFacilities: [{ type: String }],
-        parkingSpaces: { type: Number, default: 0 },
-
-        description: { type: String },
-        propertyType: { type: String },
-        yearRenovated: { type: Number },
         hasGarage: { type: Boolean, default: false },
         hasPool: { type: Boolean, default: false },
         hasGarden: { type: Boolean, default: false },
-        heatingType: { type: String },
-        coolingType: { type: String },
-        securityFeatures: [{ type: String }],
-        flooringType: { type: String },
-        viewType: { type: String },
         petFriendly: { type: Boolean, default: false },
         defaultdata: { type: String, required: true, default: "project" }
     },
@@ -84,7 +88,7 @@ const ProjectSchema = new Schema(
 );
 
 // Pre-save hook to capitalize location and address.city, and generate slug
-ProjectSchema.pre('save', async function(next) {
+ProjectSchema.pre('save', async function (next) {
     // Capitalize location
     if (this.location) {
         this.location = toUpperCase(this.location);
@@ -115,6 +119,6 @@ ProjectSchema.pre('save', async function(next) {
 });
 
 const ProjectModel =
-    mongoose.models.Project16 || mongoose.model("Project16", ProjectSchema);
+    mongoose.models.Project17 || mongoose.model("Project17", ProjectSchema);
 
 export default ProjectModel;

@@ -4,6 +4,8 @@ import axios from "axios";
 import Loading from "@/components/Loader/Loading";
 import Imagegallery from "@/components/gallery/Imagegallery";
 import Details from "@/components/details/Details";
+import {Edit} from "lucide-react"
+import Link from "next/link";
 export default function SinglePage({ params }) {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -36,7 +38,9 @@ export default function SinglePage({ params }) {
 
   return (
     <>
-
+      <Link href={`/admin/page/allimages/${project._id}`}>
+        <button className='bg-2 text-white rounded-md px-2 py-1 gap-x-2 flex'><Edit size={20} />Edit Details</button>
+      </Link>
       <h2 className=" font-semibold text-2xl underline underline-offset-4 my-2">Feature Images</h2>
       <div className=" overflow-scroll lg:h-56 h-36">
         <Imagegallery item={project.featureImage} />
@@ -75,7 +79,7 @@ export default function SinglePage({ params }) {
         </div>
       </div>
 
-      
+
 
     </>
   );

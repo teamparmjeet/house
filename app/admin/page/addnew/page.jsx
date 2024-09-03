@@ -11,7 +11,8 @@ export default function Addnew() {
         title: '',
         location: '',
         price: '',
-        metadata: '',
+        metatitle: '',
+        metadescription:'',
         type: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,8 +21,8 @@ export default function Addnew() {
     const router = useRouter();
 
     const validateForm = useCallback(() => {
-        const { title, location, price, metadata } = formData;
-        return title && location && price && metadata;
+        const { title, location, price, metatitle } = formData;
+        return title && location && price && metatitle;
     }, [formData]);
 
     useEffect(() => {
@@ -61,7 +62,8 @@ export default function Addnew() {
                     location: '',
                     price: '',
                     type: '',
-                    metadata:''
+                    metatitle: '',
+                    metadescription:''
                 });
             } else {
                 setMessage(`Error: ${response.data.message}`);
@@ -91,12 +93,50 @@ export default function Addnew() {
                             />
                         </div>
                         <div className='lg:col-span-1'>
-                            <Input
-                                name="location"
+                            <label htmlFor="location" className="block text-sm font-medium text-gray-600">City</label>
+                            <select name="location"
                                 label="Location"
                                 value={formData.location}
                                 onChange={handleChange}
-                            />
+                                 className="w-full h-8 px-3 py-2 border-b border-gray-300 focus:border-b focus:border-blue-900 bg-white focus:bg-transparent focus:rounded-none text-gray-700  focus:ring-0 focus:outline-none transition duration-150 ease-in-out sm:text-sm"
+                                required
+                            >
+                                <option value="">SELECT DISTRICT</option>
+                                <option value="AJMER">AJMER</option>
+                                <option value="ALWAR">ALWAR</option>
+                                <option value="BANSWARA">BANSWARA</option>
+                                <option value="BARAN">BARAN</option>
+                                <option value="BARMER">BARMER</option>
+                                <option value="BHARATPUR">BHARATPUR</option>
+                                <option value="BHILWARA">BHILWARA</option>
+                                <option value="BIKANER">BIKANER</option>
+                                <option value="BUNDI">BUNDI</option>
+                                <option value="CHITTORGARH">CHITTORGARH</option>
+                                <option value="CHURU">CHURU</option>
+                                <option value="DAUSA">DAUSA</option>
+                                <option value="DHOLPUR">DHOLPUR</option>
+                                <option value="DUNGARPUR">DUNGARPUR</option>
+                                <option value="HANUMANGARH">HANUMANGARH</option>
+                                <option value="JAIPUR">JAIPUR</option>
+                                <option value="JAISALMER">JAISALMER</option>
+                                <option value="JALORE">JALORE</option>
+                                <option value="JHALAWAR">JHALAWAR</option>
+                                <option value="JHUNJHUNU">JHUNJHUNU</option>
+                                <option value="JODHPUR">JODHPUR</option>
+                                <option value="KARAULI">KARAULI</option>
+                                <option value="KOTA">KOTA</option>
+                                <option value="NAGAUR">NAGAUR</option>
+                                <option value="PALI">PALI</option>
+                                <option value="PRATAPGARH">PRATAPGARH</option>
+                                <option value="RAJSAMAND">RAJSAMAND</option>
+                                <option value="SAWAI MADHOPUR">SAWAI MADHOPUR</option>
+                                <option value="SIKAR">SIKAR</option>
+                                <option value="SIROHI">SIROHI</option>
+                                <option value="SRI GANGANAGAR">SRI GANGANAGAR</option>
+                                <option value="TONK">TONK</option>
+                                <option value="UDAIPUR">UDAIPUR</option>
+                            </select>
+
                         </div>
                         <div className='lg:col-span-1'>
                             <Input
@@ -107,7 +147,7 @@ export default function Addnew() {
                                 type="number"
                             />
                         </div>
-                        
+
                         <div className='lg:col-span-1'>
                             <label htmlFor="type" className="block text-sm font-medium text-gray-700">Type</label>
                             <select
@@ -115,7 +155,7 @@ export default function Addnew() {
                                 name="type"
                                 value={formData.type}
                                 onChange={handleChange}
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm"
+                                 className="w-full h-8 px-3 py-2 border-b border-gray-300 focus:border-b focus:border-blue-900 bg-white focus:bg-transparent focus:rounded-none text-gray-700  focus:ring-0 focus:outline-none transition duration-150 ease-in-out sm:text-sm"
                                 required
                             >
                                 <option value=""></option>
@@ -130,9 +170,18 @@ export default function Addnew() {
                         </div>
                         <div className='lg:col-span-2'>
                             <Input
-                                name="metadata"
-                                label="Metadata"
-                                value={formData.metadata}
+                                name="metatitle"
+                                label="SEO Title"
+                                value={formData.metatitle}
+                                onChange={handleChange}
+                                type="text"
+                            />
+                        </div>
+                        <div className='lg:col-span-2'>
+                            <Input
+                                name="metadescription"
+                                label="SEO Description"
+                                value={formData.metadescription}
                                 onChange={handleChange}
                                 type="text"
                             />

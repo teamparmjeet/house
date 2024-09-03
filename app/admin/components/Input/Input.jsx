@@ -5,13 +5,13 @@ export default function Input({ label, name, ...props }) {
         <>
             <div>
 
-                <label htmlFor={name} className="block text-sm font-medium text-gray-700">{label}</label>
+                <label htmlFor={name} className="block text-sm font-medium text-gray-600">{label}</label>
                 <input
                     type="text"
                     id={name}
                     name={name}
                     {...props}
-                    className="mt-1 block w-full px-3 py-3 border border-gray-300 rounded-sm  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                   className="w-full h-8 px-3 py-2 border-b border-gray-300 focus:border-b focus:border-blue-900 bg-white focus:bg-transparent focus:rounded-none text-gray-700  focus:ring-0 focus:outline-none transition duration-150 ease-in-out sm:text-sm"
                     required
                 />
             </div>

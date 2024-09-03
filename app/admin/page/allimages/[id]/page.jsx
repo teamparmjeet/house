@@ -38,7 +38,7 @@ export default function SinglePage({ params }) {
     <>
       <div className=" flex justify-end fixed right-0 z-50 p-2">
         <Link href={`/admin/page/addnew/update/${project._id}`}>
-          <button className=" bg-2 text-white  px-3 py-1 rounded-md">Manage Images</button>
+          <button className=" bg-2 text-white  px-3 py-1 rounded-md">Update Details</button>
         </Link >
       </div>
       <h2 className=" font-semibold text-2xl underline underline-offset-4 my-2">Feature Images</h2>
