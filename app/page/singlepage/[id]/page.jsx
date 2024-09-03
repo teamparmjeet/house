@@ -47,9 +47,9 @@ export default function SinglePage({ params }) {
     return (
         <>
             <Navbar />
-           
-                  <title>{project.metadata}</title>
-         
+
+            <title>{project.metatitle}</title>
+            <meta name="description" content={project.metadescription} />
 
             <Carousel details={project.featureImage} />
 

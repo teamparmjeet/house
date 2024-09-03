@@ -31,8 +31,11 @@ const filteredMetadata = metadata.filter(item => item.page === 'Postproperty');
         <>
             <Navbar />
             {filteredMetadata.map((item) => (
-                  <title key={item._id}>{item.title}</title>
-            ))}
+        <>
+          <title key={item._id}>{item.title}</title>
+          <meta name="description" content={item.description} />
+        </>
+      ))}
             <div className='lg:h-screen bgblue bg-gradient-to-br from-white to-blue-800 pt-36 p-5'>
 
                 <div className="container mx-auto lg:w-[90%] h-full flex  items-center justify-end py-5" >

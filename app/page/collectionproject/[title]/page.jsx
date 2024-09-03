@@ -11,7 +11,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function Collectionproject({ params }) {
-
+    const [searchQuery, setSearchQuery] = useState("");
     const [decodedTitle, decodedLocation] = decodeURIComponent(params.title).split(",");
     const [title, setTitle] = useState(decodedTitle || "All Category");
     const [location, setLocation] = useState(decodedLocation || "Jaipur");
@@ -24,6 +24,13 @@ export default function Collectionproject({ params }) {
     const [titles, setTitles] = useState(["All Category"]);
     const [loading, setLoading] = useState(true);
     const itemsPerPage = 5;
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+        setCurrentPage(1); // Reset to first page on search
+    };
+
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -82,16 +89,25 @@ export default function Collectionproject({ params }) {
             sortedItems.sort((a, b) => b.price - a.price);
         }
 
-        // Filter items based on selected title and location
         if (selectedTitle !== "All Category") {
             sortedItems = sortedItems.filter((item) => item.title === selectedTitle && item.location === location);
         } else {
             sortedItems = sortedItems.filter((item) => item.location === location);
         }
 
+        // Filter by search query
+        if (searchQuery) {
+            sortedItems = sortedItems.filter((item) =>
+                Object.values(item.address).some((value) =>
+                    value && value.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+            );
+        }
+
         setItems(sortedItems);
         setCurrentPage(1);
-    }, [sortOrder, selectedTitle, location, rawItems]);
+    }, [sortOrder, selectedTitle, location, searchQuery, rawItems]);
+
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -148,7 +164,10 @@ export default function Collectionproject({ params }) {
         <>
             <Navbar />
             {filteredMetadata.map((item) => (
-                <title key={item._id}>{item.title}</title>
+                <>
+                    <title key={item._id}>{item.title}</title>
+                    <meta name="description" content={item.description} />
+                </>
             ))}
             <div className="h-16 bg-2"></div>
             <header className="bg-2 py-2 w-full top-0 left-0 z-50">
@@ -172,16 +191,17 @@ export default function Collectionproject({ params }) {
                     <div className="order-2 lg:order-2 relative flex-1">
                         <input
                             type="search"
-                            placeholder="Enter Locality"
+                            placeholder="Search by locality, area, or landmark"
                             className="w-full font-light border border-gray-300 rounded pl-10 pr-4 py-1 md:py-2 focus:outline-none"
-                            name=""
-                            id=""
+                            value={searchQuery}
+                            onChange={handleSearchChange} // Bind the handler here
                         />
                         <Search
                             size={20}
                             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                         />
                     </div>
+
                 </div>
             </header>
 

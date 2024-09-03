@@ -14,7 +14,7 @@ export default function Select({ label, name, ...props }) {
                     className="w-full h-8 px-3 border-b  focus:border-b focus:border-blue-900 bg-white focus:bg-white focus:rounded-none text-gray-700  focus:ring-0 focus:outline-none transition duration-150 ease-in-out sm:text-sm"
                     required
                 >
-
+                    <option value=""></option>
                     <option value="Luxury">Luxury</option>
                     <option value="Affordable" selected>Affordable</option>
                     <option value="Investment">Investment</option>

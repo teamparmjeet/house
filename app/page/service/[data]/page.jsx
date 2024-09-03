@@ -21,8 +21,8 @@ export default function Page({ params }) {
         servicetype: serviceType,
         address: '',
         description: '',
-        date:'',
-        time:''
+        date: '',
+        time: ''
     });
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState(false);
@@ -120,7 +120,10 @@ export default function Page({ params }) {
         <>
             <Navbar />
             {filteredMetadata.map((item) => (
-                 <title key={item._id}>{item.title}</title>
+                <>
+                    <title key={item._id}>{item.title}</title>
+                    <meta name="description" content={item.description} />
+                </>
             ))}
             <ToastContainer />
             <div className="bg-gray-50 bgblue pt-20">

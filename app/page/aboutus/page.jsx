@@ -27,7 +27,10 @@ export default function AboutUsPage() {
     <>
       <Navbar />
       {filteredMetadata.map((item) => (
-        <title key={item._id}>{item.title}</title>
+        <>
+          <title key={item._id}>{item.title}</title>
+          <meta name="description" content={item.description} />
+        </>
       ))}
       <div className=' relative bg-banner-about flex flex-col justify-center items-center'>
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black z-10"></div>

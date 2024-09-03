@@ -74,8 +74,11 @@ export default function Page() {
     return (
         <div className="flex bg-banner flex-col lg:flex-row  h-screen bg-gray-50">
             {filteredMetadata.map((item) => (
-                <title key={item._id}>{item.title}</title>
-            ))}
+        <>
+          <title key={item._id}>{item.title}</title>
+          <meta name="description" content={item.description} />
+        </>
+      ))}
             <ToastContainer />
             <div className='absolute top-0 right-0 left-0 bottom-0 bg-black/40'></div>
             <div className="flex-1 h-96 my-auto z-50 bg-[#ffffff9e] rounded-r-[50px] p-10 flex flex-col justify-center items-start space-y-5">

@@ -28,7 +28,10 @@ export default function SavedPage() {
     <>
       <Navbar />
       {filteredMetadata.map((item) => (
-         <title key={item._id}>{item.title}</title>
+        <>
+          <title key={item._id}>{item.title}</title>
+          <meta name="description" content={item.description} />
+        </>
       ))}
 
       <div className=' bg-2 h-16'></div>

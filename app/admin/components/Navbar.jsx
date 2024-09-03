@@ -30,7 +30,7 @@
                             height={38.625}
                         />
                     </div>
-                    <form className="hidden md:flex items-center bg-[#ffffff38] rounded-md overflow-hidden">
+                    {/* <form className="hidden md:flex items-center bg-[#ffffff38] rounded-md overflow-hidden">
                         <input
                             type="text"
                             name="search"
@@ -40,7 +40,7 @@
                         <button type="submit" className="flex items-center justify-center px-2">
                             <Search color="#fff" size={20} />
                         </button>
-                    </form>
+                    </form> */}
                     <div className="flex items-center relative">
                         {session?.user && (
                             <>

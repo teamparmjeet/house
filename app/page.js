@@ -14,7 +14,7 @@ import Link from 'next/link';
 import Ping from '@/components/button/ping';
 import axios from 'axios';
 export default function MainPage() {
-  const [location, setLocation] = useState('Jaipur');
+  const [location, setLocation] = useState('JAIPUR');
   const [motive, setMotive] = useState('Buy');
   const [type, setType] = useState('');
 
@@ -39,8 +39,12 @@ export default function MainPage() {
   return (
     <>
       <Navbar />
+      
       {filteredMetadata.map((item) => (
+        <>
           <title key={item._id}>{item.title}</title>
+          <meta name="description" content={item.description} />
+        </>
       ))}
       <Banner location={location} setLocation={setLocation} motive={motive} setMotive={setMotive} type={type} setType={setType} />
 

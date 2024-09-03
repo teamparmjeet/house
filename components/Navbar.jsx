@@ -97,7 +97,7 @@ export default function Navbar() {
                 <button className="block lg:hidden " onClick={handleToggle}>
                   <XCircleIcon size={24} color="#fff" />
                 </button>
-                <Link href="/page/collectionproject/All Category" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/page/collectionproject/All Category,JAIPUR" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">New Property</li>
                 </Link>
 

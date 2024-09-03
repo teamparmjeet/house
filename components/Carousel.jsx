@@ -83,12 +83,12 @@ export const Carousel = ({ details }) => {
       <div className="w-full overflow-hidden">
         <Slider {...settings}>
           {Images.map((imageUrl, index) => (
-            <div key={index} className="h-full lg:h-screen w-full border">
+            <div key={index} className=" lg:h-screen h-[250px]  w-full border">
               <Image
                 src={imageUrl}
                 alt={`Image ${index + 1}`}
-                width={1000}
-                height={1000}
+                width={800}
+                height={800}
                 loading="lazy"
                 className="object-cover w-full"
               />
