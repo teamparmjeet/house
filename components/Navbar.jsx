@@ -137,16 +137,16 @@ export default function Navbar() {
                   {dropdownOpen.services && (
 
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                      <li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
-                        <Link href="/page/ourservice">All Services</Link>
-                      </li>
+                       <Link href="/page/ourservice"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
+                       All Services
+                      </li></Link>
                       {isLoading ? (
                         <li className="px-4 py-2 text-sm font-medium text-gray-700">...</li>
                       ) : (
                         services.map((service, index) => (
-                          <li key={index} className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
-                            <Link href={`/page/service/${service.title}`}>{service.title}</Link>
-                          </li>
+                          <Link key={index}  href={`/page/service/${service.title}`}><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
+                           {service.title}
+                          </li></Link>
                         ))
                       )}
 

@@ -44,9 +44,9 @@
                     <div className="flex items-center relative">
                         {session?.user && (
                             <>
-                                <div className="flex items-center bg-[#ffffff38] px-2 py-2 rounded-md cursor-pointer" onClick={toggleDropdown}>
+                                <div className="flex items-center bg-[#ffffff38] px-4 py-2 rounded-md cursor-pointer" onClick={toggleDropdown}>
                                     <User color="#fff" size={20} />
-                                    <span className="text-sm ms-1 line-clamp-1">{session.user.name}</span>
+                                    <span className="text-sm ms-1">{session.user.name}</span>
                                 </div>
 
                                 {isDropdownOpen && (
@@ -55,7 +55,7 @@
                                             <li>
                                                 <Link
                                                     className="inline-flex items-center gap-2 rounded-md px-4 w-full py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
-                                                    href="/admin/page/profile"
+                                                    href="/user/page/profile"
                                                     onClick={closeDropdown}
                                                 >
                                                     <UserCircle size={20} className="text-gray-500" />
@@ -80,11 +80,7 @@
                             </>
                         )}
 
-                        <div className=" items-center cursor-pointer ml-4 hidden md:block" >
-                        <Link href="/admin/page/notification">
-                        <Bell color="#fff" size={20} />
-                        </Link>
-                        </div>
+                   
                     </div>
                 </header>
             </>

@@ -41,11 +41,7 @@ export default function LoginPage() {
                 return;
             }
 
-            if (userData.usertype !== "2") {
-                setError('You are not authorized to log in.');
-                setLoading(false);
-                return;
-            }
+
 
             const res = await signIn("credentials", {
                 email: formData.email,
@@ -59,7 +55,16 @@ export default function LoginPage() {
                 return;
             }
 
-            router.push('/admin');
+
+            if (userData.usertype == "2") {
+                router.push('/admin');
+                setLoading(false);
+            } else if (userData.usertype == "1") {
+                router.push('/user');
+                setLoading(false);
+            }
+
+           
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {
                 setError('Server error: ' + (error.response.data.message || 'An error occurred.'));

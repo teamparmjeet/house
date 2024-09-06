@@ -1,29 +1,30 @@
 import mongoose, { Schema } from "mongoose";
-import moment from "moment"; // You'll need to install moment.js
+import moment from "moment";
 
 const ServiceSchema = new Schema(
     {
+        userid: { type: String, required: true },
         name: { type: String },
         mobile: { type: Number },
         city: { type: String },
         servicetype: { type: String },
         address: { type: String },
         description: { type: String },
-        date: { type: String }, // Change type to String to store formatted date
-        time: { type: String }, // Keep time as a String
-        status: { 
-            type: String, 
-            required: true, 
+        date: { type: String },
+        time: { type: String },
+        status: {
+            type: String,
+            required: true,
             enum: ["Completed", "In Progress", "Scheduled", "Pending", "Cancelled"],
-            default: "Pending" 
+            default: "Pending"
         },
         defaultdata: { type: String, required: true, default: "service" }
     },
     { timestamps: true }
 );
 
-// Pre-save middleware to format date and time
-ServiceSchema.pre("save", function(next) {
+
+ServiceSchema.pre("save", function (next) {
     // Format date to dd-mm-yyyy
     this.date = moment(this.date).format("DD-MM-YYYY");
 
@@ -34,6 +35,6 @@ ServiceSchema.pre("save", function(next) {
 });
 
 const ServiceModel =
-    mongoose.models.service4 || mongoose.model("service4", ServiceSchema);
+    mongoose.models.service5 || mongoose.model("service5", ServiceSchema);
 
 export default ServiceModel;
