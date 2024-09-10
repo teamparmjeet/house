@@ -38,7 +38,7 @@ export default function MainPage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar location={location}/>
       
       {filteredMetadata.map((item) => (
         <>

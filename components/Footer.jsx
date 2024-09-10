@@ -7,7 +7,7 @@ import Whatsapp from './whatsapp/Whatsapp';
 export default function Footer() {
     const links = [
         { id: 1, title: "Home", path: "/" },
-        { id: 2, title: "Saved", path: "/page/saved", icon: <Heart color="white" size={14} /> },
+        { id: 2, title: "Saved", path: "/user/page/wishlist", icon: <Heart color="white" size={14} /> },
         { id: 3, title: "Service", path: "/page/ourservice" },
         { id: 4, title: "About Us", path: "/page/aboutus" },
         { id: 5, title: "Post Property", path: "/page/postproperty" },
