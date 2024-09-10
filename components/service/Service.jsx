@@ -35,7 +35,7 @@ export default function Service() {
                 <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
                     {services.map((item) => (
 
-                        <div className=" rounded-md overflow-hidden  lg:col-span-1 md:col-span-1 relative border h-40 w-full">
+                        <div key={item.id} className=" rounded-md overflow-hidden  lg:col-span-1 md:col-span-1 relative border h-40 w-full">
 
                             <Image alt='' className=' w-full h-full z-0 object-cover' src={item.imageUrl} width="100" height="100" />
                             <div className=' absolute backdrop-blur-xs bottom-0 left-0 top-0 right-0 bg-gradient-to-br from-transparent to-black z-20'></div>
