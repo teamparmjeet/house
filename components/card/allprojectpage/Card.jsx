@@ -1,17 +1,66 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Image from 'next/image'
-import { StarIcon, Check, ArrowDown, ArrowUp, Calendar, Home, MapPin, Tag, Info, LucideFullscreen } from 'lucide-react';
+import { StarIcon, Check, ArrowDown, Heart, ArrowUp, Calendar, Home, MapPin, Tag, Info, LucideFullscreen } from 'lucide-react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
+
 export default function Card({ item }) {
+    const { data: session } = useSession();
+    const [userData, setUserData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
     const [isVisible, setIsVisible] = useState(false);
+    const router = useRouter();
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     };
 
+    const useremail = session?.user?.email;
+
+    useEffect(() => {
+        if (useremail) {
+            axios.get(`/api/admin/find-admin-byemail/${useremail}`)
+                .then(response => {
+                    setUserData(response.data);
+                    setLoading(false);
+                })
+                .catch(error => {
+                    console.error("Error fetching user data:", error);
+                    setLoading(false);
+                });
+        }
+    }, [useremail]);
+
+    const handleAddToWishlist = async (productId) => {
+        if (!userData?._id) {
+            router.push("/page/auth/login");
+            return;
+        }
+
+        try {
+            const response = await axios.post('/api/Wishlist/create', {
+                userid: userData._id,
+                productid: productId,
+                defaultdata: "wishlist"
+            });
+
+            if (response.status === 200) {
+                toast.success("Property successfully added to your wishlist! 🏡");
+            }
+        } catch (error) {
+            toast("Property Already in your wishlist! 🏡");
+        }
+    };
+
+
     return (
         <div className='rounded-md bg-white mb-4 hover:shadow border p-2 gap-2 grid grid-cols-1 sm:grid-cols-7'>
+             <Toaster color="red" />
             <div className='relative overflow-hidden sm:col-span-2'>
                 {item.featureImage.length > 0 && (
                     <Image
@@ -25,6 +74,15 @@ export default function Card({ item }) {
                 )}
 
                 <div className='absolute top-0 bottom-0 left-0 right-0  rounded-md to-black/60'></div>
+                <button
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleAddToWishlist(item._id);
+                    }}
+                    className='absolute bottom-0 right-0 m-3 h-6 text-sm px-2 text-white flex items-center gap-x-2 hover:scale-125 duration-300'
+                >
+                    <Heart color='#ff0000' width={20} />
+                </button>
             </div>
             <div className='flex flex-col justify-between sm:col-span-5 bg-gradient-to-b from-white via-indigo-50'>
                 <div>
@@ -37,7 +95,7 @@ export default function Card({ item }) {
                         <div className='h-4 gap-x-1 bg-2 px-1 flex items-center text-white rounded'>5 <StarIcon width={10} color='white' /></div>
                         <div className='h-4 bg-gray-200 text-2 font-semibold text-[10px] flex items-center gap-x-1 rounded-md px-1'>RERA <Check width={12} color='green' /></div>
                     </div>
-                    <p className=' font-semibold text-[11px]'>By Ghar Dekho</p>
+                    <p className=' font-semibold text-[11px]'>{item.propertyname}</p>
                     <p className='text-xs text-gray-500 my-1 font-semibold'><span className='text-2'>{item.bedrooms} BHK Flat</span> for sale  {item.address.city}</p>
 
                     <div className='relative hidden md:block'>
@@ -82,7 +140,7 @@ export default function Card({ item }) {
                     <div className='flex'>
                         <Image alt='' src="/logo/Group 349 (2).svg" width={150} height={19.312} />
                     </div>
-                 
+
                 </div>
             </div>
         </div>

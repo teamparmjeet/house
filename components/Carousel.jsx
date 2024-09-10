@@ -30,7 +30,7 @@ const NextArrow = (props) => {
   );
 };
 
-export const Carousel = ({ details }) => {
+export const Carousel = ({ details, propertyname }) => {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   const Images = details || [];
@@ -83,7 +83,7 @@ export const Carousel = ({ details }) => {
       <div className="w-full overflow-hidden">
         <Slider {...settings}>
           {Images.map((imageUrl, index) => (
-            <div key={index} className=" lg:h-screen h-[250px]  w-full border">
+            <div key={index} className=" relative lg:h-screen h-[250px]  w-full border">
               <Image
                 src={imageUrl}
                 alt={`Image ${index + 1}`}
@@ -92,6 +92,9 @@ export const Carousel = ({ details }) => {
                 loading="lazy"
                 className="object-cover w-full"
               />
+              <div className=" bottom-0 absolute bg-2 py-2 px-5 rounded-r-full text-white md:text-2xl font-serif">
+                {propertyname}
+              </div>
             </div>
           ))}
         </Slider>

@@ -17,7 +17,7 @@ export default function Update2({ params }) {
             landmark: '',
             city: '',
             pincode: '',
-            state: '',
+            state: 'Rajasthan',
             country: 'India',
         },
 
@@ -25,6 +25,7 @@ export default function Update2({ params }) {
         location: '',
         price: '',
         type: '',
+        propertyname: '',
 
         size: '',
         floor: '',
@@ -80,7 +81,7 @@ export default function Update2({ params }) {
                         location: project.location || '',
                         price: project.price || '',
                         type: project.type || '',
-
+                        propertyname: project.propertyname || '',
                         size: project.size || '',
                         floor: project.floor || '',
                         bedrooms: project.bedrooms || '',
@@ -287,6 +288,10 @@ export default function Update2({ params }) {
                                             <option value="Office">Office</option>
                                         </select>
                                     </div>
+                                    <div>
+                                        <Input label="Property Name" name="propertyname" value={formData.propertyname}
+                                            onChange={handleChange} />
+                                    </div>
                                 </div>
                             </div>
                             {/* Address */}
@@ -344,7 +349,7 @@ export default function Update2({ params }) {
                                         </select>
                                     </div>
                                     <Input label="Pincode" name="pincode" value={formData.address.pincode} onChange={handleAddressChange} disabled={isUpdating} />
-                                    <Input label="State" name="state" value={formData.address.state} onChange={handleAddressChange} disabled={isUpdating} />
+                                    <Input label="State" disabled name="state"  value={formData.address.state} onChange={handleAddressChange} />
                                     <Input label="Country" disabled name="country" value={formData.address.country} onChange={handleAddressChange} />
 
                                 </div>

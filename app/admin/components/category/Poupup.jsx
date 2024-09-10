@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-const ServicePopup = ({ service, onClose, onDelete }) => {
+const CateoryPopup = ({ service, onClose, onDelete }) => {
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg w-1/2 max-w-lg">
-                <h2 className="text-2xl font-semibold mb-4">{service.title}</h2>
-                <p className="mb-4">{service.description}</p>
-                <Image src={service.imageUrl} alt='' width={100} height={100} className=' mb-5'/>
+                <h2 className="text-2xl font-semibold mb-4">{service.name}</h2>
+                <p className="mb-4">{service.details}</p>
+                <Image src={service.img} alt='' width={100} height={100} className=' mb-5'/>
                 <button
                     onClick={() => {
                         onDelete(service._id); // Use _id for deletion
@@ -27,4 +27,4 @@ const ServicePopup = ({ service, onClose, onDelete }) => {
     );
 };
 
-export default ServicePopup;
+export default CateoryPopup;

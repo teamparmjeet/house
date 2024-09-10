@@ -45,7 +45,7 @@ export default function Service() {
           setWishlist(response.data);
         }
       } catch (err) {
-        setError('Error fetching wishlist');
+        setError('No Service Avaliable');
       }
     };
 
@@ -108,7 +108,7 @@ export default function Service() {
 
   if (error) {
     return (
-      <div className="text-center text-red-500">
+      <div className="text-center text-white">
         <p>{error}</p>
       </div>
     );

@@ -9,6 +9,7 @@ export default function Details({ item }) {
             <div className="grid  gap-6">
 
                 <div className=" space-y-6">
+                   
                     <div className="bg-white p-5 shadow-md rounded-lg">
                         <div className="flex items-center gap-4">
                             <div className="bg-blue-100 p-2 rounded-full">

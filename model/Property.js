@@ -7,7 +7,6 @@ const ProjectSchema = new Schema(
     {
         title: {
             type: String,
-            enum: ['Luxury', 'Affordable', 'Investment', 'Family', 'Starter'],
             required: true,
         },
         slug: {
@@ -19,9 +18,11 @@ const ProjectSchema = new Schema(
             required: true
         },
         price: { type: Number },
-        metatitle: { type: String }, // pending
-        metadescription: { type: String }, // pending
-
+        metatitle: { type: String },
+        metadescription: { type: String },
+        propertyname: {
+            type: String,
+        },
 
 
         type: {
@@ -33,8 +34,8 @@ const ProjectSchema = new Schema(
 
 
 
-        featureImage: [{ type: String }], // pending
-        images: [{ type: String }], // pending
+        featureImage: [{ type: String }],
+        images: [{ type: String }],
 
         address: {
             houseNumber: { type: String },
@@ -43,8 +44,8 @@ const ProjectSchema = new Schema(
             landmark: { type: String },
             city: { type: String },
             pincode: { type: String },
-            state: { type: String },
-            country: { type: String,required:true, default: 'India' },
+            state: { type: String, required: true, default: 'Rajasthan' },
+            country: { type: String, required: true, default: 'India' },
         },
         size: { type: Number, default: 0 },
         floor: { type: Number, default: 0 },
@@ -102,7 +103,14 @@ ProjectSchema.pre('save', async function (next) {
     // Generate slug
     if (!this.slug) {
         const formattedDate = moment().format('DDMMYY-HHmmss');
-        this.slug = `${this.title.replace(/\s+/g, '-')}-${formattedDate}`.toLowerCase();
+        let slugBase = `${this.title.replace(/\s+/g, '-')}`;
+
+        // Include propertyname in the slug if it exists
+        if (this.propertyname) {
+            slugBase += `-${this.propertyname.replace(/\s+/g, '-')}`;
+        }
+
+        this.slug = `${slugBase}-${formattedDate}`.toLowerCase();
 
         // Ensure the unique constraint is checked
         try {
@@ -119,6 +127,6 @@ ProjectSchema.pre('save', async function (next) {
 });
 
 const ProjectModel =
-    mongoose.models.Project17 || mongoose.model("Project17", ProjectSchema);
+    mongoose.models.Project21 || mongoose.model("Project21", ProjectSchema);
 
 export default ProjectModel;

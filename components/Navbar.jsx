@@ -12,6 +12,8 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [services, setServices] = useState([]);
+  const [options, setOptions] = useState([]);
+
   const handleToggle = () => {
     setShow(!show);
   };
@@ -75,6 +77,19 @@ export default function Navbar() {
     fetchServices();
   }, []);
 
+  useEffect(() => {
+
+    axios.get('/api/category/fetchall/category')
+      .then(response => {
+        setOptions(response.data.fetch);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error("Error fetching options:", error);
+        setIsLoading(false);
+      });
+  }, []);
+
   return (
     <>
       <nav className={`z-50 py-2 left-0 right-0 ${scrolled ? 'bg-2 shadow-lg fixed top-0' : 'absolute bg-gradient-to-b from-black to-transparent'} transition-all duration-300`}>
@@ -97,7 +112,7 @@ export default function Navbar() {
                 <button className="block lg:hidden " onClick={handleToggle}>
                   <XCircleIcon size={24} color="#fff" />
                 </button>
-                <Link href="/page/collectionproject/All Category,JAIPUR" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/categories/All Category,JAIPUR" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">New Property</li>
                 </Link>
 
@@ -105,7 +120,7 @@ export default function Navbar() {
                   className="relative mt-5 lg:mt-0"
                   onMouseEnter={() => handleMouseEnter('projects')}
                   onMouseLeave={() => handleMouseLeave('projects')}
-                  onClick={() => handleDropdownToggle('projects')}d
+                  onClick={() => handleDropdownToggle('projects')} d
                 >
                   <Link href="/" className="flex items-center gap-x-1 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform">
                     <li className="text-sm group text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">
@@ -114,11 +129,10 @@ export default function Navbar() {
                   </Link>
                   {dropdownOpen.projects && (
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                      <Link href="/page/collectionproject/Luxury,Jaipur"><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Luxury in Jaipur</li></Link>
-                      <Link href="/page/collectionproject/Affordable,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Affordable in Jaipur</li></Link>
-                      <Link href="/page/collectionproject/Investment,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Investment in Jaipur</li></Link>
-                      <Link href="/page/collectionproject/Family,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Family in Jaipur</li></Link>
-                      <Link href="/page/collectionproject/Starter,Jaipur"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">Starter in Jaipur</li></Link>
+                      {!isLoading && options.map(option => (
+                        <Link key={option.id} href={`/categories/${option.name},JAIPUR`}><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">{option.name} in jaipur</li></Link>
+                      ))}
+
                     </ul>
                   )}
                 </div>
@@ -137,15 +151,15 @@ export default function Navbar() {
                   {dropdownOpen.services && (
 
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
-                       <Link href="/page/ourservice"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
-                       All Services
+                      <Link href="/page/ourservice"><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
+                        All Services
                       </li></Link>
                       {isLoading ? (
                         <li className="px-4 py-2 text-sm font-medium text-gray-700">...</li>
                       ) : (
                         services.map((service, index) => (
-                          <Link key={index}  href={`/page/service/${service.title}`}><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
-                           {service.title}
+                          <Link key={index} href={`/page/service/${service.title}`}><li className="px-4 py-2 text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">
+                            {service.title}
                           </li></Link>
                         ))
                       )}
@@ -162,7 +176,7 @@ export default function Navbar() {
                   <li className="text-[12px] cursor-pointer rounded-2xl flex items-center gap-1 px-2 lg:m-0 pb-1 text-white lg:text-black lg:bg-white lg:px-5 lg:py-2">Post Property <Ani /></li>
                 </Link>
 
-                <Link href="" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg px-5 lg:px-2 lg:shadow-none text-white py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/user/page/wishlist" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg px-5 lg:px-2 lg:shadow-none text-white py-1 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="cursor-pointer inline-block">
                     <Heart color="#FFF" size={22} />
                   </li>

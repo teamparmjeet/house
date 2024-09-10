@@ -7,6 +7,9 @@ import Link from "next/link";
 import axios from "axios";
 
 export default function Card({ location }) {
+
+  const [options, setOptions] = useState([]);
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -26,13 +29,13 @@ export default function Card({ location }) {
     },
   };
 
-  const item = [
-    { id: "1", title: "Luxury" },
-    { id: "2", title: "Affordable" },
-    { id: "3", title: "Investment" },
-    { id: "4", title: "Family" },
-    { id: "5", title: "Starter" },
-  ];
+  // const item = [
+  //   { id: "1", title: "Luxury" },
+  //   { id: "2", title: "Affordable" },
+  //   { id: "3", title: "Investment" },
+  //   { id: "4", title: "Family" },
+  //   { id: "5", title: "Starter" },
+  // ];
 
   const [totalProperties, setTotalProperties] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,6 +56,22 @@ export default function Card({ location }) {
     fetchProperties();
   }, []);
 
+
+
+  useEffect(() => {
+    axios.get('/api/category/fetchall/category')
+      .then(response => {
+        setOptions(response.data.fetch);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Error fetching options:", error);
+        setLoading(false);
+      });
+  }, []);
+
+
+
   return (
     <>
       <Carousel
@@ -61,23 +80,23 @@ export default function Card({ location }) {
         autoPlay
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
-        {item.map((category) => {
+        {options.map((category) => {
           // Filter the properties based on both category title and location
           const filteredProperties = totalProperties.filter(
             (property) =>
-              property.title === category.title && property.location === location
+              property.title === category.name && property.location === location
           );
 
           return (
             <Link
               key={category.id}
-              href={`/page/collectionproject/${category.title},${location}`}
+              href={`/categories/${category.name},${location}`}
             >
               <div className="mx-2 lg:mb-4">
-                <div className="relative group rounded-md overflow-hidden duration-300">
+                <div className="relative h-44 lg:h-64 group rounded-md overflow-hidden duration-300">
                   <Image
-                    className="w-full object-cover"
-                    src="/image/property-grid-3.png"
+                    className="w-full h-full object-cover"
+                    src={category.img}
                     alt=""
                     width={400}
                     height={300}
@@ -92,10 +111,10 @@ export default function Card({ location }) {
                   </div>
                   <div className="absolute bottom-0 m-1 md:m-0 bg-black/60 md:bg-transparent left-0 right-0 md:text-white rounded-full p-3 text-center">
                     <h4 className="text-white font-semibold">
-                      {category.title}
+                      {category.name}
                     </h4>
-                    <p className="text-xs text-white">
-                      Comfortable homes available for immediate use
+                    <p className="text-xs text-white line-clamp-1">
+                    {category.details}
                     </p>
                   </div>
                 </div>

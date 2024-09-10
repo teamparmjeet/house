@@ -73,7 +73,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/page/collectionproject/All Category,${location}`}>
+              <Link href={`/categories/All Category,${location}`}>
                 <Button title=" View All" />
               </Link>
 
@@ -96,7 +96,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/page/collectionproject/All Category,${location}`}>
+              <Link href={`/categories/All Category,${location}`}>
                 <Button title=" View All" />
               </Link>
             </div>
@@ -105,12 +105,12 @@ export default function MainPage() {
         </div>
       </div>
 
-      <div className=' hidden md:block'>
+      <div className=''>
         <div className='container lg:w-5/6 mx-auto py-5 lg:py-8'>
           <div className='lg:mb-4 mb-2 px-2 flex justify-between items-center'>
             <div>
               <div className=' relative'>
-                <Ping location={location} />
+            
                 <h2 className='text-2xl md:text-4xl'>Move in now</h2>
 
               </div>
@@ -135,7 +135,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/page/collectionproject/All Category,${location}`}>
+              <Link href={`/categories/All Category,${location}`}>
                 <Button title=" View All" />
               </Link>
             </div>

@@ -68,7 +68,7 @@ export default function Card() {
             <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
                 {totalProperties.map((item) => (
 
-                    <Link key={item.id} href={`/page/singlepage/${item.slug}`}>
+                    <Link key={item.id} href={`/properties/${item.slug}`}>
                         <div className="rounded-2xl border group overflow-hidden mx-2 bg-white grid lg:grid-cols-7">
 
                             <div className="lg:col-span-2 order-2 lg:order-1 flex flex-col p-4 lg:p-6">
@@ -78,8 +78,11 @@ export default function Card() {
                                 </div>
 
                                 <div className='p-4'>
-                                    <h3 className='text-2xl font-bold text-2 mb-2'>{item.price}</h3>
-                                    <p className='font-semibold text-lg mb-4'>LEEL House</p>
+                                    <h3 className='text-2xl font-bold text-2 mb-2'>
+                                        {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(item.price).replace('₹', '')} ₹
+                                    </h3>
+
+                                    <p className='font-semibold text-lg mb-4'>{item.propertyname}</p>
                                     <div className='flex items-center gap-x-2 mb-4'>
                                         <MapPinned width={18} color='#aa8453' />
                                         <span className='text-[12px]  font-medium'>  {item.address.houseNumber}, {item.address.colony}, {item.address.area}, {item.address.city}</span>

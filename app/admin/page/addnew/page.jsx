@@ -13,7 +13,8 @@ export default function Addnew() {
         price: '',
         metatitle: '',
         metadescription:'',
-        type: ''
+        type: '',
+        propertyname:''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState('');
@@ -21,8 +22,8 @@ export default function Addnew() {
     const router = useRouter();
 
     const validateForm = useCallback(() => {
-        const { title, location, price, metatitle } = formData;
-        return title && location && price && metatitle;
+        const { title, location, price, metatitle,metadescription ,type,propertyname} = formData;
+        return title && location && price && metatitle,metadescription ,type,propertyname;
     }, [formData]);
 
     useEffect(() => {
@@ -63,7 +64,8 @@ export default function Addnew() {
                     price: '',
                     type: '',
                     metatitle: '',
-                    metadescription:''
+                    metadescription:'',
+                    propertyname:''
                 });
             } else {
                 setMessage(`Error: ${response.data.message}`);
@@ -83,8 +85,8 @@ export default function Addnew() {
             <div className="mx-auto p-6 bg-white rounded-lg shadow-lg">
                 <h1 className="text-2xl font-semibold mb-6">Add New Property</h1>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid lg:grid-cols-4 gap-4">
-                        <div className='lg:col-span-1'>
+                    <div className="flex flex-col gap-4">
+                        <div className=''>
                             <Select
                                 name="title"
                                 label="Title"
@@ -92,13 +94,22 @@ export default function Addnew() {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className='lg:col-span-1'>
+
+                        <div className=''>
+                            <Input
+                                name="propertyname"
+                                label="Property Name"
+                                value={formData.propertyname}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className=''>
                             <label htmlFor="location" className="block text-sm font-medium text-gray-600">City</label>
                             <select name="location"
                                 label="Location"
                                 value={formData.location}
                                 onChange={handleChange}
-                                 className="w-full h-8 px-3 py-2 border-b border-gray-300 focus:border-b focus:border-blue-900 bg-white focus:bg-transparent focus:rounded-none text-gray-700  focus:ring-0 focus:outline-none transition duration-150 ease-in-out sm:text-sm"
+                                 className="w-full h-8 py-2 border-b border-gray-300 focus:border-b focus:border-blue-900 bg-white focus:bg-transparent focus:rounded-none text-gray-700  focus:ring-0 focus:outline-none transition duration-150 ease-in-out sm:text-sm"
                                 required
                             >
                                 <option value="">SELECT DISTRICT</option>
@@ -117,7 +128,7 @@ export default function Addnew() {
                                 <option value="DHOLPUR">DHOLPUR</option>
                                 <option value="DUNGARPUR">DUNGARPUR</option>
                                 <option value="HANUMANGARH">HANUMANGARH</option>
-                                <option value="JAIPUR">JAIPUR</option>
+                                <option value="JAIPUR" >JAIPUR</option>
                                 <option value="JAISALMER">JAISALMER</option>
                                 <option value="JALORE">JALORE</option>
                                 <option value="JHALAWAR">JHALAWAR</option>
@@ -138,7 +149,7 @@ export default function Addnew() {
                             </select>
 
                         </div>
-                        <div className='lg:col-span-1'>
+                        <div className=''>
                             <Input
                                 name="price"
                                 label="Price"
@@ -148,7 +159,7 @@ export default function Addnew() {
                             />
                         </div>
 
-                        <div className='lg:col-span-1'>
+                        <div className=''>
                             <label htmlFor="type" className="block text-sm font-medium text-gray-700">Type</label>
                             <select
                                 id="type"
@@ -168,7 +179,7 @@ export default function Addnew() {
                                 <option value="Office">Office</option>
                             </select>
                         </div>
-                        <div className='lg:col-span-2'>
+                        <div className=''>
                             <Input
                                 name="metatitle"
                                 label="SEO Title"
@@ -177,7 +188,7 @@ export default function Addnew() {
                                 type="text"
                             />
                         </div>
-                        <div className='lg:col-span-2'>
+                        <div className=''>
                             <Input
                                 name="metadescription"
                                 label="SEO Description"

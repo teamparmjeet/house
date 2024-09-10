@@ -111,7 +111,7 @@ export default function Card({ listingType, purpose, location, type }) {
       <Carousel responsive={responsive} infinite={true} autoPlay removeArrowOnDeviceType={["tablet", "mobile"]}>
         {totalProperties.length > 0 ? (
           totalProperties.map((item) => (
-            <Link key={item._id} href={`/page/singlepage/${item.slug}`}>
+            <Link key={item._id} href={`/properties/${item.slug}`}>
               <div className="group rounded-md bg-white overflow-hidden my-1 lg:mb-4 mx-3 backdrop-blur-md border duration-150 ">
                 <div className="overflow-hidden relative">
                   {item.featureImage.length > 0 && (
@@ -143,8 +143,9 @@ export default function Card({ listingType, purpose, location, type }) {
                 <div className="flex h-60 flex-col justify-between">
                   <div className="flex flex-col h-full justify-between">
                     <div className='p-4'>
-                      <h3 className='text-xl font-bold text-'>₹ {item.price}</h3>
-                      <p className='font-semibold text-lg'>Real State </p>
+
+                      <h3 className='text-xl font-bold text-'>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(item.price).replace('₹', '')} ₹</h3>
+                      <p className='font-semibold text-lg'>{item.propertyname}</p>
                       <div className='flex items-center gap-x-2 mt-2 mb-1'>
                         <MapPinned width={18} color='#0078db' />
                         <span className='text-sm font-medium'>{item.address.houseNumber}, {item.address.colony}, {item.address.area}, {item.address.city}</span>
