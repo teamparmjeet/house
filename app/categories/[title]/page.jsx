@@ -12,9 +12,9 @@ import Footer from "@/components/Footer";
 
 export default function Collectionproject({ params }) {
     const [searchQuery, setSearchQuery] = useState("");
-    const [decodedTitle, decodedLocation] = decodeURIComponent(params.title).split(",");
-    const [title, setTitle] = useState(decodedTitle || "All Category");
-    const [location, setLocation] = useState(decodedLocation || "Jaipur");
+    const [decodedTitle, decodedLocation] = decodeURIComponent(params.title).split("-");
+    const [title, setTitle] = useState(decodedTitle?.toLowerCase() || "all category");
+    const [location, setLocation] = useState(decodedLocation || "");
     const [city, setCity] = useState([]);
     const [rawItems, setRawItems] = useState([]);
     const [items, setItems] = useState([]);
@@ -30,8 +30,6 @@ export default function Collectionproject({ params }) {
         setCurrentPage(1); // Reset to first page on search
     };
 
-
-
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -40,14 +38,14 @@ export default function Collectionproject({ params }) {
                 const fetchedItems = response.data.fetch;
                 setRawItems(fetchedItems);
 
-                const uniqueTitles = ["All Category", ...new Set(fetchedItems.map((item) => item.title))];
+                const uniqueTitles = ["All Category", ...new Set(fetchedItems.map((item) => item.title.toLowerCase()))];
                 setTitles(uniqueTitles);
 
-                // Filter items based on title and location
+                // Filter items based on title and location (case-insensitive)
                 const filteredItems = fetchedItems.filter(
                     (item) =>
-                        (item.title === title || title === "All Category") &&
-                        item.location === location
+                        (item.title.toLowerCase() === title || title === "all category") &&
+                        (!location || item.location.toLowerCase() === location.toLowerCase())
                 );
                 setItems(filteredItems);
             } catch (error) {
@@ -60,15 +58,14 @@ export default function Collectionproject({ params }) {
         fetchData();
     }, [title, location]);
 
-
     useEffect(() => {
         const fetchCity = async () => {
             setLoading(true);
             try {
                 const response = await axios.get("/api/project/findallcity/project");
-                setCity(response.data.cities)
+                setCity(response.data.cities);
             } catch (error) {
-                console.error("Error fetching data:", error);
+                console.error("Error fetching cities:", error);
             } finally {
                 setLoading(false);
             }
@@ -76,9 +73,6 @@ export default function Collectionproject({ params }) {
 
         fetchCity();
     }, []);
-
-
-
 
     useEffect(() => {
         let sortedItems = [...rawItems];
@@ -89,10 +83,16 @@ export default function Collectionproject({ params }) {
             sortedItems.sort((a, b) => b.price - a.price);
         }
 
-        if (selectedTitle !== "All Category") {
-            sortedItems = sortedItems.filter((item) => item.title === selectedTitle && item.location === location);
+        if (selectedTitle !== "all category") {
+            sortedItems = sortedItems.filter(
+                (item) =>
+                    item.title.toLowerCase() === selectedTitle &&
+                    (!location || item.location.toLowerCase() === location.toLowerCase())
+            );
         } else {
-            sortedItems = sortedItems.filter((item) => item.location === location);
+            sortedItems = sortedItems.filter(
+                (item) => !location || item.location.toLowerCase() === location.toLowerCase()
+            );
         }
 
         // Filter by search query
@@ -107,7 +107,6 @@ export default function Collectionproject({ params }) {
         setItems(sortedItems);
         setCurrentPage(1);
     }, [sortOrder, selectedTitle, location, searchQuery, rawItems]);
-
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -132,7 +131,7 @@ export default function Collectionproject({ params }) {
     };
 
     const handleTitleChange = (e) => {
-        setSelectedTitle(e.target.value);
+        setSelectedTitle(e.target.value.toLowerCase());
         setCurrentPage(1);
     };
 
@@ -146,28 +145,26 @@ export default function Collectionproject({ params }) {
     useEffect(() => {
         const fetchMetadata = async () => {
             try {
-                const response = await axios.get('/api/metadata/fetchall/metadata');
+                const response = await axios.get("/api/metadata/fetchall/metadata");
                 setMetadata(response.data.fetch);
             } catch (err) {
-                console.error('Failed to fetch metadata:', err);
+                console.error("Failed to fetch metadata:", err);
             }
         };
 
         fetchMetadata();
     }, []);
 
-
-    const filteredMetadata = metadata.filter(item => item.page === 'Collection');
-
+    const filteredMetadata = metadata.filter((item) => item.page === "Collection");
 
     return (
         <>
             <Navbar />
             {filteredMetadata.map((item) => (
-                <>
-                    <title key={item._id}>{item.title}</title>
+                <React.Fragment key={item._id}>
+                    <title>{item.title}</title>
                     <meta name="description" content={item.description} />
-                </>
+                </React.Fragment>
             ))}
             <div className="h-16 bg-2"></div>
             <header className="bg-2 py-2 w-full top-0 left-0 z-50">
@@ -179,13 +176,12 @@ export default function Collectionproject({ params }) {
                             onChange={handleLocationChange}
                             className="bg-transparent text-white rounded focus:border-none focus:outline-none"
                         >
+                            <option value=""  className="text-black">All Locations</option>
                             {city.map((item) => (
-
                                 <option key={item._id} value={item} className="text-black">
                                     {item}
                                 </option>
                             ))}
-
                         </select>
                     </div>
                     <div className="order-2 lg:order-2 relative flex-1">
@@ -201,7 +197,6 @@ export default function Collectionproject({ params }) {
                             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                         />
                     </div>
-
                 </div>
             </header>
 
@@ -216,8 +211,8 @@ export default function Collectionproject({ params }) {
                                             Showing {indexOfFirstItem + 1} -{" "}
                                             {Math.min(indexOfLastItem, items.length)} of {items.length}
                                         </p>
-                                        <p className="text-sm md:text-lg font-semibold">
-                                            {title} Project in {location}
+                                        <p className="text-sm md:text-lg font-semibold capitalize">
+                                            {title} Project{location ? ` in ${location}` : ""}
                                         </p>
                                     </div>
                                     <div className="flex justify-between md:justify-end w-full md:w-fit flex-row md:items-center gap-y-2 md:gap-x-4">
@@ -234,84 +229,75 @@ export default function Collectionproject({ params }) {
                                             </select>
                                         </div>
                                         <div className="text-xs flex items-center gap-x-2">
-                                            <p className="hidden md:block">Filter by Category:</p>
+                                            <p className="hidden md:block">Filter by:</p>
                                             <select
                                                 value={selectedTitle}
                                                 onChange={handleTitleChange}
                                                 className="px-2 py-1 text-xs md:text-sm shadow rounded focus:border-none focus:outline-none"
                                             >
-                                                {titles.map((title) => (
-                                                    <option key={title._id} value={title}>
-                                                        {title}
+                                                {titles.map((item) => (
+                                                    <option key={item} value={item}>
+                                                        {item.charAt(0).toUpperCase() + item.slice(1)}
                                                     </option>
                                                 ))}
                                             </select>
-                                        </div>
-                                        <div className="flex gap-1 md:gap-2 mt-2 md:mt-0">
-                                            <button
-                                                className="bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize"
-                                                onClick={handlePrevPage}
-                                                disabled={currentPage === 1}
-                                            >
-                                                Prev
-                                            </button>
-                                            <button className="bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize">
-                                                {currentPage}
-                                            </button>
-                                            <button
-                                                className="bg-[#0078db]/50 hover:bg-[#0078db] text-white rounded-md px-2 py-1 text-xs md:text-sm capitalize"
-                                                onClick={handleNextPage}
-                                                disabled={currentPage === totalPages}
-                                            >
-                                                Next
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="overflow-auto bg-white h-[100vh] pb-56 p-2">
+                            <div className="p-4 bg-white shadow">
                                 {loading ? (
                                     <Loading />
-                                ) : currentItems.length === 0 ? (
-                                    <div className="flex flex-col items-center justify-center text-gray-500">
-                                        <svg
-                                            className="w-12 h-12 mb-4 text-gray-400"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M12 8v4l3 3m9-9a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            />
-                                        </svg>
-                                        <p className="text-sm">No results found.</p>
-                                        <p className="text-sm">Try changing your filter settings.</p>
-                                    </div>
-                                ) : (
+                                ) : currentItems.length > 0 ? (
                                     currentItems.map((item) => (
                                         <Link key={item._id} href={`/properties/${item.slug}`}>
-                                            <AllProjectCard item={item} />
+                                            <AllProjectCard {...item} />
                                         </Link>
                                     ))
+                                ) : (
+                                    <p>No projects found</p>
                                 )}
                             </div>
+
+                            {totalPages > 1 && (
+                                <div className="flex justify-center mt-4">
+                                    <button
+                                        onClick={handlePrevPage}
+                                        disabled={currentPage === 1}
+                                        className="px-4 py-2 text-white bg-blue-500 rounded-l"
+                                    >
+                                        Previous
+                                    </button>
+                                    <span className="px-4 py-2 text-gray-700">
+                                        Page {currentPage} of {totalPages}
+                                    </span>
+                                    <button
+                                        onClick={handleNextPage}
+                                        disabled={currentPage === totalPages}
+                                        className="px-4 py-2 text-white bg-blue-500 rounded-r"
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+                            )}
                         </div>
-                        <div className="col-span-2 p-4 hidden lg:block">
-                            <div className="border bg-white">
-                                <LatestCard />
+
+                        <div className="col-span-2 hidden lg:block mt-6">
+                            <div className="mb-6">
+                                <h2 className="font-semibold text-lg text-blue-500">Best Deals</h2>
+                                <div className="h-[2px] w-10 bg-blue-500"></div>
                             </div>
-                            <div className="border bg-white mt-4">
-                                <BestDealCard />
+                            <BestDealCard />
+                            <div className="mb-6">
+                                <h2 className="font-semibold text-lg text-blue-500">Latest Projects</h2>
+                                <div className="h-[2px] w-10 bg-blue-500"></div>
                             </div>
+                            <LatestCard />
                         </div>
                     </div>
                 </div>
-            </main >
+            </main>
             <Footer />
         </>
     );

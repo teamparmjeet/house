@@ -5,7 +5,7 @@ import { Heart, Menu, XCircleIcon, User, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Ani from './button/ani';
 import axios from 'axios';
-export default function Navbar({location}) {
+export default function Navbar() {
   const [show, setShow] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState({ services: false, projects: false });
@@ -112,7 +112,7 @@ export default function Navbar({location}) {
                 <button className="block lg:hidden " onClick={handleToggle}>
                   <XCircleIcon size={24} color="#fff" />
                 </button>
-                <Link href="/categories/All Category,JAIPUR" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
+                <Link href="/categories/all category-JAIPUR" className='flex items-center gap-x-1 mt-5 lg:mt-0 shadow-lg lg:shadow-none text-white px-5 lg:px-3 py-1 rounded-full transition duration-300 ease-in-out transform'>
                   <li className="text-sm text-gray-100 hover:text-white cursor-pointer rounded-md flex items-center gap-1 px-2 pb-1 lg:p-0">New Property</li>
                 </Link>
 
@@ -130,7 +130,7 @@ export default function Navbar({location}) {
                   {dropdownOpen.projects && (
                     <ul className=" lg:absolute lg:w-60 overflow-hidden z-50 top-5 mt-1 bg-white text-black left-0 right-0 rounded-lg shadow-lg">
                       {!isLoading && options.map(option => (
-                        <Link key={option.id} href={`/categories/${option.name},${location}`}><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">{option.name} in {location}</li></Link>
+                        <Link key={option.id} href={`/categories/${option.name.toLowerCase()}`}><li className="px-4 py-2  text-sm font-medium text-gray-700 cursor-pointer hover:bg-[#005ca8] hover:text-white">{option.name}</li></Link>
                       ))}
 
                     </ul>

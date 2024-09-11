@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function Card({ item }) {
+export default function Card({ ...item }) {
     const { data: session } = useSession();
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);

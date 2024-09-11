@@ -6,7 +6,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import Loading from '@/components/Loader/Loading';
 
-export default function Movein() {
+export default function Movein({location}) {
     const [options, setOptions] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -60,7 +60,7 @@ export default function Movein() {
                 >
                     {options.map((item) => (
                         <div key={item._id} className="p-2">
-                            <Link href={`/categories/${item.name},JAIPUR`}>
+                            <Link href={`/categories/${item.name.toLowerCase()}-${location.toLowerCase()}`}>
                                 <div className="flex flex-col justify-between h-80 rounded-lg bg-[#f0f9ff]">
                                     <div className="p-4">
                                         <h2 className="text-2xl font-semibold text-gray-700 mb-2">{item.name}</h2>

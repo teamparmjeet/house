@@ -29,13 +29,6 @@ export default function Card({ location }) {
     },
   };
 
-  // const item = [
-  //   { id: "1", title: "Luxury" },
-  //   { id: "2", title: "Affordable" },
-  //   { id: "3", title: "Investment" },
-  //   { id: "4", title: "Family" },
-  //   { id: "5", title: "Starter" },
-  // ];
 
   const [totalProperties, setTotalProperties] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -90,7 +83,7 @@ export default function Card({ location }) {
           return (
             <Link
               key={category.id}
-              href={`/categories/${category.name},${location}`}
+              href={`/categories/${category.name.toLowerCase()}-${location.toLowerCase()}`}
             >
               <div className="mx-2 lg:mb-4">
                 <div className="relative h-44 lg:h-64 group rounded-md overflow-hidden duration-300">

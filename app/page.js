@@ -73,7 +73,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/categories/All Category,${location}`}>
+              <Link href={`/categories/all category-${location}`}>
                 <Button title=" View All" />
               </Link>
 
@@ -96,7 +96,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/categories/All Category,${location}`}>
+            <Link href={`/categories/all category-${location}`}>
                 <Button title=" View All" />
               </Link>
             </div>
@@ -135,7 +135,7 @@ export default function MainPage() {
               <div className=' bg-2 w-20 h-0.5 mt-2'></div>
             </div>
             <div className=''>
-              <Link href={`/categories/All Category,${location}`}>
+            <Link href={`/categories/all category-${location}`}>
                 <Button title=" View All" />
               </Link>
             </div>
