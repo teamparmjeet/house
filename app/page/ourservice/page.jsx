@@ -51,11 +51,11 @@ export default function Page() {
         <>
             <Navbar />
             {filteredMetadata.map((item) => (
-        <>
-          <title key={item._id}>{item.title}</title>
-          <meta name="description" content={item.description} />
-        </>
-      ))}
+                <>
+                    <title key={item._id}>{item.title}</title>
+                    <meta name="description" content={item.description} />
+                </>
+            ))}
             <div className='bg-banner relative py-20 flex justify-center items-center'>
                 <div className=' absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black z-10'></div>
                 <div className='container px-2 mx-auto lg:w-[90%] text-center z-20'>
@@ -86,7 +86,7 @@ export default function Page() {
                                 <Link key={index} href={`/page/service/${service.title}`}>
                                     <div className=" p-6 h-full hover:bg-gray-50 transition duration-300 ease-in-out">
                                         <div className="h-full relative rounded-xl overflow-hidden  shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 transition duration-300 ease-in-out">
-                                            <div className="p-6 bg-white/80  z-50">
+                                            <div className="p-6 bg-white/80 h-full  z-50">
                                                 <div className="flex items-center justify-between mb-4">
                                                     <h2 className="text-2xl font-extrabold text-gray-800">{service.title}</h2>
                                                     <div className=" p-2 rounded-md shadow-md">
@@ -94,11 +94,11 @@ export default function Page() {
                                                     </div>
                                                 </div>
                                                 <hr className="border-t-2 border-gray-200 opacity-50 mb-4" />
-                                                <p className="text-lg leading-relaxed">{service.description}</p>
+                                                <p className="text-lg leading-relaxed line-clamp-4">{service.description}</p>
                                             </div>
-                                       
-                                            <Image className=' -z-10 rounded-md absolute top-0 left-0 right-0 bottom-0' alt='' width={500} height={500} src={service.imageUrl}/>
-                                       
+
+                                            <Image className=' -z-10 rounded-md absolute top-0 left-0 right-0 bottom-0' alt='' fill src={service.imageUrl} />
+
                                         </div>
                                     </div>
 

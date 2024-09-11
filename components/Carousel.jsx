@@ -87,8 +87,7 @@ export const Carousel = ({ details, propertyname }) => {
               <Image
                 src={imageUrl}
                 alt={`Image ${index + 1}`}
-                width={800}
-                height={800}
+              fill
                 loading="lazy"
                 className="object-cover w-full"
               />

@@ -116,7 +116,7 @@ export default function Card() {
                             </div>
 
                             <div className="lg:col-span-5 relative  lg:h-96 h-52 order-1 lg:order-2">
-                                <Image alt='' className='object-cover absolute  duration-300 lg:h-96 h-52  w-full' src={item.featureImage[0]} width={982} height={880} />
+                                <Image alt='' className='object-cover absolute  duration-300 lg:h-96 h-52  w-full' src={item.featureImage[0]} fill />
                                 {/* <Image alt='' className='object-cover absolute opacity-100 group-hover:opacity-0 duration-300 lg:h-96 h-52  w-full'  src={item.featureImage[1]} width={982} height={880} /> */}
                                 <div className=' absolute left-0 right-0 top-0 bottom-0 bg-gradient-to-b filter grayscale  from-transparent via-transparent to-black/50'></div>
                             </div>
