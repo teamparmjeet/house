@@ -134,6 +134,12 @@
     background-position: center;
     /* Center the image */
   }
+  .bg-banner {
+    height: 450px;
+    background-position: right;
+    /* Center the image */
+  }
+
 
 }
 
@@ -142,6 +148,11 @@
   .bg-banner,.bg-banner-about {
     height: 300px;
     background-position: center;
+    /* Center the image */
+  }
+  .bg-banner{
+    height: 300px;
+    background-position: right;
     /* Center the image */
   }
 }

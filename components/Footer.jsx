@@ -36,7 +36,7 @@ export default function Footer() {
                             <h4 className='text-lg md:mb-4 font-semibold md:h-12 mb-2'>Contact Info</h4>
                             <p className='text-sm mb-2 leading-6'>Unicoder Design Agency 301 The Greenhouse, Custard Factory, London, E3 8DY.</p>
                             <p className='text-sm mb-2'>+91-9828988333</p>
-                            <p className='text-sm mb-2'>sales@GharDhundo.com</p>
+                            <p className='text-sm mb-2'>leelproperty21@gmail.com</p>
                         </div>
                         <div className="lg:col-span-2 md:col-span-2 ">
                             <h4 className='text-lg md:mb-4 font-semibold md:h-12 mb-2'>Quick Links</h4>

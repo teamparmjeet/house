@@ -30,7 +30,7 @@ export default function ContactUs() {
                     className="mb-2" 
                 />
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold text-gray-800">Ghar Dhundo</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">Your Dream, Direct</h2>
                     <p className="text-sm text-gray-500">Quality services since 2000</p>
                     <div className="flex justify-center mt-2">
                         {[...Array(5)].map((_, i) => (

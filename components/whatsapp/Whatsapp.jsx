@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 export default function Whatsapp({width,height}) {
    
-    const phoneNumber = '6378822375';
+    const phoneNumber = '9828988333';
     const message = 'Hello, I would like to inquire about your services.'; 
 
  
