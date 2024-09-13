@@ -107,16 +107,16 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
     return (
         <div className="bg-white shadow-lg rounded-2xl p-2 md:p-6 mx-auto max-w-4xl">
              <Toaster />
-            <h2 className="sm:text-xl font-normal mb-2 sm:mb-5 text-center">Discover Properties</h2>
+            <h2 className="text-xl font-normal mb-5 text-center">Discover Properties</h2>
             <Tabs>
-                <TabList className="flex flex-wrap  mb-2 sm:mb-4">
-                    <Tab className="flex-1 sm:py-3 sm:px-4 text-center cursor-pointer transition-colors duration-300 focus:outline-none bg-gray-200 rounded-md mx-1" selectedClassName="text-white bg-2">
+                <TabList className="flex flex-wrap  mb-4">
+                    <Tab className="flex-1 py-3 px-4 text-center cursor-pointer transition-colors duration-300 focus:outline-none bg-gray-200 rounded-md mx-1" selectedClassName="text-white bg-2">
                         Buy
                     </Tab>
-                    <Tab className="flex-1 sm:py-3 sm:px-4 text-center cursor-pointer transition-colors duration-300 focus:outline-none bg-gray-200 rounded-md mx-1" selectedClassName="text-white bg-2">
+                    <Tab className="flex-1 py-3 px-4 text-center cursor-pointer transition-colors duration-300 focus:outline-none bg-gray-200 rounded-md mx-1" selectedClassName="text-white bg-2">
                         Rent
                     </Tab>
-                    <Tab className="flex-1 sm:py-3 sm:px-4 text-center cursor-pointer transition-colors duration-300 focus:outline-none bg-gray-200 rounded-md mx-1" selectedClassName="text-white bg-2">
+                    <Tab className="flex-1 py-3 px-4 text-center cursor-pointer transition-colors duration-300 focus:outline-none bg-gray-200 rounded-md mx-1" selectedClassName="text-white bg-2">
                         Service
                     </Tab>
                 </TabList>
@@ -125,15 +125,15 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                     <form onSubmit={(e) => handleSearch(e, 'Buy')}>
 
 
-                        <div className="flex flex-col gap-2 sm:gap-4">
+                        <div className="flex flex-col gap-4">
 
-                            <label htmlFor="RentLocation" className='block sm:-mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
+                            <label htmlFor="RentLocation" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
                             <select
                                 name="BuyLocation"
                                 value={formData.BuyLocation}
                                 onChange={handleInputChange}
                                 required
-                                className=" block w-full  h-5 sm:h-full sm:px-3 sm:py-3 border border-gray-300 rounded-md  text-xs  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                                className=" block w-ful h-full px-3 py-3 border border-gray-300 rounded-md    focus:outline-none focus:ring-1 focus:ring-indigo-500 text-sm"
 
                             >
                                 <option value="">Select City</option>
@@ -144,12 +144,12 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                             </select>
 
 
-                            <label htmlFor="BuyType" className='block sm:-mb-[14px] text-[12px] font-medium text-gray-700'> Property Type</label>
+                            <label htmlFor="BuyType" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> Property Type</label>
                             <select
                                 name="BuyType"
                                 value={formData.BuyType}
                                 onChange={handleInputChange}
-                                className=" block w-full  h-5 sm:h-full sm:px-3 sm:py-3 border border-gray-300 rounded-md  text-xs  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                                className=" block w-full  h-full px-3 py-3 border border-gray-300 rounded-md    focus:outline-none focus:ring-1 focus:ring-indigo-500 text-sm"
                                 required
                             >
                                 <option value="">Select Type</option>
@@ -160,7 +160,7 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                             </select>
                         </div>
                         <div className="flex justify-center mt-4">
-                            <button type="submit" className="w-full flex font-medium justify-center items-center gap-x-2 sm:py-3 sm:px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
+                            <button type="submit" className="w-full flex font-medium justify-center items-center gap-x-2 py-3 px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
                                 Search
                             </button>
                         </div>
@@ -169,15 +169,15 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
 
                 <TabPanel>
                     <form onSubmit={(e) => handleSearch(e, 'Rent')}>
-                    <div className="flex flex-col gap-2 sm:gap-4">
+                    <div className="flex flex-col gap-4">
 
 
-                            <label htmlFor="RentLocation" className='block sm:-mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
+                            <label htmlFor="RentLocation" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
                             <select name="RentLocation"
                                 value={formData.RentLocation}
                                 onChange={handleInputChange}
                                 required
-                                className=" block w-full  h-5 sm:h-full sm:px-3 sm:py-3 border border-gray-300 rounded-md  text-xs  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                                className=" block w-full  h-full px-3 py-3 border border-gray-300 rounded-md   focus:outline-none focus:ring-1 focus:ring-indigo-500 text-sm"
 
                             >
                                 <option value="">Select City</option>
@@ -187,13 +187,13 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                             </select>
 
 
-                            <label htmlFor="RentType" className='block sm:-mb-[14px] text-[12px] font-medium text-gray-700'> Property Type</label>
+                            <label htmlFor="RentType" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> Property Type</label>
                             <select
                                 name="RentType"
                                 value={formData.RentType}
                                 onChange={handleInputChange}
                                 required
-                                 className=" block w-full  h-5 sm:h-full sm:px-3 sm:py-3 border border-gray-300 rounded-md  text-xs  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                                 className=" block w-full h-full px-3 py-3 border border-gray-300 rounded-md  focus:outline-none focus:ring-1 focus:ring-indigo-500 text-sm"
 
                             >
                                 <option value="">Select Type</option>
@@ -204,7 +204,7 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                             </select>
                         </div>
                         <div className="flex justify-center mt-4">
-                            <button type="submit"  className="w-full flex font-medium justify-center items-center gap-x-2 sm:py-3 sm:px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
+                            <button type="submit"  className="w-full flex font-medium justify-center items-center gap-x-2 py-3 px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
                                 Search
                             </button>
                         </div>
@@ -213,16 +213,16 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
 
                 <TabPanel>
                     <form onSubmit={handleServiceSearch}>
-                    <div className="flex flex-col gap-2 sm:gap-4">
+                    <div className="flex flex-col gap-4">
 
-                            <label htmlFor="ger" className='block sm:-mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
+                            <label htmlFor="ger" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> City</label>
 
                             <select
                                 id="ger"
                                 name="serviceLocation"
                                 value={formData.serviceLocation}
                                 onChange={handleInputChange}
-                                 className=" block w-full  h-5 sm:h-full sm:px-3 sm:py-3 border border-gray-300 rounded-md  text-xs  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                                 className=" block w-full  h-full px-3 py-3 border border-gray-300 rounded-md  focus:outline-none focus:ring-1 focus:ring-indigo-500 text-sm"
 
                             >
                                 <option value="">Select Ciity</option>
@@ -231,12 +231,12 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                                 ))}
                             </select>
 
-                            <label htmlFor="serviceType" className='block sm:-mb-[14px] text-[12px] font-medium text-gray-700'> Service Type</label>
+                            <label htmlFor="serviceType" className='block -mb-[14px] text-[12px] font-medium text-gray-700'> Service Type</label>
                             <select
                                 name="serviceType"
                                 value={formData.serviceType}
                                 onChange={handleInputChange}
-                               className=" block w-full  h-5 sm:h-full sm:px-3 sm:py-3 border border-gray-300 rounded-md  text-xs  focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                               className=" block w-full  h-full px-3 py-3 border border-gray-300 rounded-md  focus:outline-none focus:ring-1 focus:ring-indigo-500 text-sm"
                             >
                                 <option value="">Select Service</option>
                                 {services.map((item) => (
@@ -249,7 +249,7 @@ export default function Tabbanner({ location, setLocation, motive, setMotive, ty
                         <div className="flex justify-center mt-4">
                             <button
                                 type="submit"
-                                className="w-full flex font-medium justify-center items-center gap-x-2 sm:py-3 sm:px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
+                                className="w-full flex font-medium justify-center items-center gap-x-2 py-3 px-4 bg-2 text-white rounded-lg hover:bg-[#ffaa3e] transition-colors duration-300 focus:outline-none">
                             
                                 Search
                             </button>

@@ -17,11 +17,11 @@ export default function Page() {
   const [projects, setProjects] = useState({});
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Number of items to display per page
+  const itemsPerPage = 5;
 
   const useremail = session?.user?.email;
 
-  // Fetch user data
+
   useEffect(() => {
     if (useremail) {
       axios.get(`/api/admin/find-admin-byemail/${useremail}`)

@@ -284,16 +284,9 @@ export default function Collectionproject({ params }) {
                         </div>
 
                         <div className="col-span-2 hidden lg:block mt-6">
-                            <div className="mb-6">
-                                <h2 className="font-semibold text-lg text-blue-500">Best Deals</h2>
-                                <div className="h-[2px] w-10 bg-blue-500"></div>
-                            </div>
+                        
                             <BestDealCard />
-                            <div className="mb-6">
-                                <h2 className="font-semibold text-lg text-blue-500">Latest Projects</h2>
-                                <div className="h-[2px] w-10 bg-blue-500"></div>
-                            </div>
-                            <LatestCard />
+                         
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import Loading from '@/components/Loader/Loading';
 import Link from 'next/link';
-import { Menu, User, XCircleIcon, Home, FileText, PlusCircle, ServerIcon, Mail, GitPullRequest, Contact, Database, Heart } from 'lucide-react';
+import { Menu, User,Ticket, XCircleIcon, Home, FileText, PlusCircle, ServerIcon, Mail, GitPullRequest, Contact, Database, Heart } from 'lucide-react';
 
 export default function Dashboard() {
     const { data: session } = useSession();
@@ -36,10 +36,11 @@ export default function Dashboard() {
         { name: 'Wishlist', href: '/admin/page/wishlist', icon: <Heart size={20} color="#FF4500" /> },
         { name: 'Add Property', href: '/admin/page/addnew', icon: <PlusCircle size={20} color="#00BFFF" /> }, 
         { name: 'Service Request', href: '/admin/page/service', icon: <ServerIcon size={20} color="#ADFF2F" /> },
-        { name: 'Enquiry', href: '/admin/page/enquiry', icon: <Mail size={20} color="#FFA500" /> },
+        // { name: 'Enquiry', href: '/admin/page/enquiry', icon: <Mail size={20} color="#FFA500" /> },
         { name: 'Property Post Request', href: '/admin/page/request', icon: <GitPullRequest size={20} color="#FF6347" /> },
         { name: 'Contact Request', href: '/admin/page/contact', icon: <Contact size={20} color="#8A2BE2" /> }, 
         { name: 'Website Metadata', href: '/admin/page/metadata', icon: <Database size={20} color="#4B0082" /> },
+        { name: 'Offer', href: '/admin/page/offer', icon: <Ticket size={20} color="red" /> },
     ];
     
 

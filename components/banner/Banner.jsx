@@ -21,7 +21,7 @@ export default function Banner({ location, setLocation, motive, setMotive, type,
     <div className='relative h-full bg-banner overflow-hidden'>
       <div className='relative container lg:w-5/6 mx-auto py-5 lg:py-8 overflow-hidden h-full'>
         {/* Button to open popup on small screens */}
-        <div className='lg:hidden absolute bottom-0 right-0 left-0 z-50 text-center mb-5'>
+        <div className='lg:hidden absolute bottom-0 right-0 left-0 z-40 text-center mb-5'>
           <button 
             onClick={handleOpenPopup}
             className=' bg-gradient-to-b from-transparent to-[#005ca8] border backdrop-blur-md text-white font-medium text-sm px-5 py-2 rounded-[30px]'

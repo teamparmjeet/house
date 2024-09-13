@@ -23,12 +23,14 @@
             <>
                 <header className="bg-2  text-white px-2 md:px-4 py-2 flex justify-between items-center">
                     <div className=' flex items-center'>
+                        <Link href="/">
                         <Image
                             alt='Logo'
                             src="/logo/man-logo.svg"
                             width={205}
                             height={38.625}
-                        />
+                            />
+                            </Link>
                     </div>
                     {/* <form className="hidden md:flex items-center bg-[#ffffff38] rounded-md overflow-hidden">
                         <input

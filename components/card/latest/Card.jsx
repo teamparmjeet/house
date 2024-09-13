@@ -4,8 +4,8 @@ export default function Card() {
     return (
         <>
 
-            <div className=" relative rounded-md overflow-hidden">
-                <Image alt='' className=' object-cover h-52  w-full' src="/image/anant_emerald-bapu_nagar_jaipur-jaipur-anant_group.avif" width={400} height={151} />
+            <div className=" relative rounded-md overflow-hidden h-52">
+                <Image alt='' className=' object-cover' src="/image/the_century_garden-bhankrota-jaipur-century.avif" fill />
                 <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black"></div>
 
                 <div className=' p-4 absolute bottom-0 left-0 right-0 text-white'>

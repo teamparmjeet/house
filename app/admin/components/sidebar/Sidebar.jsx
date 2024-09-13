@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Menu, User,ListCheckIcon, XCircleIcon, Home, FileText, PlusCircle, ServerIcon, Mail, GitPullRequest, Contact ,Database,Heart} from 'lucide-react';
+import { Menu, User,ListCheckIcon,Ticket, XCircleIcon, Home, FileText, PlusCircle, ServerIcon, Mail, GitPullRequest, Contact ,Database,Heart} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 export default function Sidebar() {
@@ -17,9 +17,9 @@ export default function Sidebar() {
     { name: 'Wishlist', href: '/admin/page/wishlist', icon: <Heart size={20} /> },
     { name: 'Website Metadata', href: '/admin/page/metadata', icon: <Database size={20} /> },
     { name: 'Service Request', href: '/admin/page/service', icon: <ServerIcon size={20} /> },
-    // { name: 'Enquiry', href: '/admin/page/enquiry', icon: <Mail size={20} /> },
     { name: 'Property Post Request', href: '/admin/page/request', icon: <GitPullRequest size={20} /> },
     { name: 'Contact Request', href: '/admin/page/contact', icon: <Contact size={20} /> },
+    { name: 'Offer', href: '/admin/page/offer', icon: <Ticket size={20} /> },
 
   ];
 
